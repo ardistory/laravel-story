@@ -1,29 +1,84 @@
-<div class="flex items-center justify-around w-full h-[10%] border-b-2 border-white/20 backdrop-blur-3xl">
+<div class="flex items-center justify-around w-full h-[10%] border-b-[1px] border-white/20 backdrop-blur-3xl">
     <div class="flex items-center gap-1">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-            class="w-6 h-6">
-            <path stroke-linecap="round" stroke-linejoin="round"
-                d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z" />
+        <svg class="h-8 w-8 text-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
+            stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" />
+            <g transform="rotate(-45 12 18)">
+                <line x1="12" y1="18" x2="12.01" y2="18" />
+                <path d="M12 14a4 4 0 0 1 4 4" />
+                <path d="M12 10a8 8 0 0 1 8 8" />
+                <path d="M12 6a12 12 0 0 1 12 12" />
+            </g>
         </svg>
         <span class="text-2xl font-bold italic cursor-default">networkG157</span>
     </div>
-    <div class="w-1/2 flex items-center justify-between">
-        <div class="ml-10 flex items-baseline space-x-4">
+    <div class="w-3/5 flex items-center justify-between">
+        <div class="ml-10 flex items-center gap-2">
             <a href="{{ route('dashboard') }}"
-                class="text-black bg-white rounded-full px-3 py-2 text-sm font-medium transition duration-250">Dashboard</a>
+                class="flex items-center gap-2 text-black bg-white rounded-full px-3 py-2 text-sm font-medium transition duration-250">
+                <div>
+                    <svg class="h-5 w-5" width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
+                        stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" />
+                        <circle cx="12" cy="13" r="2" />
+                        <line x1="13.45" y1="11.55" x2="15.5" y2="9.5" />
+                        <path d="M6.4 20a9 9 0 1 1 11.2 0Z" />
+                    </svg>
+                </div>
+                Dashboard
+            </a>
             <a href="#"
-                class="text-white hover:bg-white hover:text-black rounded-full px-3 py-2 text-sm font-medium transition duration-250">Team</a>
+                class="flex items-center gap-2 text-white hover:bg-white hover:text-black rounded-full px-3 py-2 text-sm font-medium transition duration-250">
+                <div>
+                    <svg class="h-5 w-5" width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
+                        stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" />
+                        <path d="M14 3v4a1 1 0 0 0 1 1h4" />
+                        <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" />
+                        <line x1="12" y1="11" x2="12" y2="17" />
+                        <line x1="9" y1="14" x2="15" y2="14" />
+                    </svg>
+                </div>
+                IP Address
+            </a>
             <a href="#"
-                class="text-white hover:bg-white hover:text-black rounded-full px-3 py-2 text-sm font-medium transition duration-250">Projects</a>
+                class="flex items-center gap-2 text-white hover:bg-white hover:text-black rounded-full px-3 py-2 text-sm font-medium transition duration-250">
+                <div>
+                    <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                </div>
+                Users
+            </a>
             <a href="#"
-                class="text-white hover:bg-white hover:text-black rounded-full px-3 py-2 text-sm font-medium transition duration-250">Calendar</a>
+                class="flex items-center gap-2 text-white hover:bg-white hover:text-black rounded-full px-3 py-2 text-sm font-medium transition duration-250">
+                <div>
+                    <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2" />
+                    </svg>
+                </div>
+                Documentation
+            </a>
             <a href="#"
-                class="text-white hover:bg-white hover:text-black rounded-full px-3 py-2 text-sm font-medium transition duration-250">Reports</a>
+                class="flex items-center gap-2 text-white hover:bg-white hover:text-black rounded-full px-3 py-2 text-sm font-medium transition duration-250">
+                <div>
+                    <svg class="h-5 w-5" width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
+                        stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" />
+                        <path
+                            d="M5 7h1a2 2 0 0 0 2 -2a1 1 0 0 1 1 -1h6a1 1 0 0 1 1 1a2 2 0 0 0 2 2h1a2 2 0 0 1 2 2v9a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-9a2 2 0 0 1 2 -2" />
+                        <circle cx="12" cy="13" r="3" />
+                    </svg>
+                </div>
+                Checklist
+            </a>
         </div>
         <div class="flex gap-2 items-center">
             <div x-data="{ dark: true }" x-on:click="dark = !dark"
                 :class="{ 'text-black': dark, 'bg-white': dark, 'text-black': !dark, 'bg-white': !dark }"
-                class="text-black bg-white w-[30px] h-[30px] rounded-full flex items-center justify-center hover:ring hover:ring-indigo-500 cursor-pointer">
+                class="text-black bg-white w-[30px] h-[30px] rounded-full flex items-center justify-center active:ring active:ring-white cursor-pointer">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" class="w-6 h-6">
                     <path :class="{ 'hidden': !dark }" stroke-linecap="round" stroke-linejoin="round"
@@ -34,7 +89,7 @@
             </div>
             <div x-data="{ open: false }" class="relative">
                 <div x-on:click="open = !open" x-on:click.away="open = false"
-                    class="bg-white w-[40px] h-[40px] rounded-full overflow-hidden hover:ring hover:ring-indigo-500 cursor-pointer">
+                    class="bg-white w-[40px] h-[40px] rounded-full overflow-hidden active:ring active:ring-white cursor-pointer">
                     <img src="{{ asset('img/profile.jpg') }}" alt="profile picture">
                 </div>
                 <div x-show="open"

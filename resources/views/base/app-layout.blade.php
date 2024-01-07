@@ -16,6 +16,9 @@
         <x-navbar></x-navbar>
         {{ $slot }}
     </div>
+    <div class="w-full h-auto">
+        <x-footer></x-footer>
+    </div>
     @vite('resources/js/app.js')
 </body>
 
