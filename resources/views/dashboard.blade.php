@@ -1,4 +1,3 @@
 <x-app-layout title="Dashboard">
-    <x-navbar></x-navbar>
-    <x-table-toko></x-table-toko>
+    <x-content-dashboard></x-content-dashboard>
 </x-app-layout>

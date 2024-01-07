@@ -6,7 +6,11 @@ export default {
     './resources/**/*.js'
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'pixel': ['VT323', 'monospace'],
+      }
+    },
   },
   plugins: [],
 }
