@@ -1,9 +1,9 @@
 <div class="relative rounded-2xl overflow-hidden border-[0.1px] border-white border-opacity-20 -z-10">
-    <div class="w-[50px] h-[50px] bg-fuchsia-500 absolute right-0 top-0 -z-10"></div>
-    <div class="w-[60px] h-[20px] bg-fuchsia-500 absolute left-0 top-0 -z-10"></div>
-    <div class="w-[200px] h-[50px] bg-fuchsia-500 absolute left-[40%] bottom-[10px] -z-10"></div>
-    <div class="w-[800px] h-[10px] bg-sky-500 absolute left-[5%] bottom-0 -z-10"></div>
-    <div class="w-[400px] h-[20px] bg-blue-600 absolute right-[0] bottom-0 -z-10"></div>
+    <div class="w-[50px] h-[50px] bg-fuchsia-500 absolute right-0 top-0 animate-pulse"></div>
+    <div class="w-[60px] h-[20px] bg-fuchsia-500 absolute left-0 top-0 animate-pulse"></div>
+    <div class="w-[200px] h-[50px] bg-fuchsia-500 absolute left-[40%] bottom-[10px] animate-pulse"></div>
+    <div class="w-[800px] h-[10px] bg-sky-500 absolute left-[5%] bottom-0"></div>
+    <div class="w-[400px] h-[20px] bg-blue-600 absolute right-[0] bottom-0"></div>
 
     <div class="flex bg-gray-500/15 items-center relative justify-center backdrop-blur-2xl p-7">
         <div class="focus:outline-none font-bold tracking-widest text-white text-xl flex items-center gap-2">
