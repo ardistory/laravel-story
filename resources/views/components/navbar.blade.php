@@ -1,4 +1,5 @@
-<div class="flex items-center justify-around w-full h-[10%] border-b-[1px] border-white/20 backdrop-blur-3xl">
+<div
+    class="flex items-center justify-around fixed top-0 w-full h-[10%] border-b-[1px] border-white/20 backdrop-blur-sm z-50">
     <div class="flex items-center gap-1">
         <svg class="h-8 w-8 text-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
             stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">

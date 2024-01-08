@@ -11,7 +11,7 @@
             Registration Table
         </div>
     </div>
-    <div class="h-[120px] overflow-auto scrollbar-thin scrollbar-thumb-white">
+    <div class="h-[130px] overflow-auto scrollbar-thin scrollbar-thumb-white">
         <div class="flex mx-2 gap-2">
             <div
                 class="w-[100%] h-5 mx-auto mt-[10px] bg-white rounded-xl text-black flex items-center justify-center gap-2">

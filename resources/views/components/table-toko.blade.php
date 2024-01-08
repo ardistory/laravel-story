@@ -50,7 +50,7 @@
                 </div>
                 <div class="mr-1 flex gap-1">
                     <button
-                        class="flex items-center gap-2 bg-black text-white py-1 px-2 rounded-2xl active:ring active:ring-black/50">
+                        class="flex items-center gap-2 bg-black text-white py-1 px-2 rounded-2xl hover:ring hover:ring-black/50">
                         <div>
                             <svg class="h-5 w-5 text-white" width="24" height="24" viewBox="0 0 24 24"
                                 stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
@@ -63,7 +63,7 @@
                         Copy IP
                     </button>
                     <button
-                        class="flex items-center gap-2 bg-black text-white py-1 px-2 rounded-2xl active:ring active:ring-black/35">
+                        class="flex items-center gap-2 bg-black text-white py-1 px-2 rounded-2xl hover:ring hover:ring-black/35">
                         <div>
                             <svg class="h-5 w-5 text-white" width="24" height="24" viewBox="0 0 24 24"
                                 stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
@@ -78,7 +78,7 @@
                         Ping
                     </button>
                     <button
-                        class="flex items-center gap-2 bg-blue-500 text-white py-1 px-2 rounded-2xl active:ring active:ring-blue-300">
+                        class="flex items-center gap-2 bg-blue-500 text-white py-1 px-2 rounded-2xl hover:ring hover:ring-blue-300">
                         <div>
                             <svg class="h-5 w-5 text-white" viewBox="0 0 100 100" stroke-width="2" stroke="currentColor"
                                 fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -130,7 +130,7 @@
                 </div>
                 <div class="mr-1 flex gap-1">
                     <button
-                        class="flex items-center gap-2 bg-black text-white py-1 px-2 rounded-2xl active:ring active:ring-black/50">
+                        class="flex items-center gap-2 bg-black text-white py-1 px-2 rounded-2xl hover:ring hover:ring-black/50">
                         <div>
                             <svg class="h-5 w-5 text-white" width="24" height="24" viewBox="0 0 24 24"
                                 stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
@@ -143,7 +143,7 @@
                         Copy IP
                     </button>
                     <button
-                        class="flex items-center gap-2 bg-black text-white py-1 px-2 rounded-2xl active:ring active:ring-black/35">
+                        class="flex items-center gap-2 bg-black text-white py-1 px-2 rounded-2xl hover:ring hover:ring-black/35">
                         <div>
                             <svg class="h-5 w-5 text-white" width="24" height="24" viewBox="0 0 24 24"
                                 stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
@@ -158,7 +158,7 @@
                         Ping
                     </button>
                     <button
-                        class="flex items-center gap-2 bg-teal-500 py-1 px-2 rounded-2xl active:ring active:ring-teal-300">
+                        class="flex items-center gap-2 bg-teal-500 py-1 px-2 rounded-2xl hover:ring hover:ring-teal-300">
                         <div>
                             <svg class="h-5 w-5" viewBox="0 0 100 100">
                                 <path
@@ -263,7 +263,7 @@
                 </div>
                 <div class="mr-1 flex gap-1">
                     <button
-                        class="flex items-center gap-2 bg-black text-white py-1 px-2 rounded-2xl active:ring active:ring-black/50">
+                        class="flex items-center gap-2 bg-black text-white py-1 px-2 rounded-2xl hover:ring hover:ring-black/50">
                         <div>
                             <svg class="h-5 w-5 text-white" width="24" height="24" viewBox="0 0 24 24"
                                 stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
@@ -276,7 +276,7 @@
                         Copy IP
                     </button>
                     <button
-                        class="flex items-center gap-2 bg-black text-white py-1 px-2 rounded-2xl active:ring active:ring-black/35">
+                        class="flex items-center gap-2 bg-black text-white py-1 px-2 rounded-2xl hover:ring hover:ring-black/35">
                         <div>
                             <svg class="h-5 w-5 text-white" width="24" height="24" viewBox="0 0 24 24"
                                 stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
@@ -291,7 +291,7 @@
                         Ping
                     </button>
                     <button
-                        class="flex items-center gap-2 bg-teal-500 py-1 px-2 rounded-2xl active:ring active:ring-teal-300">
+                        class="flex items-center gap-2 bg-teal-500 py-1 px-2 rounded-2xl hover:ring hover:ring-teal-300">
                         <div>
                             <svg class="h-5 w-5" viewBox="0 0 100 100">
                                 <path
@@ -397,7 +397,7 @@
                 </div>
                 <div class="mr-1 flex gap-1">
                     <button
-                        class="flex items-center gap-2 bg-black text-white py-1 px-2 rounded-2xl active:ring active:ring-black/50">
+                        class="flex items-center gap-2 bg-black text-white py-1 px-2 rounded-2xl hover:ring hover:ring-black/50">
                         <div>
                             <svg class="h-5 w-5 text-white" width="24" height="24" viewBox="0 0 24 24"
                                 stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
@@ -410,7 +410,7 @@
                         Copy IP
                     </button>
                     <button
-                        class="flex items-center gap-2 bg-black text-white py-1 px-2 rounded-2xl active:ring active:ring-black/35">
+                        class="flex items-center gap-2 bg-black text-white py-1 px-2 rounded-2xl hover:ring hover:ring-black/35">
                         <div>
                             <svg class="h-5 w-5 text-white" width="24" height="24" viewBox="0 0 24 24"
                                 stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
@@ -425,7 +425,7 @@
                         Ping
                     </button>
                     <button
-                        class="flex items-center gap-2 bg-red-500 text-white py-1 px-2 rounded-2xl active:ring active:ring-red-300">
+                        class="flex items-center gap-2 bg-red-500 text-white py-1 px-2 rounded-2xl hover:ring hover:ring-red-300">
                         <div>
                             <svg class="h-5 w-5 text-white" width="24" height="24" viewBox="0 0 24 24"
                                 stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
@@ -478,7 +478,7 @@
                 </div>
                 <div class="mr-1 flex gap-1">
                     <button
-                        class="flex items-center gap-2 bg-black text-white py-1 px-2 rounded-2xl active:ring active:ring-black/50">
+                        class="flex items-center gap-2 bg-black text-white py-1 px-2 rounded-2xl hover:ring hover:ring-black/50">
                         <div>
                             <svg class="h-5 w-5 text-white" width="24" height="24" viewBox="0 0 24 24"
                                 stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
@@ -491,7 +491,7 @@
                         Copy IP
                     </button>
                     <button
-                        class="flex items-center gap-2 bg-black text-white py-1 px-2 rounded-2xl active:ring active:ring-black/35">
+                        class="flex items-center gap-2 bg-black text-white py-1 px-2 rounded-2xl hover:ring hover:ring-black/35">
                         <div>
                             <svg class="h-5 w-5 text-white" width="24" height="24" viewBox="0 0 24 24"
                                 stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
@@ -506,7 +506,7 @@
                         Ping
                     </button>
                     <button
-                        class="flex items-center gap-2 bg-blue-500 text-white py-1 px-2 rounded-2xl active:ring active:ring-blue-300">
+                        class="flex items-center gap-2 bg-blue-500 text-white py-1 px-2 rounded-2xl hover:ring hover:ring-blue-300">
                         <div>
                             <svg class="h-5 w-5 text-white" viewBox="0 0 100 100" stroke-width="2"
                                 stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">

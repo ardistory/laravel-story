@@ -1,4 +1,4 @@
-<div class="px-10 w-full h-[80%] mt-4 -z-20">
+<div class="px-10 w-full h-[80%] mt-[6%]">
     <x-header title="Dashboard"></x-header>
     <div class="flex gap-2 mt-4">
         <div class="w-1/2 h-[407px] rounded-2xl flex">
@@ -22,8 +22,8 @@
                                     d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
                             </svg>
                         </div>
-                        <input class="outline-none py-1 px-2 rounded-r-full text-black focus:ring focus:ring-teal-500"
-                            type="text" name="search" placeholder="Store Code ex.TKBV">
+                        <input class="outline-none py-1 px-2 rounded-r-full text-black" type="text" name="search"
+                            placeholder="Store Code ex.TKBV">
                     </div>
                 </div>
                 <div class="w-full h-[80%] px-5">

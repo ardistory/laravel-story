@@ -22,8 +22,8 @@
                 type="text" placeholder="Find mac">
         </div>
     </div>
-    <div class="h-[120px] overflow-auto scrollbar-thin scrollbar-thumb-white">
-        <div class="flex mx-2 gap-2">
+    <div class="h-[130px] pb-2 w-full overflow-auto scrollbar-thin scrollbar-thumb-white">
+        <div class="flex gap-2 mx-2">
             <div
                 class="w-[70%] h-5 mx-auto mt-[10px] bg-white rounded-xl text-black flex items-center justify-center gap-2">
                 00:00:00:00:00:00
@@ -33,11 +33,16 @@
                 IC
             </div>
             <button
-                class="active:ring active:ring-red-300 w-[30%] h-5 mx-auto mt-[10px] bg-red-500 rounded-xl text-white flex items-center justify-center gap-2">
-                Delete
+                class="hover:ring hover:ring-red-300 w-[30%] h-5 mx-auto mt-[10px] bg-red-500 rounded-xl text-white flex items-center justify-center gap-2">
+                <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                    </svg>
+                </div>
             </button>
         </div>
-        <div class="flex mx-2 gap-2">
+        <div class="flex gap-2 mx-2">
             <div
                 class="w-[70%] h-5 mx-auto mt-[10px] bg-white rounded-xl text-black flex items-center justify-center gap-2">
                 00:00:00:00:00:00
@@ -47,11 +52,16 @@
                 IC
             </div>
             <button
-                class="active:ring active:ring-red-300 w-[30%] h-5 mx-auto mt-[10px] bg-red-500 rounded-xl text-white flex items-center justify-center gap-2">
-                Delete
+                class="hover:ring hover:ring-red-300 w-[30%] h-5 mx-auto mt-[10px] bg-red-500 rounded-xl text-white flex items-center justify-center gap-2">
+                <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                    </svg>
+                </div>
             </button>
         </div>
-        <div class="flex mx-2 gap-2">
+        <div class="flex gap-2 mx-2">
             <div
                 class="w-[70%] h-5 mx-auto mt-[10px] bg-white rounded-xl text-black flex items-center justify-center gap-2">
                 00:00:00:00:00:00
@@ -61,11 +71,16 @@
                 IC
             </div>
             <button
-                class="active:ring active:ring-red-300 w-[30%] h-5 mx-auto mt-[10px] bg-red-500 rounded-xl text-white flex items-center justify-center gap-2">
-                Delete
+                class="hover:ring hover:ring-red-300 w-[30%] h-5 mx-auto mt-[10px] bg-red-500 rounded-xl text-white flex items-center justify-center gap-2">
+                <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                    </svg>
+                </div>
             </button>
         </div>
-        <div class="flex mx-2 gap-2">
+        <div class="flex gap-2 mx-2">
             <div
                 class="w-[70%] h-5 mx-auto mt-[10px] bg-white rounded-xl text-black flex items-center justify-center gap-2">
                 00:00:00:00:00:00
@@ -75,11 +90,16 @@
                 IC
             </div>
             <button
-                class="active:ring active:ring-red-300 w-[30%] h-5 mx-auto mt-[10px] bg-red-500 rounded-xl text-white flex items-center justify-center gap-2">
-                Delete
+                class="hover:ring hover:ring-red-300 w-[30%] h-5 mx-auto mt-[10px] bg-red-500 rounded-xl text-white flex items-center justify-center gap-2">
+                <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                    </svg>
+                </div>
             </button>
         </div>
-        <div class="flex mx-2 gap-2">
+        <div class="flex gap-2 mx-2">
             <div
                 class="w-[70%] h-5 mx-auto mt-[10px] bg-white rounded-xl text-black flex items-center justify-center gap-2">
                 00:00:00:00:00:00
@@ -89,106 +109,13 @@
                 IC
             </div>
             <button
-                class="active:ring active:ring-red-300 w-[30%] h-5 mx-auto mt-[10px] bg-red-500 rounded-xl text-white flex items-center justify-center gap-2">
-                Delete
-            </button>
-        </div>
-        <div class="flex mx-2 gap-2">
-            <div
-                class="w-[70%] h-5 mx-auto mt-[10px] bg-white rounded-xl text-black flex items-center justify-center gap-2">
-                00:00:00:00:00:00
-            </div>
-            <div
-                class="text-xs font-pixel w-[30%] h-5 mx-auto mt-[10px] bg-white rounded-xl text-black flex items-center justify-center gap-2">
-                IC
-            </div>
-            <button
-                class="active:ring active:ring-red-300 w-[30%] h-5 mx-auto mt-[10px] bg-red-500 rounded-xl text-white flex items-center justify-center gap-2">
-                Delete
-            </button>
-        </div>
-        <div class="flex mx-2 gap-2">
-            <div
-                class="w-[70%] h-5 mx-auto mt-[10px] bg-white rounded-xl text-black flex items-center justify-center gap-2">
-                00:00:00:00:00:00
-            </div>
-            <div
-                class="text-xs font-pixel w-[30%] h-5 mx-auto mt-[10px] bg-white rounded-xl text-black flex items-center justify-center gap-2">
-                IC
-            </div>
-            <button
-                class="active:ring active:ring-red-300 w-[30%] h-5 mx-auto mt-[10px] bg-red-500 rounded-xl text-white flex items-center justify-center gap-2">
-                Delete
-            </button>
-        </div>
-        <div class="flex mx-2 gap-2">
-            <div
-                class="w-[70%] h-5 mx-auto mt-[10px] bg-white rounded-xl text-black flex items-center justify-center gap-2">
-                00:00:00:00:00:00
-            </div>
-            <div
-                class="text-xs font-pixel w-[30%] h-5 mx-auto mt-[10px] bg-white rounded-xl text-black flex items-center justify-center gap-2">
-                IC
-            </div>
-            <button
-                class="active:ring active:ring-red-300 w-[30%] h-5 mx-auto mt-[10px] bg-red-500 rounded-xl text-white flex items-center justify-center gap-2">
-                Delete
-            </button>
-        </div>
-        <div class="flex mx-2 gap-2">
-            <div
-                class="w-[70%] h-5 mx-auto mt-[10px] bg-white rounded-xl text-black flex items-center justify-center gap-2">
-                00:00:00:00:00:00
-            </div>
-            <div
-                class="text-xs font-pixel w-[30%] h-5 mx-auto mt-[10px] bg-white rounded-xl text-black flex items-center justify-center gap-2">
-                IC
-            </div>
-            <button
-                class="active:ring active:ring-red-300 w-[30%] h-5 mx-auto mt-[10px] bg-red-500 rounded-xl text-white flex items-center justify-center gap-2">
-                Delete
-            </button>
-        </div>
-        <div class="flex mx-2 gap-2">
-            <div
-                class="w-[70%] h-5 mx-auto mt-[10px] bg-white rounded-xl text-black flex items-center justify-center gap-2">
-                00:00:00:00:00:00
-            </div>
-            <div
-                class="text-xs font-pixel w-[30%] h-5 mx-auto mt-[10px] bg-white rounded-xl text-black flex items-center justify-center gap-2">
-                IC
-            </div>
-            <button
-                class="active:ring active:ring-red-300 w-[30%] h-5 mx-auto mt-[10px] bg-red-500 rounded-xl text-white flex items-center justify-center gap-2">
-                Delete
-            </button>
-        </div>
-        <div class="flex mx-2 gap-2">
-            <div
-                class="w-[70%] h-5 mx-auto mt-[10px] bg-white rounded-xl text-black flex items-center justify-center gap-2">
-                00:00:00:00:00:00
-            </div>
-            <div
-                class="text-xs font-pixel w-[30%] h-5 mx-auto mt-[10px] bg-white rounded-xl text-black flex items-center justify-center gap-2">
-                IC
-            </div>
-            <button
-                class="active:ring active:ring-red-300 w-[30%] h-5 mx-auto mt-[10px] bg-red-500 rounded-xl text-white flex items-center justify-center gap-2">
-                Delete
-            </button>
-        </div>
-        <div class="flex mx-2 gap-2">
-            <div
-                class="w-[70%] h-5 mx-auto mt-[10px] bg-white rounded-xl text-black flex items-center justify-center gap-2">
-                00:00:00:00:00:00
-            </div>
-            <div
-                class="text-xs font-pixel w-[30%] h-5 mx-auto mt-[10px] bg-white rounded-xl text-black flex items-center justify-center gap-2">
-                IC
-            </div>
-            <button
-                class="active:ring active:ring-red-300 w-[30%] h-5 mx-auto mt-[10px] bg-red-500 rounded-xl text-white flex items-center justify-center gap-2">
-                Delete
+                class="hover:ring hover:ring-red-300 w-[30%] h-5 mx-auto mt-[10px] bg-red-500 rounded-xl text-white flex items-center justify-center gap-2">
+                <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                    </svg>
+                </div>
             </button>
         </div>
     </div>

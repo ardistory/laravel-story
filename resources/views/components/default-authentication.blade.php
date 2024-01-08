@@ -18,9 +18,9 @@
             </div>
             <div>
                 <button
-                    class="bg-green-700 text-white px-2 py-1 rounded-full active:ring active:ring-green-300">True</button>
+                    class="bg-green-700 text-white px-2 py-1 rounded-full hover:ring hover:ring-green-300">True</button>
                 <button
-                    class="bg-red-500 text-white px-2 py-1 rounded-full active:ring active:ring-red-300">False</button>
+                    class="bg-red-500 text-white px-2 py-1 rounded-full hover:ring hover:ring-red-300">False</button>
             </div>
         </div>
         <div
@@ -31,9 +31,9 @@
             </div>
             <div>
                 <button
-                    class="bg-green-700 text-white px-2 py-1 rounded-full active:ring active:ring-green-300">True</button>
+                    class="bg-green-700 text-white px-2 py-1 rounded-full hover:ring hover:ring-green-300">True</button>
                 <button
-                    class="bg-red-500 text-white px-2 py-1 rounded-full active:ring active:ring-red-300">False</button>
+                    class="bg-red-500 text-white px-2 py-1 rounded-full hover:ring hover:ring-red-300">False</button>
             </div>
         </div>
     </div>
