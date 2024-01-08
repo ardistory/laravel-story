@@ -32,20 +32,20 @@
             </div>
         </div>
         <div class="w-1/2 h-[400px] rounded-2xl flex flex-col gap-2">
-            <div class="w-full h-1/2 flex gap-2">
+            <div class="w-full h-[200px] flex gap-2">
                 <div class="w-1/2 h-[200px] border rounded-2xl">
-
+                    <x-add-mac></x-add-mac>
                 </div>
                 <div class="w-1/2 h-[200px] border rounded-2xl">
-
+                    <x-list-mac></x-list-mac>
                 </div>
             </div>
             <div class="w-full h-1/2 flex gap-2">
                 <div class="w-1/2 h-[200px] border rounded-2xl">
-
+                    <x-registration-table></x-registration-table>
                 </div>
                 <div class="w-1/2 h-[200px] border rounded-2xl">
-
+                    <x-default-authentication></x-default-authentication>
                 </div>
             </div>
         </div>

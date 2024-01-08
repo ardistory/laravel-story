@@ -1,10 +1,11 @@
 <footer class="bg-white dark:bg-black">
     <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+        <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
         <div class="md:flex md:justify-between">
             <div class="mb-6 md:mb-0 flex gap-10">
                 <div class="flex gap-2 font-bold text-2xl items-center">
-                    <svg class="h-8 w-8 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                        stroke-linecap="round" stroke-linejoin="round">
+                    <svg class="h-8 w-8 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2" />
                         <line x1="12" y1="22" x2="12" y2="15.5" />
                         <polyline points="22 8.5 12 15.5 2 8.5" />
