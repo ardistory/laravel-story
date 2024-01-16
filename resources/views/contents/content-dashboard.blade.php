@@ -22,7 +22,8 @@
                                     d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
                             </svg>
                         </div>
-                        <input class="outline-none py-1 px-2 rounded-r-full text-black hover:ring hover:ring-teal-500"
+                        <input
+                            class="outline-none py-1 px-2 rounded-r-full text-black hover:ring hover:ring-teal-500 transition duration-150"
                             type="text" name="search" placeholder="Store Code ex.TKBV">
                     </div>
                 </div>

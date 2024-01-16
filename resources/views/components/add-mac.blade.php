@@ -21,11 +21,11 @@
                     </svg>
                 </div>
                 <input
-                    class="outline-none py-1 px-2 rounded-r-full text-black hover:ring hover:ring-black transition duration-150"
+                    class="outline-none py-1 px-2 rounded-r-full text-black hover:ring hover:ring-teal-500 transition duration-150"
                     type="text" placeholder="Mac address">
             </div>
             <button type="submit"
-                class="bg-white text-black border border-gray-200 px-1 py-1 rounded-full hover:ring hover:ring-black transition duration-150">
+                class="bg-white text-black border border-gray-200 px-1 py-1 rounded-full hover:ring hover:ring-teal-500 transition duration-150">
                 <div>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="w-6 h-6">

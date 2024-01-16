@@ -1,5 +1,5 @@
 <div
-    class="flex items-center justify-around fixed top-0 w-full md:h-[70px] border-b-[1px] border-white/20 backdrop-blur-sm z-50">
+    class="flex items-center justify-between px-10 fixed top-0 w-full md:h-[70px] border-b-[1px] border-white/20 backdrop-blur-sm z-50">
     <div class="flex items-center gap-1">
         <svg class="h-8 w-8 text-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
             stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -23,7 +23,7 @@
                     d="M6 18 18 6M6 6l12 12" />
             </svg>
         </div>
-        <div class="md:w-3/5 hidden md:flex items-center justify-between">
+        <div class="md:w-full hidden md:flex items-center justify-between gap-10">
             <div class="ml-10 flex items-center gap-2">
                 <a href="{{ route('dashboard') }}"
                     class="flex items-center gap-2 text-black bg-white rounded-full px-3 py-2 text-sm font-medium transition duration-250">
