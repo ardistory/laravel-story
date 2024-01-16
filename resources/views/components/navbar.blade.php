@@ -25,8 +25,9 @@
         </div>
         <div class="md:w-full hidden md:flex items-center justify-between gap-10">
             <div class="ml-10 flex items-center gap-2">
-                <a href="{{ route('dashboard') }}"
-                    class="flex items-center gap-2 text-black bg-white rounded-full px-3 py-2 text-sm font-medium transition duration-250">
+                <a wire:navigate href="{{ route('dashboard') }}"
+                    :class="{ 'text-black': {{ request()->routeIs('dashboard') }}, 'bg-white': {{ request()->routeIs('dashboard') }} }"
+                    class="hover:text-black hover:bg-white flex items-center gap-2 rounded-full px-3 py-2 text-sm font-medium transition duration-250">
                     <div>
                         <svg class="h-5 w-5" width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
                             stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -38,8 +39,9 @@
                     </div>
                     Dashboard
                 </a>
-                <a href="#"
-                    class="flex items-center gap-2 text-white hover:bg-white hover:text-black rounded-full px-3 py-2 text-sm font-medium transition duration-250">
+                <a wire:navigate href="{{ route('ip') }}"
+                    :class="{ 'bg-white': {{ request()->routeIs('ip') }}, 'text-black': {{ request()->routeIs('ip') }} }"
+                    class="hover:text-black hover:bg-white flex items-center gap-2 rounded-full px-3 py-2 text-sm font-medium transition duration-250">
                     <div>
                         <svg class="h-5 w-5" width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
                             stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
