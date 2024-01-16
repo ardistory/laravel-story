@@ -1,3 +1,3 @@
 <x-app-layout title="IP Address">
-    {{-- <livewire:add-mac> --}}
+    <x-contents.content-ip></x-contents.content-ip>
 </x-app-layout>

@@ -26,7 +26,7 @@
         <div class="md:w-full hidden md:flex items-center justify-between gap-10">
             <div class="ml-10 flex items-center gap-2">
                 <a wire:navigate href="{{ route('dashboard') }}"
-                    :class="{ 'text-black': {{ request()->routeIs('dashboard') }}, 'bg-white': {{ request()->routeIs('dashboard') }} }"
+                    :class="{ 'text-black bg-white': {{ request()->routeIs('dashboard') }} }"
                     class="hover:text-black hover:bg-white flex items-center gap-2 rounded-full px-3 py-2 text-sm font-medium transition duration-250">
                     <div>
                         <svg class="h-5 w-5" width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
@@ -40,7 +40,7 @@
                     Dashboard
                 </a>
                 <a wire:navigate href="{{ route('ip') }}"
-                    :class="{ 'bg-white': {{ request()->routeIs('ip') }}, 'text-black': {{ request()->routeIs('ip') }} }"
+                    :class="{ 'text-black bg-white': {{ request()->routeIs('ip') }} }"
                     class="hover:text-black hover:bg-white flex items-center gap-2 rounded-full px-3 py-2 text-sm font-medium transition duration-250">
                     <div>
                         <svg class="h-5 w-5" width="24" height="24" viewBox="0 0 24 24" stroke-width="2"

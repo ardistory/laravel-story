@@ -56,7 +56,7 @@
                             </div>
                             @empty($data->edparea)
                                 @if (strlen($storeCode) > 0)
-                                    <div class="bg-red-500 text-white px-2 rounded-full">{{ $storeCode }} not found!
+                                    <div class="bg-red-500 text-white px-2 rounded-full">unknown
                                     </div>
                                 @else
                                     (EDP Area)
