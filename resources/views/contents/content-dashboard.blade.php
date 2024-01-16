@@ -1,7 +1,7 @@
-<div class="px-10 w-full h-[80%] md:mt-[80px] mt-[150px]">
+<div class="px-10 w-full h-[80%] mt-[120px] md:mt-[90px]">
     <x-header title="Dashboard"></x-header>
-    <div class="flex gap-2 mt-4">
-        <div class="w-1/2 h-[407px] rounded-2xl flex">
+    <div class="flex flex-col md:flex md:flex-row gap-2 mt-4">
+        <div class="w-full md:w-1/2 h-[407px] rounded-2xl flex">
             <div class="w-full h-full border rounded-2xl relative">
                 <div class="flex justify-between items-center h-[15%] px-4">
                     <div class="top-5 left-5 font-semibold text-2xl flex items-center gap-2">
@@ -32,20 +32,20 @@
                 </div>
             </div>
         </div>
-        <div class="w-1/2 h-[400px] rounded-2xl flex flex-col gap-2">
-            <div class="w-full h-[200px] flex gap-2">
-                <div class="w-1/2 h-[200px] border rounded-2xl">
+        <div class="w-full md:w-1/2 h-auto md:h-[400px] rounded-2xl flex flex-col md:gap-2 gap-48">
+            <div class="w-full h-[200px] flex flex-col gap-2 md:flex md:flex-row">
+                <div class="w-full md:w-1/2 h-[200px] border rounded-2xl">
                     <x-add-mac></x-add-mac>
                 </div>
-                <div class="w-1/2 h-[200px] border rounded-2xl">
+                <div class="w-full md:w-1/2 h-[200px] border rounded-2xl">
                     <x-list-mac></x-list-mac>
                 </div>
             </div>
-            <div class="w-full h-1/2 flex gap-2">
-                <div class="w-1/2 h-[200px] border rounded-2xl">
+            <div class="w-full h-1/2 gap-2 flex flex-col md:flex md:flex-row">
+                <div class="w-full md:w-1/2 h-[200px] border rounded-2xl">
                     <x-registration-table></x-registration-table>
                 </div>
-                <div class="w-1/2 h-[200px] border rounded-2xl">
+                <div class="w-full md:w-1/2 h-[200px] border rounded-2xl">
                     <x-default-authentication></x-default-authentication>
                 </div>
             </div>

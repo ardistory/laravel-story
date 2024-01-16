@@ -1,5 +1,5 @@
 <div
-    class="flex items-center justify-between px-10 fixed top-0 w-full md:h-[70px] border-b-[1px] border-white/20 backdrop-blur-sm z-50">
+    class="flex items-center justify-between px-10 fixed top-0 w-full h-[100px] md:h-[70px] border-b-[1px] border-white/20 backdrop-blur-sm z-50">
     <div class="flex items-center gap-1">
         <svg class="h-8 w-8 text-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
             stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -11,10 +11,10 @@
                 <path d="M12 6a12 12 0 0 1 12 12" />
             </g>
         </svg>
-        <span class="text-2xl font-bold italic cursor-default">networkG157</span>
+        <span class="text-4xl md:text-2xl font-bold italic cursor-default">networkG157</span>
     </div>
     <div x-data="{ navbar: false }">
-        <div x-on:click="navbar = !navbar" class="md:hidden scale-125">
+        <div x-on:click="navbar = !navbar" class="md:hidden scale-150">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                 stroke="currentColor" class="w-6 h-6">
                 <path :class="{ 'hidden': navbar }" stroke-linecap="round" stroke-linejoin="round"

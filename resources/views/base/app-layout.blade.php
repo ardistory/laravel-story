@@ -12,7 +12,7 @@
 </head>
 
 <body class="bg-black text-white">
-    <div class="w-full h-screen">
+    <div class="w-full h-auto md:h-screen">
         <x-navbar></x-navbar>
         {{ $slot }}
     </div>

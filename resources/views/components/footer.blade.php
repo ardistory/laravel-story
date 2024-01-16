@@ -1,7 +1,7 @@
 <footer class="bg-white dark:bg-black">
-    <div class="mx-auto w-full lg:py-8">
+    <div class="mx-auto w-full py-8">
         <div class="md:flex md:justify-between px-10">
-            <div class="mb-6 md:mb-0 flex gap-10">
+            <div class="mb-6 md:mb-0 flex justify-between md:gap-10">
                 <div class="flex gap-2 font-bold text-2xl items-center">
                     <div>
                         <svg class="h-10 w-10" viewBox="0 0 50 52">
