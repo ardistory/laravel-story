@@ -1,17 +1,15 @@
 <div
     class="flex items-center justify-between px-10 fixed top-0 w-full h-[100px] md:h-[70px] border-b-[1px] border-white/20 backdrop-blur-sm z-50">
     <div class="flex items-center gap-1">
-        <svg class="h-8 w-8 text-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
-            stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path stroke="none" d="M0 0h24v24H0z" />
-            <g transform="rotate(-45 12 18)">
-                <line x1="12" y1="18" x2="12.01" y2="18" />
-                <path d="M12 14a4 4 0 0 1 4 4" />
-                <path d="M12 10a8 8 0 0 1 8 8" />
-                <path d="M12 6a12 12 0 0 1 12 12" />
-            </g>
-        </svg>
-        <span class="text-4xl md:text-2xl font-bold italic cursor-default">networkG157</span>
+        <div>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                    d="m21 7.5-2.25-1.313M21 7.5v2.25m0-2.25-2.25 1.313M3 7.5l2.25-1.313M3 7.5l2.25 1.313M3 7.5v2.25m9 3 2.25-1.313M12 12.75l-2.25-1.313M12 12.75V15m0 6.75 2.25-1.313M12 21.75V19.5m0 2.25-2.25-1.313m0-16.875L12 2.25l2.25 1.313M21 14.25v2.25l-2.25 1.313m-13.5 0L3 16.5v-2.25" />
+            </svg>
+        </div>
+        <a wire:navigate href="{{ route('dashboard') }}"
+            class="font-bold text-2xl tracking-tighter -translate-y-[3px]">edplebak</a>
     </div>
     <div x-data="{ navbar: false }">
         <div x-on:click="navbar = !navbar" class="md:hidden scale-150">
@@ -167,7 +165,7 @@
             <div class="flex flex-col gap-2">
                 <a href="{{ route('dashboard') }}"
                     :class="{ 'text-black bg-white': {{ Request::routeIs('dashboard') }} }"
-                    class="flex items-center gap-2 rounded-full px-6 py-4 text-xl font-medium transition duration-250">
+                    class="flex items-center gap-2 hover:bg-white hover:text-black rounded-full px-6 py-4 text-xl font-medium transition duration-250">
                     <div>
                         <svg class="h-7 w-7" width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
                             stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
