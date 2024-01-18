@@ -11,6 +11,11 @@ class TableToko extends Component
 
     public string $storeCode = '';
 
+    public function sendDataStoreCode()
+    {
+        $this->dispatch('submitTableToko', kode_toko: $this->storeCode);
+    }
+
     public function render()
     {
         $data = TokoLbk::query()->where('kode_toko', '=', $this->storeCode)->first();

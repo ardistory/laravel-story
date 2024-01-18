@@ -36,8 +36,16 @@
                     class="outline-none py-1 px-2 rounded-r-full text-black hover:ring hover:ring-teal-500 transition duration-150"
                     type="text" name="search" placeholder="Store Code ex.TKBV">
             </div>
-            <button
-                class="ml-3 border py-1 px-2 rounded-full hover:ring hover:ring-teal-500 hover:bg-white hover:text-black transition duration-150">Search</button>
+            <button wire:click="sendDataStoreCode"
+                class="group ml-3 border py-1 px-2 rounded-full hover:ring hover:ring-teal-500 hover:bg-white hover:text-black hover:border-white transition duration-150">
+                <div class="group-hover:translate-x-1 transition duration-500">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="m5.25 4.5 7.5 7.5-7.5 7.5m6-15 7.5 7.5-7.5 7.5" />
+                    </svg>
+                </div>
+            </button>
         </div>
     </div>
     <div class="w-full h-[80%] px-5">

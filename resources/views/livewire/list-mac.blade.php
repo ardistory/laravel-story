@@ -10,18 +10,6 @@
             </div>
             List Mac
         </div>
-        <div class="flex mr-4">
-            <div class="bg-white text-black py-1 px-2 rounded-l-full">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                    stroke="currentColor" class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                        d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
-                </svg>
-            </div>
-            <input
-                class="max-w-24 outline-none py-1 px-2 rounded-r-full text-black hover:ring hover:ring-teal-500 transition duration-150"
-                type="text" placeholder="Find mac">
-        </div>
     </div>
     <div class="h-[130px] pb-2 w-full overflow-auto scrollbar-thin scrollbar-thumb-white">
         <div class="flex gap-2 mx-2">
