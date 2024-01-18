@@ -24,16 +24,20 @@
             </div>
         </div>
         <div class="flex items-center top-5 right-5">
-            <div class="bg-white text-black py-1 px-2 rounded-l-full">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                    stroke="currentColor" class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                        d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
-                </svg>
+            <div class="flex">
+                <div class="bg-white text-black py-1 px-2 rounded-l-full">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                    </svg>
+                </div>
+                <input wire:model.blur='storeCode'
+                    class="outline-none py-1 px-2 rounded-r-full text-black hover:ring hover:ring-teal-500 transition duration-150"
+                    type="text" name="search" placeholder="Store Code ex.TKBV">
             </div>
-            <input wire:model.live.debounce.1000ms='storeCode'
-                class="outline-none py-1 px-2 rounded-r-full text-black hover:ring hover:ring-teal-500 transition duration-150"
-                type="text" name="search" placeholder="Store Code ex.TKBV">
+            <button
+                class="ml-3 border py-1 px-2 rounded-full hover:ring hover:ring-teal-500 hover:bg-white hover:text-black transition duration-150">Search</button>
         </div>
     </div>
     <div class="w-full h-[80%] px-5">
@@ -134,9 +138,9 @@
                             <button
                                 class="flex items-center gap-2 bg-black text-white py-1 px-2 rounded-2xl hover:ring hover:ring-black/35">
                                 <div>
-                                    <svg class="h-5 w-5 text-white" width="24" height="24" viewBox="0 0 24 24"
-                                        stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
-                                        stroke-linejoin="round">
+                                    <svg class="h-5 w-5 text-white" width="24" height="24"
+                                        viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                        stroke-linecap="round" stroke-linejoin="round">
                                         <path stroke="none" d="M0 0h24v24H0z" />
                                         <rect x="3" y="12" width="6" height="8" rx="1" />
                                         <rect x="9" y="8" width="6" height="12" rx="1" />
