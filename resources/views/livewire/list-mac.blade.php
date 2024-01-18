@@ -37,7 +37,7 @@
                     class="text-xs font-pixel w-[30%] h-5 mx-auto mt-[10px] bg-white rounded-xl text-black flex items-center justify-center gap-2">
                     {{ $data['comment'] ?? '' }}
                 </div>
-                <button
+                <button wire:click="deleteMac('{{ $data['.id'] }}')"
                     class="hover:ring hover:ring-red-300 w-[30%] h-5 mx-auto mt-[10px] bg-red-500 rounded-xl text-white flex items-center justify-center gap-2">
                     <div>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"

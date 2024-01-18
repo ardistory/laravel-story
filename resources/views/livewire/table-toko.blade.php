@@ -34,7 +34,7 @@
                 </div>
                 <input wire:model.blur='storeCode'
                     class="outline-none py-1 px-2 rounded-r-full text-black hover:ring hover:ring-teal-500 transition duration-150"
-                    type="text" name="search" placeholder="Store Code ex.TKBV">
+                    type="text" name="search" placeholder="Store Code ex.TKBV" maxlength="4">
             </div>
             <button wire:click="sendDataStoreCode"
                 class="group ml-3 border py-1 px-2 rounded-full hover:ring hover:ring-teal-500 hover:bg-white hover:text-black hover:border-white transition duration-150">

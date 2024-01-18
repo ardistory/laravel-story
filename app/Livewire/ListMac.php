@@ -9,13 +9,13 @@ use Livewire\Component;
 
 class ListMac extends Component
 {
-    public array $listMac = [];
     public string $ipWdcpProperty = '';
     public string $storeCodeFromEvent = '';
     public string $countMac = '';
+    public array $listMac = [];
 
     #[On('submitTableToko')]
-    public function getListMacAddressFromRouter($kode_toko): void
+    public function getListMacAddressFromRouter($kode_toko)
     {
         $this->storeCodeFromEvent = $kode_toko;
 
@@ -40,6 +40,16 @@ class ListMac extends Component
             session()->flash('listMacFailed');
         }
 
+    }
+
+    public function deleteMac($id)
+    {
+        $api = new RouterosAPI();
+        if ($api->connect($this->ipWdcpProperty, env('ROS_WDCP_USERNAME'), env('ROS_WDCP_PASSWORD'))) {
+            $api->comm('/interface/wireless/access-list/remove', [
+                'numbers' => $id
+            ]);
+        }
     }
 
     public function render()
