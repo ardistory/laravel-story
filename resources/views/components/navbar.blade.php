@@ -108,7 +108,7 @@
                         role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
                         <div class="py-1" role="none">
                             <a href="#"
-                                class="hover:bg-gray-300 flex items-center gap-2 text-gray-700 px-4 py-2 text-sm">
+                                class="hover:bg-gray-300 flex items-center gap-2 text-gray-700 px-4 py-2 mx-1 rounded-md text-sm">
                                 <div>
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                         stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -120,9 +120,9 @@
                                 </div>
                                 Account settings
                             </a>
-                            <form method="POST" action="#" role="none">
+                            <form method="POST">
                                 <button type="submit"
-                                    class="hover:bg-gray-300 flex items-center gap-2 text-gray-700 w-full px-4 py-2 text-left text-sm"
+                                    class="hover:bg-gray-300 flex items-center gap-2 text-gray-700 w-[96%] px-4 py-2 mx-1 rounded-md text-left text-sm"
                                     role="menuitem" tabindex="-1" id="menu-item-3">
                                     <div>
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"

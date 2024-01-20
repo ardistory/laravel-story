@@ -10,6 +10,7 @@ use Livewire\Attributes\On;
 class AddMac extends Component
 {
     public string $storeCodeFromEvent = '';
+    public string $inputComment = '';
     public string $macAddress = '';
     public string $ipWdcpProperty = '';
 
@@ -57,7 +58,8 @@ class AddMac extends Component
                     session()->flash('thereIs');
                 } else {
                     $api->comm('/interface/wireless/access-list/add', [
-                        'mac-address' => $this->macAddress
+                        'mac-address' => $this->macAddress,
+                        'comment' => $this->inputComment
                     ]);
 
                     $doneKah = $api->comm('/interface/wireless/access-list/print', [
