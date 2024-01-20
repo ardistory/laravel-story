@@ -6,7 +6,7 @@
         </div>
         <div class="w-full md:w-1/2 h-auto md:h-[400px] rounded-2xl flex flex-col md:gap-2 gap-48">
             <div class="w-full h-[200px] flex flex-col gap-2 md:flex md:flex-row">
-                <div class="w-full md:w-1/2 h-[200px] border rounded-2xl">
+                <div class="w-full md:w-1/2 h-[200px] border rounded-2xl relative">
                     <livewire:add-mac>
                 </div>
                 <div class="w-full md:w-1/2 h-[200px] border rounded-2xl">

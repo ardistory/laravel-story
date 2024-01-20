@@ -10,8 +10,7 @@
             </div>
             {{ $title }}
         </div>
-        <div wire:loading
-            class="flex items-center justify-center px-4 py-2 shadow rounded-md bg-indigo-500 hover:bg-indigo-400">
+        <div wire:loading class="flex items-center justify-center">
             <div>
                 <svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none"
                     viewBox="0 0 24 24">
@@ -32,20 +31,10 @@
                             d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
                     </svg>
                 </div>
-                <input wire:model.blur='storeCode'
+                <input wire:model='storeCode' wire:keydown.enter='sendDataStoreCode'
                     class="outline-none py-1 px-2 rounded-r-full text-black hover:ring hover:ring-teal-500 transition duration-150"
                     type="text" name="search" placeholder="Store Code ex.TKBV" maxlength="4">
             </div>
-            <button wire:click="sendDataStoreCode"
-                class="group ml-3 border py-1 px-2 rounded-full hover:ring hover:ring-teal-500 hover:bg-white hover:text-black hover:border-white transition duration-150">
-                <div class="group-hover:translate-x-1 transition duration-500">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" class="w-6 h-6">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="m5.25 4.5 7.5 7.5-7.5 7.5m6-15 7.5 7.5-7.5 7.5" />
-                    </svg>
-                </div>
-            </button>
         </div>
     </div>
     <div class="w-full h-[80%] px-5">

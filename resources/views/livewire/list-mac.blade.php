@@ -12,10 +12,22 @@
                 List Mac
             </div>
             @if (session('counted'))
-                <div>Count : {{ session('counted') }}</div>
+                <div wire:loading.remove>Count : {{ session('counted') }}</div>
             @endif
+            <div wire:loading class="flex items-center justify-center">
+                <div>
+                    <svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor"
+                            stroke-width="4"></circle>
+                        <path class="opacity-75" fill="currentColor"
+                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+                        </path>
+                    </svg>
+                </div>
+            </div>
             @if (session('listMacFailed'))
-                <div class="flex items-center gap-2">
+                <div wire:loading.remove class="flex items-center gap-2">
                     <div class="flex-none rounded-full bg-red-500/20 p-1">
                         <div class="h-1.5 w-1.5 rounded-full bg-red-500 animate-ping absolute">
                         </div>
@@ -27,7 +39,7 @@
         </div>
     </div>
     <div class="h-[130px] pb-2 w-full overflow-auto scrollbar-thin scrollbar-thumb-white">
-        @foreach ($listMac as $data)
+        @foreach ($listMac[0] as $data)
             <div class="flex gap-2 mx-2">
                 <div
                     class="w-[70%] h-5 mx-auto mt-[10px] bg-white rounded-xl text-black font-semibold flex items-center justify-center gap-2">

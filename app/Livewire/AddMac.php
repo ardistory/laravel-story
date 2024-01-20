@@ -73,6 +73,8 @@ class AddMac extends Component
             }
         }
 
+        $this->dispatch('afterAddMac', afterAddMac: 'afterAddMac');
+
         $api->disconnect();
     }
 

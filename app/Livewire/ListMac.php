@@ -12,7 +12,6 @@ class ListMac extends Component
     public string $ipWdcpProperty = '';
     public string $storeCodeFromEvent = '';
     public string $countMac = '';
-    public array $listMac = [];
 
     #[On('submitTableToko')]
     public function getListMacAddressFromRouter($kode_toko)
@@ -30,9 +29,10 @@ class ListMac extends Component
                 $data = $api->comm('/interface/wireless/access-list/print');
 
                 $this->countMac = count($data);
-                $this->listMac = $data;
 
                 session()->flash('counted', $this->countMac);
+
+                return $data;
             } else {
                 session()->flash('listMacFailed');
             }
@@ -52,8 +52,20 @@ class ListMac extends Component
         }
     }
 
-    public function render()
+    #[On('afterAddMac')]
+    public function render($afterAddMac = '')
     {
-        return view('livewire.list-mac');
+        return view('livewire.list-mac', [
+            'listMac' => [
+                $this->getListMacAddressFromRouter($this->storeCodeFromEvent) ?? [
+                    [
+                        '.id' => '',
+                        'mac-address' => '',
+                        'comment' => ''
+                    ]
+
+                ]
+            ]
+        ]);
     }
 }
