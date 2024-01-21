@@ -9,7 +9,7 @@
             </svg>
         </div>
         <a wire:navigate href="{{ route('dashboard') }}"
-            class="font-bold text-2xl tracking-tighter -translate-y-[3px]">edplebak.com</a>
+            class="font-bold text-2xl tracking-tighter -translate-y-[3px]">edplebak</a>
     </div>
     <div x-data="{ navbar: false }">
         <div x-on:click="navbar = !navbar" class="md:hidden scale-150">
