@@ -9,9 +9,8 @@ use App\Models\TokoLbk;
 
 class RegistrationTable extends Component
 {
-    public string $storeCodeFromEvent = 'TEST';
+    public string $storeCodeFromEvent = '';
     public string $ipWdcpProperty = '';
-    public string $countMac = '';
     public string $lastIp = '';
 
     #[On('submitTableToko')]
@@ -22,7 +21,7 @@ class RegistrationTable extends Component
         $query = TokoLbk::query()->where('kode_toko', '=', $this->storeCodeFromEvent)->first();
 
         try {
-            $this->ipWdcpProperty = $query->ip_wdcp ?? '';
+            $this->ipWdcpProperty = $query->ip_wdcp;
 
             $api = new RouterosAPI();
 
@@ -32,26 +31,33 @@ class RegistrationTable extends Component
                 if ($api->connect($this->ipWdcpProperty, env('ROS_WDCP_USERNAME'), env('ROS_WDCP_PASSWORD'))) {
                     $data = $api->comm('/interface/wireless/registration-table/print');
 
-                    $this->countMac = count($data);
-
-                    session()->flash('counted', $this->countMac);
-
                     return $data;
                 } else {
-                    session()->flash('listMacFailed');
+                    session()->flash('listRegFailed');
                 }
             }
 
+            $api->disconnect();
         } catch (\Exception $exception) {
-            dd($exception->getMessage());
-            session()->flash('listMacFailed');
+            session()->flash('listRegFailed');
         }
+    }
+
+    public function refresh()
+    {
+        $this->render();
     }
 
     public function render()
     {
         return view('livewire.registration-table', [
-            'listRegistrationTable' => $this->getRegistrationTable($this->storeCodeFromEvent)
+            'listRegistrationTable' => $this->getRegistrationTable($this->storeCodeFromEvent) ?? [
+                [
+                    '.id' => '',
+                    'mac-address' => '',
+                    'last-ip' => ''
+                ]
+            ]
         ]);
     }
 }

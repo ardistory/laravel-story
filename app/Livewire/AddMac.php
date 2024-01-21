@@ -25,13 +25,14 @@ class AddMac extends Component
             $this->ipWdcpProperty = $query->ip_wdcp;
         } catch (\Exception $exception) {
             $this->ipWdcpProperty = 'error';
+
+            session()->flash('error');
         }
 
-        $api = new RouterosAPI();
-
-        if ($this->ipWdcpProperty === 'error') {
-            session()->flash('error');
+        if ($this->ipWdcpProperty == 'error') {
         } else {
+            $api = new RouterosAPI();
+
             if ($api->connect($this->ipWdcpProperty, env('ROS_WDCP_USERNAME'), env('ROS_WDCP_PASSWORD'))) {
                 session()->flash('connected');
             } else {
@@ -40,9 +41,9 @@ class AddMac extends Component
 
                 session()->flash('error');
             }
-        }
 
-        $api->disconnect();
+            $api->disconnect();
+        }
     }
 
     public function insertMacAddress(): void

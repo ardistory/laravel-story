@@ -26,16 +26,6 @@
                     </svg>
                 </div>
             </div>
-            @if (session('listMacFailed'))
-                <div wire:loading.remove class="flex items-center gap-2">
-                    <div class="flex-none rounded-full bg-red-500/20 p-1">
-                        <div class="h-1.5 w-1.5 rounded-full bg-red-500 animate-ping absolute">
-                        </div>
-                        <div class="h-1.5 w-1.5 rounded-full bg-red-500"></div>
-                    </div>
-                    <p class="text-xs leading-5 text-white">Offline</p>
-                </div>
-            @endif
         </div>
     </div>
     <div class="h-[130px] pb-2 w-full overflow-auto scrollbar-thin scrollbar-thumb-white">
