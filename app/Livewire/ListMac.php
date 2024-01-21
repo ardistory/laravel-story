@@ -21,25 +21,30 @@ class ListMac extends Component
         $query = TokoLbk::query()->where('kode_toko', '=', $this->storeCodeFromEvent)->first();
 
         try {
-            $this->ipWdcpProperty = $query->ip_wdcp;
+            $this->ipWdcpProperty = $query->ip_wdcp ?? '';
 
             $api = new RouterosAPI();
 
-            if ($api->connect($this->ipWdcpProperty, env('ROS_WDCP_USERNAME'), env('ROS_WDCP_PASSWORD'))) {
-                $data = $api->comm('/interface/wireless/access-list/print');
+            if ($this->ipWdcpProperty == '') {
 
-                $this->countMac = count($data);
-
-                session()->flash('counted', $this->countMac);
-
-                return $data;
             } else {
-                session()->flash('listMacFailed');
+                if ($api->connect($this->ipWdcpProperty, env('ROS_WDCP_USERNAME'), env('ROS_WDCP_PASSWORD'))) {
+                    $data = $api->comm('/interface/wireless/access-list/print');
+
+                    $this->countMac = count($data);
+
+                    session()->flash('counted', $this->countMac);
+
+                    return $data;
+                } else {
+                    session()->flash('listMacFailed');
+                }
             }
+
         } catch (\Exception $exception) {
+            dd($exception->getMessage());
             session()->flash('listMacFailed');
         }
-
     }
 
     public function deleteMac($id)

@@ -35,6 +35,9 @@ class AddMac extends Component
             if ($api->connect($this->ipWdcpProperty, env('ROS_WDCP_USERNAME'), env('ROS_WDCP_PASSWORD'))) {
                 session()->flash('connected');
             } else {
+                $this->inputComment = '';
+                $this->macAddress = '';
+
                 session()->flash('error');
             }
         }
