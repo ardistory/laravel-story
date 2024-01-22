@@ -12,13 +12,16 @@
 </head>
 
 <body class="bg-black text-white">
-    <div class="w-full h-auto md:h-screen">
-        <livewire:navbar>
-            {{ $slot }}
-    </div>
-    <div class="w-full h-auto">
-        <x-footer></x-footer>
-    </div>
+    @auth
+        <div class="w-full h-auto md:h-screen">
+            <livewire:navbar>
+                {{ $slot }}
+        </div>
+        <div class="w-full h-auto">
+            <x-footer></x-footer>
+        </div>
+    @endauth
+    {{ $slot }}
     @vite('resources/js/app.js')
 </body>
 

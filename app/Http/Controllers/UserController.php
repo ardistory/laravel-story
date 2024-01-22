@@ -12,8 +12,13 @@ class UserController extends Controller
         return response()->view('dashboard');
     }
 
-    public function getIp()
+    public function getIp(): Response
     {
         return response()->view('ip');
+    }
+
+    public function getLogin(): Response
+    {
+        return response()->view('login');
     }
 }
