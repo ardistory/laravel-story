@@ -26,7 +26,7 @@
                                 class="group relative rounded-lg border px-3 pb-1.5 pt-2.5 duration-200 focus-within:ring focus-within:ring-teal-500">
                                 <label
                                     class="block text-xs font-medium text-muted-foreground group-focus-within:text-brand">Email</label>
-                                <input type="text" name="email" placeholder="panikan@buruburu.com"
+                                <input type="text" name="email" placeholder="youremail@domain.com"
                                     autocomplete="off" required=""
                                     class="block w-full border-0 bg-transparent p-0 text-sm file:my-1 file:rounded-full file:border-0 file:bg-accent file:px-4 file:py-2 file:font-medium placeholder:text-muted-foreground/90 focus:outline-none focus:ring-0 sm:leading-7 text-foreground">
                             </div>
