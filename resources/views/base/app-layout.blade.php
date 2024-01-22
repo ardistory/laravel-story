@@ -13,8 +13,8 @@
 
 <body class="bg-black text-white">
     <div class="w-full h-auto md:h-screen">
-        <x-navbar></x-navbar>
-        {{ $slot }}
+        <livewire:navbar>
+            {{ $slot }}
     </div>
     <div class="w-full h-auto">
         <x-footer></x-footer>

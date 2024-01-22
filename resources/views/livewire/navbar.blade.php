@@ -88,7 +88,7 @@
             </div>
             <div class="flex gap-2 items-center">
                 <div x-data="{ dark: true }" x-on:click="dark = !dark"
-                    :class="{ 'text-black': dark, 'bg-white': dark, 'text-black': !dark, 'bg-white': !dark }"
+                    :class="{ 'text-black bg-white': dark, 'text-black bg-white': !dark }"
                     class="text-black bg-white w-[30px] h-[30px] rounded-full flex items-center justify-center active:ring active:ring-white cursor-pointer">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="w-6 h-6">

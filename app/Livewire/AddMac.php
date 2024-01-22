@@ -55,7 +55,7 @@ class AddMac extends Component
         } else {
             if ($api->connect($this->ipWdcpProperty, env('ROS_WDCP_USERNAME'), env('ROS_WDCP_PASSWORD'))) {
                 $cekMacAddress = $api->comm('/interface/wireless/access-list/print', [
-                    '?mac-address' => $this->macAddress
+                    '?mac-address' => strtoupper($this->macAddress)
                 ]);
 
                 if (count($cekMacAddress) > 0) {

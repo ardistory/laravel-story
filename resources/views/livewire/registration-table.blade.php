@@ -11,7 +11,7 @@
                 </div>
                 Registration Table
             </div>
-            <div wire:loading.remove wire:click='refresh' class="active:animate-spin cursor-pointer">
+            <div wire:click='refresh' wire:loading.remove class="active:animate-spin cursor-pointer">
                 <div>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="w-6 h-6">
