@@ -79,7 +79,7 @@
             </div>
         </div>
     </div>
-    <div class="py-2 fixed top-0 w-full text-center text-white bg-red-500">Nik or password is wrong!</div>
     @if (session('error'))
+        <div class="py-2 fixed top-0 w-full text-center text-white bg-red-500">Nik or password is wrong!</div>
     @endif
 </div>
