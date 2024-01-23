@@ -12,22 +12,31 @@
         </div>
     </a>
     <div class="relative mt-12 w-full max-w-lg sm:mt-10">
+        <div class="relative -mb-px h-px w-full bg-gradient-to-r from-transparent via-sky-300 to-transparent"
+            bis_skin_checked="1"></div>
         <div
-            class="border text-card-foreground rounded-none border-b-border border-t-border bg-popover/30 dark:border-b-brand/50 dark:border-t-brand/50 dark:sm:border-b-brand/20 dark:sm:border-t-brand/20 shadow-[20px_0_20px_20px] shadow-slate-500/10 dark:shadow-brand/20 sm:rounded-lg sm:border-brand/20 sm:border-l-brand/20 sm:border-r-brand/20 sm:shadow-sm lg:rounded-xl lg:shadow-none">
+            class="border text-card-foreground rounded-none border-b-border border-t-border bg-popover/30 dark:border-b-white/50 dark:border-t-white/50 dark:sm:border-b-white/20 dark:sm:border-t-white/20 shadow-[20px_0_20px_20px] shadow-slate-500/10 dark:shadow-white/20 sm:rounded-lg sm:border-white/20 sm:border-l-white/20 sm:border-r-white/20 sm:shadow-sm lg:rounded-xl lg:shadow-none">
             <div class="flex flex-col p-6">
                 <h3 class="text-xl font-semibold leading-6 tracking-tighter">Login</h3>
-                <p class="mt-1.5 text-sm text-muted-foreground">Welcome back, enter your credentials to continue.</p>
+                <p class="mt-1.5 text-sm font-medium text-white/50">Welcome back, enter your credentials to continue.
+                </p>
             </div>
             <div class="p-6 pt-0">
-                <form method="post">
+                <form wire:submit='login'>
                     <div>
                         <div>
                             <div
-                                class="group relative rounded-lg border px-3 pb-1.5 pt-2.5 duration-200 focus-within:ring focus-within:ring-teal-500">
-                                <label
-                                    class="block text-xs font-medium text-muted-foreground group-focus-within:text-brand">Email</label>
-                                <input type="text" name="email" placeholder="youremail@domain.com"
-                                    autocomplete="off" required=""
+                                class="group relative rounded-lg border px-3 pb-1.5 pt-2.5 duration-200 focus-within:ring focus-within:ring-sky-300/30">
+                                <div class="flex justify-between">
+                                    <label
+                                        class="text-xs font-medium text-muted-foreground group-focus-within:text-white text-gray-400">Nik</label>
+                                    @error('nik')
+                                        <label
+                                            class="text-xs font-medium text-muted-foreground text-red-300">{{ $message }}</label>
+                                    @enderror
+                                </div>
+                                <input wire:model='nik' type="text" name="nik" placeholder="2012345678"
+                                    autocomplete="off"
                                     class="block w-full border-0 bg-transparent p-0 text-sm file:my-1 file:rounded-full file:border-0 file:bg-accent file:px-4 file:py-2 file:font-medium placeholder:text-muted-foreground/90 focus:outline-none focus:ring-0 sm:leading-7 text-foreground">
                             </div>
                         </div>
@@ -35,13 +44,18 @@
                     <div class="mt-4">
                         <div>
                             <div
-                                class="group relative rounded-lg border px-3 pb-1.5 pt-2.5 duration-200 focus-within:ring focus-within:ring-teal-500">
-                                <label
-                                    class="block text-xs font-medium text-muted-foreground group-focus-within:text-brand">Password</label>
+                                class="group relative rounded-lg border px-3 pb-1.5 pt-2.5 duration-200 focus-within:ring focus-within:ring-sky-300/30">
+                                <div class="flex justify-between">
+                                    <label
+                                        class="text-xs font-medium text-muted-foreground group-focus-within:text-white text-gray-400">Password</label>
+                                    @error('password')
+                                        <label
+                                            class="text-xs font-medium text-muted-foreground text-red-300">{{ $message }}</label>
+                                    @enderror
+                                </div>
                                 <div class="flex items-center">
-                                    <input type="password" name="password" autocomplete="new-password" required=""
-                                        class="block w-full border-0 bg-transparent p-0 text-sm file:my-1 placeholder:text-muted-foreground/90 focus:outline-none focus:ring-0 focus:ring-teal-500 sm:leading-7 text-foreground"
-                                        value="">
+                                    <input wire:model='password' type="password" name="password"
+                                        class="block w-full border-0 bg-transparent p-0 text-sm file:my-1 placeholder:text-muted-foreground/90 focus:outline-none focus:ring-0 focus:ring-teal-500 sm:leading-7 text-foreground">
                                 </div>
                             </div>
                         </div>
@@ -65,4 +79,7 @@
             </div>
         </div>
     </div>
+    <div class="py-2 fixed top-0 w-full text-center text-white bg-red-500">Nik or password is wrong!</div>
+    @if (session('error'))
+    @endif
 </div>

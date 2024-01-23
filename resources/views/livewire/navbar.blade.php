@@ -120,7 +120,8 @@
                                 </div>
                                 Account settings
                             </a>
-                            <form method="POST">
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
                                 <button type="submit"
                                     class="hover:bg-gray-300 flex items-center gap-2 text-gray-700 w-[96%] px-4 py-2 mx-1 rounded-md text-left text-sm"
                                     role="menuitem" tabindex="-1" id="menu-item-3">
