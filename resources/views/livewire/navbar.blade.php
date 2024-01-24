@@ -89,7 +89,7 @@
             <div class="flex gap-2 items-center">
                 <div x-data="{ dark: true }" x-on:click="dark = !dark"
                     :class="{ 'text-black bg-white': dark, 'text-black bg-white': !dark }"
-                    class="text-black bg-white w-[30px] h-[30px] rounded-full flex items-center justify-center active:ring active:ring-white cursor-pointer">
+                    class="text-black bg-white w-[30px] h-[30px] rounded-full flex items-center justify-center hover:ring hover:ring-white cursor-pointer">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="w-6 h-6">
                         <path :class="{ 'hidden': !dark }" stroke-linecap="round" stroke-linejoin="round"
@@ -100,8 +100,8 @@
                 </div>
                 <div x-data="{ open: false }" class="relative">
                     <div x-on:click="open = !open" x-on:click.away="open = false"
-                        class="bg-white w-[40px] h-[40px] rounded-full overflow-hidden active:ring active:ring-white cursor-pointer">
-                        <img src="{{ asset('img/profile.jpg') }}" alt="profile picture">
+                        class="w-[40px] h-[40px] rounded-full overflow-hidden hover:ring hover:ring-white cursor-pointer">
+                        <img src="{{ asset('storage/img/profile/' . Auth::user()->picture) }}" alt="profile picture">
                     </div>
                     <div x-show="open"
                         class="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
@@ -146,10 +146,10 @@
             <div class="flex items-center justify-between">
                 <div x-data="{ open: false }" class="flex gap-2 items-center">
                     <div
-                        class="bg-white w-[60px] h-[60px] rounded-full overflow-hidden active:ring active:ring-white cursor-pointer">
-                        <img src="{{ asset('img/profile.jpg') }}" alt="profile picture">
+                        class="w-[60px] h-[60px] rounded-full overflow-hidden active:ring active:ring-white cursor-pointer">
+                        <img src="{{ asset('storage/img/profile/' . Auth::user()->picture) }}" alt="profile picture">
                     </div>
-                    <div class="font-bold text-2xl">Ardiansyah Putra</div>
+                    <div class="font-bold text-2xl">{{ Auth::user()->name }}</div>
                 </div>
                 <div x-data="{ dark: true }" x-on:click="dark = !dark"
                     :class="{ 'text-black': dark, 'bg-white': dark, 'text-black': !dark, 'bg-white': !dark }"
@@ -240,7 +240,7 @@
                     </div>
                     Account settings
                 </a>
-                <a href="#"
+                <a href="{{ route('logout') }}"
                     class="flex items-center gap-2 text-white hover:bg-white hover:text-black rounded-full px-6 py-4 text-xl font-medium transition duration-250">
                     <div>
                         <svg class="h-7 w-7" width="24" height="24" viewBox="0 0 24 24" stroke-width="2"

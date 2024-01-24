@@ -15,7 +15,7 @@
         <div class="relative -mb-px h-px w-full bg-gradient-to-r from-transparent via-sky-300 to-transparent"
             bis_skin_checked="1"></div>
         <div
-            class="border text-card-foreground rounded-none border-b-border border-t-border bg-popover/30 dark:border-b-white/50 dark:border-t-white/50 dark:sm:border-b-white/20 dark:sm:border-t-white/20 shadow-[20px_0_20px_20px] shadow-slate-500/10 dark:shadow-white/20 sm:rounded-lg sm:border-white/20 sm:border-l-white/20 sm:border-r-white/20 sm:shadow-sm lg:rounded-xl lg:shadow-none">
+            class="mx-5 border dark:border-b-white/50 dark:border-t-white/50 border-b-white/20 sm:border-t-white/20 shadow-[20px_0_20px_20px] shadow-slate-500/10 dark:shadow-white/20 rounded-lg border-white/20 border-l-white/20 border-r-white/20 sm:shadow-sm lg:rounded-xl lg:shadow-none">
             <div class="flex flex-col p-6">
                 <h3 class="text-xl font-semibold leading-6 tracking-tighter">Login</h3>
                 <p class="mt-1.5 text-sm font-medium text-white/50">Welcome back, enter your credentials to continue.
@@ -80,6 +80,6 @@
         </div>
     </div>
     @if (session('error'))
-        <div class="py-2 fixed top-0 w-full text-center text-white bg-red-500">Nik or password is wrong!</div>
+        <div class="py-2 fixed top-0 w-full text-center text-white bg-red-500">Wrong credentials!</div>
     @endif
 </div>

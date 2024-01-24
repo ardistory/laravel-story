@@ -11,7 +11,7 @@ Route::middleware([Authenticate::class])->controller(UserController::class)->gro
     Route::get('/', 'getDashboard')->name('dashboard');
     Route::get('/ip', 'getIp')->name('ip');
     Route::post('/logout', LogoutController::class)->name('logout');
-
+    Route::get('/logout', LogoutController::class)->name('logout');
 });
 
 Route::middleware([RedirectIfAuthenticated::class])->group(function () {

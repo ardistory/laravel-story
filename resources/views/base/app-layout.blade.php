@@ -13,6 +13,9 @@
 
 <body class="bg-black text-white">
     @auth
+        @if (Hash::check('password', Auth::user()->password))
+            <livewire:if-default-password>
+        @endif
         <div class="w-full h-auto md:h-screen">
             <livewire:navbar>
                 {{ $slot }}
