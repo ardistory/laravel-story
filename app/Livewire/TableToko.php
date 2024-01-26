@@ -10,6 +10,8 @@ class TableToko extends Component
 {
     public string $title = 'Data Store';
     public string $storeCode = '';
+    public string $status = '';
+
     public function sendDataStoreCode()
     {
         $this->dispatch('submitTableToko', kode_toko: $this->storeCode);
@@ -17,6 +19,8 @@ class TableToko extends Component
 
     public function pingGateway($ipAddress)
     {
+        $this->status = 'Loading . . ';
+
         $ping = new Ping($ipAddress, 128, 3);
 
         return $ping->ping();

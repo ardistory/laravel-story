@@ -10,8 +10,8 @@
             </div>
             {{ $title }}
         </div>
-        <div wire:loading class="flex items-center justify-center">
-            <div>
+        <div wire:loading class="flex items-center justify-center gap-2 font-semibold">
+            <div wire:loading>
                 <svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none"
                     viewBox="0 0 24 24">
                     <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor"
@@ -21,6 +21,7 @@
                     </path>
                 </svg>
             </div>
+            {{ $status }}
         </div>
         <div class="flex items-center top-5 right-5">
             <div class="flex">
