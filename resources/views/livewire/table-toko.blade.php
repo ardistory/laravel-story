@@ -110,12 +110,22 @@
                                 </div>
                             </div>
                             <div class="flex items-center gap-2">
-                                <div class="flex-none rounded-full bg-emerald-500/20 p-1">
-                                    <div class="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-ping absolute">
+                                @if ($data_ping['ip_gateway'] != 0)
+                                    <div class="flex-none rounded-full bg-emerald-500/20 p-1">
+                                        <div class="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-ping absolute">
+                                        </div>
+                                        <div class="h-1.5 w-1.5 rounded-full bg-emerald-500"></div>
                                     </div>
-                                    <div class="h-1.5 w-1.5 rounded-full bg-emerald-500"></div>
-                                </div>
-                                <p class="text-xs leading-5 text-gray-500">Online</p>
+                                    <p class="text-xs leading-5 text-gray-500">Online - {{ $data_ping['ip_gateway'] }}ms
+                                    </p>
+                                @else
+                                    <div class="flex-none rounded-full bg-red-500/20 p-1">
+                                        <div class="h-1.5 w-1.5 rounded-full bg-red-500 animate-ping absolute">
+                                        </div>
+                                        <div class="h-1.5 w-1.5 rounded-full bg-red-500"></div>
+                                    </div>
+                                    <p class="text-xs leading-5 text-gray-500">Offline</p>
+                                @endif
                             </div>
                         </div>
                         <div class="mr-1 flex gap-1">
@@ -202,12 +212,23 @@
                                 </div>
                             </div>
                             <div class="flex items-center gap-2">
-                                <div class="flex-none rounded-full bg-emerald-500/20 p-1">
-                                    <div class="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-ping absolute">
+                                @if ($data_ping['ip_induk'] != 0)
+                                    <div class="flex-none rounded-full bg-emerald-500/20 p-1">
+                                        <div class="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-ping absolute">
+                                        </div>
+                                        <div class="h-1.5 w-1.5 rounded-full bg-emerald-500"></div>
                                     </div>
-                                    <div class="h-1.5 w-1.5 rounded-full bg-emerald-500"></div>
-                                </div>
-                                <p class="text-xs leading-5 text-gray-500">Online</p>
+                                    <p class="text-xs leading-5 text-gray-500">Online -
+                                        {{ $data_ping['ip_gateway'] }}ms
+                                    </p>
+                                @else
+                                    <div class="flex-none rounded-full bg-red-500/20 p-1">
+                                        <div class="h-1.5 w-1.5 rounded-full bg-red-500 animate-ping absolute">
+                                        </div>
+                                        <div class="h-1.5 w-1.5 rounded-full bg-red-500"></div>
+                                    </div>
+                                    <p class="text-xs leading-5 text-gray-500">Offline</p>
+                                @endif
                             </div>
                         </div>
                         <div class="mr-1 flex gap-1">
@@ -346,12 +367,23 @@
                                 </div>
                             </div>
                             <div class="flex items-center gap-2">
-                                <div class="flex-none rounded-full bg-emerald-500/20 p-1">
-                                    <div class="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-ping absolute">
+                                @if ($data_ping['ip_anak'] != 0)
+                                    <div class="flex-none rounded-full bg-emerald-500/20 p-1">
+                                        <div class="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-ping absolute">
+                                        </div>
+                                        <div class="h-1.5 w-1.5 rounded-full bg-emerald-500"></div>
                                     </div>
-                                    <div class="h-1.5 w-1.5 rounded-full bg-emerald-500"></div>
-                                </div>
-                                <p class="text-xs leading-5 text-gray-500">Online</p>
+                                    <p class="text-xs leading-5 text-gray-500">Online -
+                                        {{ $data_ping['ip_gateway'] }}ms
+                                    </p>
+                                @else
+                                    <div class="flex-none rounded-full bg-red-500/20 p-1">
+                                        <div class="h-1.5 w-1.5 rounded-full bg-red-500 animate-ping absolute">
+                                        </div>
+                                        <div class="h-1.5 w-1.5 rounded-full bg-red-500"></div>
+                                    </div>
+                                    <p class="text-xs leading-5 text-gray-500">Offline</p>
+                                @endif
                             </div>
                         </div>
                         <div class="mr-1 flex gap-1">
@@ -491,12 +523,23 @@
                                 </div>
                             </div>
                             <div class="flex items-center gap-2">
-                                <div class="flex-none rounded-full bg-emerald-500/20 p-1">
-                                    <div class="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-ping absolute">
+                                @if ($data_ping['ip_stb'] != 0)
+                                    <div class="flex-none rounded-full bg-emerald-500/20 p-1">
+                                        <div class="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-ping absolute">
+                                        </div>
+                                        <div class="h-1.5 w-1.5 rounded-full bg-emerald-500"></div>
                                     </div>
-                                    <div class="h-1.5 w-1.5 rounded-full bg-emerald-500"></div>
-                                </div>
-                                <p class="text-xs leading-5 text-gray-500">Online</p>
+                                    <p class="text-xs leading-5 text-gray-500">Online -
+                                        {{ $data_ping['ip_gateway'] }}ms
+                                    </p>
+                                @else
+                                    <div class="flex-none rounded-full bg-red-500/20 p-1">
+                                        <div class="h-1.5 w-1.5 rounded-full bg-red-500 animate-ping absolute">
+                                        </div>
+                                        <div class="h-1.5 w-1.5 rounded-full bg-red-500"></div>
+                                    </div>
+                                    <p class="text-xs leading-5 text-gray-500">Offline</p>
+                                @endif
                             </div>
                         </div>
                         <div class="mr-1 flex gap-1">
@@ -582,12 +625,23 @@
                                 </div>
                             </div>
                             <div class="flex items-center gap-2">
-                                <div class="flex-none rounded-full bg-emerald-500/20 p-1">
-                                    <div class="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-ping absolute">
+                                @if ($data_ping['ip_wdcp'] != 0)
+                                    <div class="flex-none rounded-full bg-emerald-500/20 p-1">
+                                        <div class="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-ping absolute">
+                                        </div>
+                                        <div class="h-1.5 w-1.5 rounded-full bg-emerald-500"></div>
                                     </div>
-                                    <div class="h-1.5 w-1.5 rounded-full bg-emerald-500"></div>
-                                </div>
-                                <p class="text-xs leading-5 text-gray-500">Online</p>
+                                    <p class="text-xs leading-5 text-gray-500">Online -
+                                        {{ $data_ping['ip_gateway'] }}ms
+                                    </p>
+                                @else
+                                    <div class="flex-none rounded-full bg-red-500/20 p-1">
+                                        <div class="h-1.5 w-1.5 rounded-full bg-red-500 animate-ping absolute">
+                                        </div>
+                                        <div class="h-1.5 w-1.5 rounded-full bg-red-500"></div>
+                                    </div>
+                                    <p class="text-xs leading-5 text-gray-500">Offline</p>
+                                @endif
                             </div>
                         </div>
                         <div class="mr-1 flex gap-1">

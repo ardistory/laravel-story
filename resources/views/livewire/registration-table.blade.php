@@ -44,7 +44,7 @@
                     </div>
                     <div
                         class="w-[40%] h-5 mx-auto mt-[10px] bg-white rounded-xl text-black flex items-center justify-center gap-2 font-semibold">
-                        {{ $data['last-ip'] }}
+                        {{ $data['last-ip'] ?? 'Not Signed' }}
                     </div>
                 </div>
             @endif
