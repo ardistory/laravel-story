@@ -8,17 +8,18 @@ use Livewire\Component;
 
 class Login extends Component
 {
-    #[Validate('required|max:10')]
+    #[Validate('required|min:10|max:10')]
     public string $nik;
 
     #[Validate('required|min:8')]
     public string $password;
+    public bool $remember = false;
 
     public function login()
     {
         $validated = $this->validate();
 
-        if (Auth::attempt($validated)) {
+        if (Auth::attempt($validated, $this->remember)) {
             $this->redirectRoute('dashboard');
         } else {
             session()->flash('error');

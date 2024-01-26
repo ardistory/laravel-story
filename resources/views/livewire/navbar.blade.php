@@ -104,11 +104,35 @@
                         <img src="{{ asset('storage/img/profile/' . Auth::user()->picture) }}" alt="profile picture">
                     </div>
                     <div x-show="open"
-                        class="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
-                        role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+                        class="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-black shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none border border-zinc-500">
                         <div class="py-1" role="none">
+                            <div class="px-4 py-2 border-b border-zinc-500 flex items-center justify-center gap-2">
+                                <div>
+                                    <div class="w-7 h-7 rounded-full overflow-hidden">
+                                        <img src="{{ asset('storage/img/profile/' . Auth::user()->picture) }}">
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="font-bold text-sm inline-flex gap-1 items-center">
+                                        {{ Auth::user()->name }}
+                                        @if (Auth::user()->name == 'Ardiansyah Putra')
+                                            <div>
+                                                <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg"
+                                                    viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                                                    <path fill-rule="evenodd"
+                                                        d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z"
+                                                        clip-rule="evenodd" />
+                                                </svg>
+                                            </div>
+                                        @endif
+                                    </div>
+                                    <div class="text-xs text-zinc-500">
+                                        {{ Auth::user()->email ?? '' }}
+                                    </div>
+                                </div>
+                            </div>
                             <a href="#"
-                                class="hover:bg-gray-300 flex items-center gap-2 text-gray-700 px-4 py-2 mx-1 rounded-md text-sm">
+                                class="hover:bg-white flex items-center gap-2 transition-colors duration-75 text-white hover:text-black px-4 py-2 mx-1 rounded-md text-sm mt-1">
                                 <div>
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                         stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -123,7 +147,7 @@
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
                                 <button type="submit"
-                                    class="hover:bg-gray-300 flex items-center gap-2 text-gray-700 w-[96%] px-4 py-2 mx-1 rounded-md text-left text-sm"
+                                    class="hover:bg-white flex items-center gap-2 transition-colors duration-75 text-white hover:text-black w-[96%] px-4 py-2 mx-1 rounded-md text-left text-sm"
                                     role="menuitem" tabindex="-1" id="menu-item-3">
                                     <div>
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"

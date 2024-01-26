@@ -26,16 +26,27 @@
                     <div>
                         <div>
                             <div
-                                class="group relative rounded-lg border px-3 pb-1.5 pt-2.5 duration-200 focus-within:ring focus-within:ring-sky-300/30">
+                                class="group relative rounded-lg border @error('nik') border-red-500 ring ring-red-400 @else border-white/30 @enderror focus-within:border-sky-200 px-3 pb-1.5 pt-2.5 duration-200 focus-within:ring focus-within:ring-sky-300/30">
                                 <div class="flex justify-between">
                                     <label
                                         class="text-xs font-medium text-muted-foreground group-focus-within:text-white text-gray-400">Nik</label>
                                     @error('nik')
                                         <label
-                                            class="text-xs font-medium text-muted-foreground text-red-300">{{ $message }}</label>
+                                            class="text-xs font-medium text-muted-foreground text-red-500">{{ $message }}</label>
+                                    @else
+                                        @if (strlen($nik) == 10)
+                                            <div class="absolute right-3 translate-y-2 text-green-200">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                                    fill="currentColor" class="w-6 h-6">
+                                                    <path fill-rule="evenodd"
+                                                        d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z"
+                                                        clip-rule="evenodd" />
+                                                </svg>
+                                            </div>
+                                        @endif
                                     @enderror
                                 </div>
-                                <input wire:model='nik' type="text" name="nik" placeholder="2012345678"
+                                <input wire:model.blur='nik' type="text" name="nik" placeholder="2012345678"
                                     autocomplete="off"
                                     class="block w-full border-0 bg-transparent p-0 text-sm file:my-1 file:rounded-full file:border-0 file:bg-accent file:px-4 file:py-2 file:font-medium placeholder:text-muted-foreground/90 focus:outline-none focus:ring-0 sm:leading-7 text-foreground">
                             </div>
@@ -44,13 +55,13 @@
                     <div class="mt-4">
                         <div>
                             <div
-                                class="group relative rounded-lg border px-3 pb-1.5 pt-2.5 duration-200 focus-within:ring focus-within:ring-sky-300/30">
+                                class="group relative rounded-lg border @error('password') border-red-500 ring ring-red-400 @else border-white/30 @enderror focus-within:border-sky-200 px-3 pb-1.5 pt-2.5 duration-200 focus-within:ring focus-within:ring-sky-300/30">
                                 <div class="flex justify-between">
                                     <label
                                         class="text-xs font-medium text-muted-foreground group-focus-within:text-white text-gray-400">Password</label>
                                     @error('password')
                                         <label
-                                            class="text-xs font-medium text-muted-foreground text-red-300">{{ $message }}</label>
+                                            class="text-xs font-medium text-muted-foreground text-red-500">{{ $message }}</label>
                                     @enderror
                                 </div>
                                 <div class="flex items-center">
@@ -61,18 +72,19 @@
                         </div>
                     </div>
                     <div class="mt-4 flex items-center justify-between">
-                        <label class="flex items-center">
-                            <input type="checkbox" aria-hidden="true" name="remember" tabindex="-1" value="on"
-                                class="ml-2 select-none text-sm text-muted-foreground">Remember me</span>
+                        <label class="flex items-center gap-2">
+                            <input wire:model='remember' type="checkbox" name="remember"
+                                class="outline-none focus:outline focus:outline-sky-300">
+                            <span class="text-xs">Remember me</span>
                         </label>
                         <a class="text-sm font-medium text-foreground underline" href="/forgot-password">Forgot
                             password?</a>
                     </div>
                     <div class="mt-4 flex items-center justify-end gap-x-2">
-                        <a class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:bg-white hover:text-black h-10 px-4 py-2"
+                        <a class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:ring hover:ring-white h-10 px-4 py-2 duration-200"
                             href="/register">Register</a>
                         <button
-                            class="hover:ring hover:ring-teal-500 transition duration-300 inline-flex items-center justify-center rounded-md text-sm font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-white text-black h-10 px-4 py-2"
+                            class="font-semibold hover:bg-black hover:text-white hover:ring hover:ring-white transition duration-300 inline-flex items-center justify-center rounded-md text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-white text-black h-10 px-4 py-2"
                             type="submit">Log in</button>
                     </div>
                 </form>

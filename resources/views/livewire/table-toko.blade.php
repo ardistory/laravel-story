@@ -33,7 +33,7 @@
                 </div>
                 <input wire:model='storeCode' wire:keydown.enter='sendDataStoreCode'
                     class="outline-none py-1 px-2 rounded-r-full text-black hover:ring hover:ring-teal-500 transition duration-150"
-                    type="text" name="search" placeholder="Store Code ex.TKBV" maxlength="4">
+                    type="text" name="search" placeholder="Store Code ex.TKBV" maxlength="4" autocomplete="off">
             </div>
         </div>
     </div>
