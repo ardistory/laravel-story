@@ -5,7 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{{ $title ?? 'Edp Lebak' }}</title>
+    @if (Request::routeIs('login'))
+        <title>Edp Lebak | Login Page</title>
+    @else
+        <title>Edp Lebak | {{ $title ?? 'Edp Lebak' }}</title>
+    @endif
+
     @vite('resources/css/app.css')
     <link rel="shortcut icon" href="{{ asset('icon/terminal.ico') }}" type="image/x-icon">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=VT323&display=swap">

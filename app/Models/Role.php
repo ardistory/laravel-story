@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class TokoLbk extends Model
+class Role extends Model
 {
-    protected $table = 'tokolbk';
-    protected $primaryKey = 'kode_toko';
-    protected $keyType = 'string';
-    public $incrementing = false;
+    protected $table = 'role';
+    protected $primaryKey = 'id';
+    protected $keyType = 'int';
+    public $incrementing = true;
     public $timestamps = false;
     protected $guard = [];
 }

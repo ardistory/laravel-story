@@ -5,9 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class TokoLbk extends Model
+class Area extends Model
 {
-    protected $table = 'tokolbk';
+    protected $table = 'area';
     protected $primaryKey = 'kode_toko';
     protected $keyType = 'string';
     public $incrementing = false;

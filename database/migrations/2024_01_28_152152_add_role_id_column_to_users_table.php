@@ -10,8 +10,10 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::table('tokolbk', function (Blueprint $table) {
-            $table->dropColumn('edpketoko');
+        Schema::table('users', function (Blueprint $table) {
+            $table->integer('role_level')->after('picture')->default(3);
+
+            $table->foreign('role_level')->on('role')->references('level');
         });
     }
 
@@ -20,8 +22,8 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::table('tokolbk', function (Blueprint $table) {
-            $table->string('edpketoko')->after('edparea');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('role_level');
         });
     }
 };
