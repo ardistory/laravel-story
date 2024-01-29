@@ -13,4 +13,5 @@ class TokoLbk extends Model
     public $incrementing = false;
     public $timestamps = false;
     protected $guard = [];
+    protected $fillable = ['*'];
 }
