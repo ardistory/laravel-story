@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\On;
 use Livewire\Component;
 use App\Models\TokoLbk;
@@ -15,29 +16,31 @@ class DefaultAuthentication extends Component
     #[On('submitTableToko')]
     public function getStatusWlan($kode_toko)
     {
-        $this->storeCodeFromEvent = $kode_toko;
+        if (Auth::user()->role->level == 3) {
+            $this->storeCodeFromEvent = $kode_toko;
 
-        $query = TokoLbk::query()->where('kode_toko', '=', $this->storeCodeFromEvent)->first();
+            $query = TokoLbk::query()->where('kode_toko', '=', $this->storeCodeFromEvent)->first();
 
-        try {
-            $this->ipWdcpProperty = $query->ip_wdcp;
-        } catch (\Exception $exception) {
-            $this->ipWdcpProperty = 'error';
+            try {
+                $this->ipWdcpProperty = $query->ip_wdcp;
+            } catch (\Exception $exception) {
+                $this->ipWdcpProperty = 'error';
 
 
-        }
-
-        if ($this->ipWdcpProperty == 'error') {
-        } else {
-            $api = new RouterosAPI();
-
-            if ($api->connect($this->ipWdcpProperty, env('ROS_WDCP_USERNAME'), env('ROS_WDCP_PASSWORD'))) {
-                $data = $api->comm('/interface/wireless/print');
-
-                return $data;
             }
 
-            $api->disconnect();
+            if ($this->ipWdcpProperty == 'error') {
+            } else {
+                $api = new RouterosAPI();
+
+                if ($api->connect($this->ipWdcpProperty, env('ROS_WDCP_USERNAME'), env('ROS_WDCP_PASSWORD'))) {
+                    $data = $api->comm('/interface/wireless/print');
+
+                    return $data;
+                }
+
+                $api->disconnect();
+            }
         }
     }
 

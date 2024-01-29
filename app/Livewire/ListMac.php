@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Api\RouterosAPI;
 use App\Models\TokoLbk;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\On;
 use Livewire\Component;
 
@@ -16,34 +17,36 @@ class ListMac extends Component
     #[On('submitTableToko')]
     public function getListMacAddressFromRouter($kode_toko)
     {
-        $this->storeCodeFromEvent = $kode_toko;
+        if (Auth::user()->role->level == 3) {
+            $this->storeCodeFromEvent = $kode_toko;
 
-        $query = TokoLbk::query()->where('kode_toko', '=', $this->storeCodeFromEvent)->first();
+            $query = TokoLbk::query()->where('kode_toko', '=', $this->storeCodeFromEvent)->first();
 
-        try {
-            $this->ipWdcpProperty = $query->ip_wdcp;
-        } catch (\Exception $exception) {
-            $this->ipWdcpProperty = 'error';
-        }
-
-        if ($this->ipWdcpProperty == 'error') {
-        } else {
-            $api = new RouterosAPI();
-
-            if ($api->connect($this->ipWdcpProperty, env('ROS_WDCP_USERNAME'), env('ROS_WDCP_PASSWORD'))) {
-                $data = $api->comm('/interface/wireless/access-list/print');
-
-                $this->countMac = count($data);
-
-                session()->flash('counted', $this->countMac);
-
-                return $data;
-            } else {
-                $this->inputComment = '';
-                $this->macAddress = '';
+            try {
+                $this->ipWdcpProperty = $query->ip_wdcp;
+            } catch (\Exception $exception) {
+                $this->ipWdcpProperty = 'error';
             }
 
-            $api->disconnect();
+            if ($this->ipWdcpProperty == 'error') {
+            } else {
+                $api = new RouterosAPI();
+
+                if ($api->connect($this->ipWdcpProperty, env('ROS_WDCP_USERNAME'), env('ROS_WDCP_PASSWORD'))) {
+                    $data = $api->comm('/interface/wireless/access-list/print');
+
+                    $this->countMac = count($data);
+
+                    session()->flash('counted', $this->countMac);
+
+                    return $data;
+                } else {
+                    $this->inputComment = '';
+                    $this->macAddress = '';
+                }
+
+                $api->disconnect();
+            }
         }
     }
 

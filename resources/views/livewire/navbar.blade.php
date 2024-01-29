@@ -24,8 +24,7 @@
         <div class="md:w-full hidden md:flex items-center justify-between gap-10">
             <div class="ml-10 flex items-center gap-2">
                 <a wire:navigate href="{{ route('dashboard') }}"
-                    :class="{ 'text-black bg-white': {{ Request::routeIs('dashboard') }} }"
-                    class="hover:text-black hover:bg-white flex items-center gap-2 rounded-full px-3 py-2 text-sm font-medium transition duration-250">
+                    class="@if (Request::routeIs('dashboard')) text-black bg-white @endif hover:text-black hover:bg-white flex items-center gap-2 rounded-full px-3 py-2 text-sm font-medium transition duration-250">
                     <div>
                         <svg class="h-5 w-5" width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
                             stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -38,8 +37,7 @@
                     Dashboard
                 </a>
                 <a wire:navigate href="{{ route('ip') }}"
-                    :class="{ 'text-black bg-white': {{ Request::routeIs('ip') }} }"
-                    class="hover:text-black hover:bg-white flex items-center gap-2 rounded-full px-3 py-2 text-sm font-medium transition duration-250">
+                    class="@if (Request::routeIs('ip')) text-black bg-white @endif hover:text-black hover:bg-white flex items-center gap-2 rounded-full px-3 py-2 text-sm font-medium transition duration-250">
                     <div>
                         <svg class="h-5 w-5" width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
                             stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -115,7 +113,7 @@
                                 <div>
                                     <div class="font-bold text-sm inline-flex gap-2 items-center">
                                         {{ Auth::user()->name }}
-                                        @if (Auth::user()->name == 'Ardiansyah Putra')
+                                        @if (Auth::user()->role->name == 'Super Admin')
                                             <div>
                                                 <svg class="size-4 sm:size-[1.05rem] h-3.5 -ml-1" width="24"
                                                     height="24" viewBox="0 0 24 24" fill="none"
@@ -178,7 +176,7 @@
                 </div>
                 <div x-data="{ dark: true }" x-on:click="dark = !dark"
                     :class="{ 'text-black': dark, 'bg-white': dark, 'text-black': !dark, 'bg-white': !dark }"
-                    class="text-black bg-white w-[30px] h-[30px] rounded-full flex items-center justify-center active:ring active:ring-white cursor-pointer">
+                    class=" text-black bg-white w-[30px] h-[30px] rounded-full flex items-center justify-center active:ring active:ring-white cursor-pointer">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="w-6 h-6">
                         <path :class="{ 'hidden': !dark }" stroke-linecap="round" stroke-linejoin="round"
@@ -190,8 +188,7 @@
             </div>
             <div class="flex flex-col gap-2">
                 <a href="{{ route('dashboard') }}"
-                    :class="{ 'text-black bg-white': {{ Request::routeIs('dashboard') }} }"
-                    class="flex items-center gap-2 hover:bg-white hover:text-black rounded-full px-6 py-4 text-xl font-medium transition duration-250">
+                    class="@if (Request::routeIs('dashboard')) text-black bg-white @endif flex items-center gap-2 hover:bg-white hover:text-black rounded-full px-6 py-4 text-xl font-medium transition duration-250">
                     <div>
                         <svg class="h-7 w-7" width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
                             stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -203,8 +200,8 @@
                     </div>
                     Dashboard
                 </a>
-                <a href="{{ route('ip') }}" :class="{ 'text-black bg-white': {{ Request::routeIs('ip') }} }"
-                    class="flex items-center gap-2 hover:bg-white hover:text-black rounded-full px-6 py-4 text-xl font-medium transition duration-250">
+                <a href="{{ route('ip') }}"
+                    class="@if (Request::routeIs('ip')) text-black bg-white @endif flex items-center gap-2 hover:bg-white hover:text-black rounded-full px-6 py-4 text-xl font-medium transition duration-250">
                     <div>
                         <svg class="h-7 w-7" width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
                             stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">

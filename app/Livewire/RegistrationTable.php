@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Api\RouterosAPI;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\On;
 use Livewire\Component;
 use App\Models\TokoLbk;
@@ -16,30 +17,32 @@ class RegistrationTable extends Component
     #[On('submitTableToko')]
     public function getRegistrationTable($kode_toko)
     {
-        $this->storeCodeFromEvent = $kode_toko ?? '';
+        if (Auth::user()->role->level == 3) {
+            $this->storeCodeFromEvent = $kode_toko ?? '';
 
-        $query = TokoLbk::query()->where('kode_toko', '=', $this->storeCodeFromEvent)->first();
+            $query = TokoLbk::query()->where('kode_toko', '=', $this->storeCodeFromEvent)->first();
 
-        try {
-            $this->ipWdcpProperty = $query->ip_wdcp;
+            try {
+                $this->ipWdcpProperty = $query->ip_wdcp;
 
-            $api = new RouterosAPI();
+                $api = new RouterosAPI();
 
-            if ($this->ipWdcpProperty == '') {
+                if ($this->ipWdcpProperty == '') {
 
-            } else {
-                if ($api->connect($this->ipWdcpProperty, env('ROS_WDCP_USERNAME'), env('ROS_WDCP_PASSWORD'))) {
-                    $data = $api->comm('/interface/wireless/registration-table/print');
-
-                    return $data;
                 } else {
-                    session()->flash('listRegFailed');
-                }
-            }
+                    if ($api->connect($this->ipWdcpProperty, env('ROS_WDCP_USERNAME'), env('ROS_WDCP_PASSWORD'))) {
+                        $data = $api->comm('/interface/wireless/registration-table/print');
 
-            $api->disconnect();
-        } catch (\Exception $exception) {
-            session()->flash('listRegFailed');
+                        return $data;
+                    } else {
+                        session()->flash('listRegFailed');
+                    }
+                }
+
+                $api->disconnect();
+            } catch (\Exception $exception) {
+                session()->flash('listRegFailed');
+            }
         }
     }
 

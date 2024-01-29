@@ -21,7 +21,7 @@
         @if (Hash::check('password', Auth::user()->password))
             <livewire:if-default-password>
         @endif
-        <div class="w-full h-auto md:h-screen">
+        <div class="w-full h-auto">
             <livewire:navbar>
                 {{ $slot }}
         </div>
