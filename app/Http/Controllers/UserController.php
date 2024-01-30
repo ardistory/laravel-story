@@ -16,4 +16,8 @@ class UserController extends Controller
     {
         return response()->view('ip');
     }
+    public function getUsers(): Response
+    {
+        return response()->view('list-users');
+    }
 }

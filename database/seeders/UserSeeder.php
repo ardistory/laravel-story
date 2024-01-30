@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
                 'nik' => '2015171331',
                 'password' => Hash::make('password'),
                 'picture' => 'profile.jpg',
-                'role_level' => 1
+                'role_level' => 3
             ],
             [
                 'name' => 'Aceng Abdul Fatah',

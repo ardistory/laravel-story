@@ -11,7 +11,7 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->integer('role_level')->after('picture')->default(3);
+            $table->integer('role_level')->after('picture')->default(1);
 
             $table->foreign('role_level')->on('role')->references('level');
         });
