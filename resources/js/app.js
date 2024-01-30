@@ -1,5 +1,21 @@
-// import Alpine from "alpinejs";
+import ClipboardJS from 'clipboard';
+import iziToast from 'izitoast';
+import 'izitoast/dist/css/iziToast.min.css';
 
-// window.Alpine = Alpine;
+document.addEventListener('DOMContentLoaded', function () {
+    const listButton = ['copyGateway', 'copyInduk', 'copyAnak', 'copyStb', 'copyWdcp'];
 
-// Alpine.start();
+    listButton.forEach((value) => {
+        new ClipboardJS(`#${value}`).on('success', function (e) {
+            iziToast.success({
+                position: 'topRight',
+                pauseOnHover: false,
+                title: 'Copied',
+                message: `${e.text}`,
+                close: false,
+                theme: 'light',
+                color: 'white'
+            });
+        });
+    });
+});

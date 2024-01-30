@@ -8,8 +8,9 @@
                     d="M15.042 21.672 13.684 16.6m0 0-2.51 2.225.569-9.47 5.227 7.917-3.286-.672Zm-7.518-.267A8.25 8.25 0 1 1 20.25 10.5M8.288 14.212A5.25 5.25 0 1 1 17.25 10.5" />
             </svg>
         </div>
-        <a wire:navigate href="{{ route('dashboard') }}"
-            class="font-bold text-2xl tracking-tighter -translate-y-[3px]">edplebak</a>
+        <a wire:navigate href="{{ route('dashboard') }}" class="font-bold text-2xl tracking-tighter -translate-y-[3px]">
+            edplebak_
+        </a>
     </div>
     <div x-data="{ navbar: false }">
         <div x-on:click="navbar = !navbar" class="md:hidden scale-150">
@@ -102,7 +103,7 @@
                         <img src="{{ asset('storage/img/profile/' . Auth::user()->picture) }}" alt="profile picture">
                     </div>
                     <div x-show="open"
-                        class="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-black shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none border border-zinc-500">
+                        class="absolute right-0 z-10 mt-2 origin-top-right rounded-md bg-black shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none border border-zinc-500">
                         <div class="py-1" role="none">
                             <div class="px-4 py-2 border-b border-zinc-500 flex items-center justify-center gap-2">
                                 <div>
@@ -143,21 +144,17 @@
                                 </div>
                                 Account settings
                             </a>
-                            <form method="POST" action="{{ route('logout') }}">
-                                @csrf
-                                <button type="submit"
-                                    class="hover:bg-red-500 flex items-center gap-2 transition-colors duration-75 text-white w-[96%] px-4 py-2 mx-1 rounded-md text-left text-sm"
-                                    role="menuitem" tabindex="-1" id="menu-item-3">
-                                    <div>
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                            stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                            <path stroke-linecap="round" stroke-linejoin="round"
-                                                d="M8.25 9V5.25A2.25 2.25 0 0 1 10.5 3h6a2.25 2.25 0 0 1 2.25 2.25v13.5A2.25 2.25 0 0 1 16.5 21h-6a2.25 2.25 0 0 1-2.25-2.25V15M12 9l3 3m0 0-3 3m3-3H2.25" />
-                                        </svg>
-                                    </div>
-                                    Sign out
-                                </button>
-                            </form>
+                            <div wire:click='logout'
+                                class="cursor-pointer hover:bg-red-500 hover:text-white flex items-center gap-2 transition-colors duration-75 text-white px-4 py-2 mx-1 rounded-md text-sm mt-1">
+                                <div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15M12 9l-3 3m0 0 3 3m-3-3h12.75" />
+                                    </svg>
+                                </div>
+                                Sign Out
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -167,12 +164,13 @@
         {{-- navbar-mobile --}}
         <div x-show="navbar" class="bg-black h-[2000px] flex flex-col gap-5 p-2 w-full absolute top-[100px] left-0">
             <div class="flex items-center justify-between">
-                <div x-data="{ open: false }" class="flex gap-2 items-center">
-                    <div
-                        class="w-[60px] h-[60px] rounded-full overflow-hidden active:ring active:ring-white cursor-pointer">
-                        <img src="{{ asset('storage/img/profile/' . Auth::user()->picture) }}" alt="profile picture">
+                <div x-data="{ open: false }" class="flex gap-5 items-center">
+                    <img class="w-[60px] h-[60px] rounded-full "
+                        src="{{ asset('storage/img/profile/' . Auth::user()->picture) }}" alt="profile picture">
+                    <div>
+                        <div class="font-bold text-2xl">{{ Auth::user()->name }}</div>
+                        <div class="text-sm text-zinc-500 font-semibold">{{ Auth::user()->email ?? '' }}</div>
                     </div>
-                    <div class="font-bold text-2xl">{{ Auth::user()->name }}</div>
                 </div>
                 <div x-data="{ dark: true }" x-on:click="dark = !dark"
                     :class="{ 'text-black': dark, 'bg-white': dark, 'text-black': !dark, 'bg-white': !dark }"
@@ -262,7 +260,7 @@
                     </div>
                     Account settings
                 </a>
-                <a href="{{ route('logout') }}"
+                <a wire:click='logout'
                     class="flex items-center gap-2 text-white hover:bg-white hover:text-black rounded-full px-6 py-4 text-xl font-medium transition duration-250">
                     <div>
                         <svg class="h-7 w-7" width="24" height="24" viewBox="0 0 24 24" stroke-width="2"

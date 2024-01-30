@@ -8,7 +8,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        'pixel': ['VT323', 'monospace'],
+        'inter': ['Inter', 'monospace'],
       }
     },
   },

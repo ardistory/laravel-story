@@ -75,7 +75,7 @@
         @endif
     </div>
     <div class="w-full h-[130px] flex flex-col items-center justify-center gap-2">
-        <div class="flex gap-2 bg-gray-100 p-1 rounded-full">
+        <div class="md:w-[90%] flex gap-2 bg-gray-100 p-1 rounded-full">
             <div class="flex items-center">
                 <div class="bg-white text-black px-2 py-1 rounded-l-full">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -85,7 +85,7 @@
                     </svg>
                 </div>
                 <input wire:model='inputComment'
-                    class="outline-none py-1 px-2 rounded-r-full text-black hover:ring hover:ring-sky-300/50 transition duration-150"
+                    class="md:w-[80%] outline-none py-1 px-2 rounded-r-full text-black hover:ring hover:ring-sky-300/50 transition duration-150"
                     type="text" placeholder="Comment">
             </div>
             <button
@@ -99,7 +99,7 @@
                 </div>
             </button>
         </div>
-        <div class="flex gap-2 bg-gray-100 p-1 rounded-full">
+        <div class="md:w-[90%] flex gap-2 bg-gray-100 p-1 rounded-full">
             <div class="flex items-center">
                 <div class="bg-white text-black px-2 py-1 rounded-l-full">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -111,7 +111,7 @@
                     </svg>
                 </div>
                 <input wire:model='macAddress'
-                    class="outline-none py-1 px-2 rounded-r-full text-black hover:ring hover:ring-sky-300/50 transition duration-150"
+                    class="md:w-[80%] outline-none py-1 px-2 rounded-r-full text-black hover:ring hover:ring-sky-300/50 transition duration-150"
                     type="text" placeholder="Mac address">
             </div>
             <button wire:click='insertMacAddress' type="submit"

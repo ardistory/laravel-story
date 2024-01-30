@@ -21,7 +21,7 @@
                                 </div>
                             @endif
                         </div>
-                        <div class="text-zinc-500 font-semibold">
+                        <div class="text-zinc-500 font-semibold text-sm">
                             {{ $user->nik }}
                         </div>
                     </div>

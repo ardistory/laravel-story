@@ -13,10 +13,13 @@
 
     @vite('resources/css/app.css')
     <link rel="shortcut icon" href="{{ asset('icon/terminal.ico') }}" type="image/x-icon">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=VT323&display=swap">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
 </head>
 
-<body class="bg-black text-white">
+<body class="bg-black text-white font-inter">
     @auth
         @if (Hash::check('password', Auth::user()->password))
             <livewire:if-default-password>
