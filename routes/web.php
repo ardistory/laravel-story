@@ -10,6 +10,7 @@ Route::middleware([Authenticate::class])->controller(UserController::class)->gro
     Route::get('/', 'getDashboard')->name('dashboard');
     Route::get('/ip', 'getIp')->name('ip');
     Route::get('/users', 'getUsers')->name('users');
+    Route::get('/documentation', 'getDocumentation')->name('documentation');
 });
 
 Route::middleware([RedirectIfAuthenticated::class])->group(function () {

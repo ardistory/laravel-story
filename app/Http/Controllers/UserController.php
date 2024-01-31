@@ -20,4 +20,8 @@ class UserController extends Controller
     {
         return response()->view('list-users');
     }
+    public function getDocumentation(): Response
+    {
+        return response()->view('documentation');
+    }
 }

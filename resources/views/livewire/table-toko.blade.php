@@ -1,4 +1,4 @@
-<div class="w-full h-full border rounded-2xl relative">
+<div class="w-full h-full border hover:ring hover:ring-blue-500 rounded-2xl relative transition duration-300">
     <div class="flex justify-between items-center h-[15%] px-4">
         <div class="top-5 left-5 font-semibold text-2xl flex items-center gap-2">
             <div>

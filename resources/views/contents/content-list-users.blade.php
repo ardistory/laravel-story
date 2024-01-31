@@ -3,11 +3,15 @@
     <div class="mt-4">
         <div class="w-full min-h-screen flex justify-between flex-wrap content-center gap-[14px] mb-4">
             @foreach ($users as $user)
-                <div class="w-full md:w-auto text-3xl md:text-base border rounded-2xl p-4 flex items-center gap-4">
+                <div
+                    class="hover:ring hover:ring-blue-500 transition duration-300 w-full md:w-auto text-3xl md:text-base border rounded-2xl p-4 flex items-center gap-4">
                     <div>
                         <img class="w-28 h-28 rounded-full" src="{{ asset('storage/img/profile/' . $user->picture) }}">
                     </div>
                     <div class="flex flex-col gap-1">
+                        <div class="text-zinc-500 font-semibold text-sm">
+                            {{ $user->nik }}
+                        </div>
                         <div class="font-bold flex items-center gap-2">
                             {{ $user->name }}
                             @if ($user->role->level == 3)
@@ -20,9 +24,6 @@
                                     </svg>
                                 </div>
                             @endif
-                        </div>
-                        <div class="text-zinc-500 font-semibold text-sm">
-                            {{ $user->nik }}
                         </div>
                     </div>
                 </div>

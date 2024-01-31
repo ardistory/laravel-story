@@ -61,8 +61,8 @@
                     </div>
                     Users
                 </a>
-                <a href="#"
-                    class="flex items-center gap-2 text-white hover:bg-white hover:text-black rounded-full px-3 py-2 text-sm font-medium transition duration-250">
+                <a wire:navigate href="{{ route('documentation') }}"
+                    class="@if (Request::routeIs('documentation')) text-black bg-white @endif flex items-center gap-2 hover:bg-white hover:text-black rounded-full px-3 py-2 text-sm font-medium transition duration-250">
                     <div>
                         <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -86,16 +86,19 @@
                 </a>
             </div>
             <div class="flex gap-2 items-center">
-                <div x-data="{ dark: true }" x-on:click="dark = !dark"
-                    :class="{ 'text-black bg-white': dark, 'text-black bg-white': !dark }"
-                    class="text-black bg-white w-[30px] h-[30px] rounded-full flex items-center justify-center hover:ring hover:ring-white cursor-pointer">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" class="w-6 h-6">
-                        <path :class="{ 'hidden': !dark }" stroke-linecap="round" stroke-linejoin="round"
-                            d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
-                        <path :class="{ 'hidden': dark }" stroke-linecap="round" stroke-linejoin="round"
-                            d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
-                    </svg>
+                <div
+                    class="relative cursor-pointer hover:ring hover:ring-white hover:bg-white hover:text-black rounded-full">
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0" />
+                        </svg>
+                    </div>
+                    <div
+                        class="absolute top-0 left-0 bg-red-500 text-white font-semibold text-xs w-[14px] h-[14px] flex items-center justify-center rounded-full">
+                        4
+                    </div>
                 </div>
                 <div x-data="{ open: false }" class="relative">
                     <div x-on:click="open = !open" x-on:click.away="open = false"
@@ -163,7 +166,7 @@
 
         {{-- navbar-mobile --}}
         <div x-show="navbar" class="bg-black h-[2000px] flex flex-col gap-5 p-2 w-full absolute top-[100px] left-0">
-            <div class="flex items-center justify-between">
+            <div class="flex items-center justify-between px-6 py-2">
                 <div x-data="{ open: false }" class="flex gap-5 items-center">
                     <img class="w-[60px] h-[60px] rounded-full "
                         src="{{ asset('storage/img/profile/' . Auth::user()->picture) }}" alt="profile picture">
@@ -172,16 +175,19 @@
                         <div class="text-sm text-zinc-500 font-semibold">{{ Auth::user()->email ?? '' }}</div>
                     </div>
                 </div>
-                <div x-data="{ dark: true }" x-on:click="dark = !dark"
-                    :class="{ 'text-black': dark, 'bg-white': dark, 'text-black': !dark, 'bg-white': !dark }"
-                    class=" text-black bg-white w-[30px] h-[30px] rounded-full flex items-center justify-center active:ring active:ring-white cursor-pointer">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" class="w-6 h-6">
-                        <path :class="{ 'hidden': !dark }" stroke-linecap="round" stroke-linejoin="round"
-                            d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
-                        <path :class="{ 'hidden': dark }" stroke-linecap="round" stroke-linejoin="round"
-                            d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
-                    </svg>
+                <div
+                    class="scale-125 relative cursor-pointer hover:ring hover:ring-white hover:bg-white hover:text-black rounded-full">
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0" />
+                        </svg>
+                    </div>
+                    <div
+                        class="absolute top-0 left-0 bg-red-500 text-white font-semibold text-xs w-[14px] h-[14px] flex items-center justify-center rounded-full">
+                        4
+                    </div>
                 </div>
             </div>
             <div class="flex flex-col gap-2">
@@ -223,8 +229,8 @@
                     </div>
                     Users
                 </a>
-                <a href="#"
-                    class="flex items-center gap-2 text-white hover:bg-white hover:text-black rounded-full px-6 py-4 text-xl font-medium transition duration-250">
+                <a wire:navigate href="{{ route('documentation') }}"
+                    class="@if (Request::routeIs('documentation')) text-black bg-white @endif flex items-center gap-2 hover:bg-white hover:text-black rounded-full px-6 py-4 text-xl font-medium transition duration-250">
                     <div>
                         <svg class="h-7 w-7" width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
                             stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
