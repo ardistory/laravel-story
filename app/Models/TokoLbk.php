@@ -12,6 +12,5 @@ class TokoLbk extends Model
     protected $keyType = 'string';
     public $incrementing = false;
     public $timestamps = false;
-    protected $guard = [];
-    protected $fillable = ['*'];
+    protected $fillable = ['kode_toko', 'nama_toko', 'ip_gateway', 'ip_induk', 'ip_anak', 'ip_stb', 'ip_wdcp', 'edparea'];
 }

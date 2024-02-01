@@ -18,7 +18,9 @@ return new class extends Migration {
             $table->string('ip_anak', 100);
             $table->string('ip_stb', 100);
             $table->string('ip_wdcp', 100);
-            $table->string('edparea', 100);
+            $table->string('edparea');
+
+            $table->foreign('edparea')->on('users')->references('nik');
         });
     }
 

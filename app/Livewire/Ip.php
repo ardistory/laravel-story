@@ -17,21 +17,21 @@ class Ip extends Component
     public string $query = '';
 
     #[Validate('required')]
-    public string $newStoreCode;
+    public string $kode_toko;
     #[Validate('required')]
-    public string $newNameStoreCode;
+    public string $nama_toko;
     #[Validate('required')]
-    public string $newIpGateway;
+    public string $ip_gateway;
     #[Validate('required')]
-    public string $newIpInduk;
+    public string $ip_induk;
     #[Validate('required')]
-    public string $newIpAnak;
+    public string $ip_anak;
     #[Validate('required')]
-    public string $newIpStb;
+    public string $ip_stb;
     #[Validate('required')]
-    public string $newIpWdcp;
+    public string $ip_wdcp;
     #[Validate('required')]
-    public string $newArea = '';
+    public string $edparea;
 
     public function getDataFromModel()
     {
@@ -40,9 +40,15 @@ class Ip extends Component
             ->join('users', 'users.nik', '=', 'area.nik')
             ->select('tokolbk.kode_toko as kode_toko', 'tokolbk.nama_toko as nama_toko', 'tokolbk.ip_gateway', 'tokolbk.ip_induk', 'tokolbk.ip_anak', 'tokolbk.ip_stb', 'tokolbk.ip_wdcp', 'users.name as name', 'users.nik as nik', 'users.picture as picture')
             ->where('tokolbk.kode_toko', 'like', '%' . $this->query . '%')
+            ->where('area.nik', '!=', '2015171331')
             ->orWhere('tokolbk.nama_toko', 'like', '%' . $this->query . '%')
             ->inRandomOrder()
             ->paginate(8);
+    }
+
+    public function updatedKodeToko()
+    {
+        $this->kode_toko = strtoupper($this->kode_toko);
     }
 
     public function getDataArea()
@@ -54,41 +60,17 @@ class Ip extends Component
     {
         $validated = $this->validate();
 
-        $edp = explode("|", $validated['newArea']);
-
-        $name = $edp[0];
-        $nik = $edp[1];
-
-        $newStoreCode = strtoupper($validated['newStoreCode']);
-        $newNameStoreCode = $validated['newNameStoreCode'];
-        $newIpGateway = $validated['newIpGateway'];
-        $newIpInduk = $validated['newIpInduk'];
-        $newIpAnak = $validated['newIpAnak'];
-        $newIpStb = $validated['newIpStb'];
-        $newIpWdcp = $validated['newIpWdcp'];
-
-        $thereIs = TokoLbk::query()->where('kode_toko', '=', $newStoreCode)->get();
+        $thereIs = TokoLbk::query()->where('kode_toko', '=', $validated['kode_toko'])->get();
 
         if (count($thereIs) > 0) {
-            session()->flash('failedInsertNew', "Insert {$newStoreCode} failed!");
+            session()->flash('failedInsertNew', "Insert {$validated['kode_toko']} failed!");
         } else {
-            $tokolbk = new TokoLbk;
-            $tokolbk->kode_toko = $newStoreCode;
-            $tokolbk->nama_toko = $newNameStoreCode;
-            $tokolbk->ip_gateway = $newIpGateway;
-            $tokolbk->ip_induk = $newIpInduk;
-            $tokolbk->ip_anak = $newIpAnak;
-            $tokolbk->ip_stb = $newIpStb;
-            $tokolbk->ip_wdcp = $newIpWdcp;
-            $tokolbk->edparea = $name;
+            TokoLbk::query()->create($validated);
 
-            $area = new Area;
-            $area->kode_toko = $newStoreCode;
-            $area->nik = $nik;
-
-            if ($tokolbk->save() && $area->save()) {
-                session()->flash('successInsertNew', "Insert {$newStoreCode} success!");
-            }
+            Area::query()->create([
+                'kode_toko' => $validated['kode_toko'],
+                'nik' => $validated['edparea']
+            ]);
         }
 
         $this->reset();

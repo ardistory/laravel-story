@@ -12,5 +12,5 @@ class Area extends Model
     protected $keyType = 'string';
     public $incrementing = false;
     public $timestamps = false;
-    protected $guard = [];
+    protected $fillable = ['kode_toko', 'nik'];
 }
