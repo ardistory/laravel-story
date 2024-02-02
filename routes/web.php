@@ -11,6 +11,7 @@ Route::middleware([Authenticate::class])->controller(UserController::class)->gro
     Route::get('/ip', 'getIp')->name('ip');
     Route::get('/users', 'getUsers')->name('users');
     Route::get('/documentation', 'getDocumentation')->name('documentation');
+    Route::get('/checklist', 'getChecklist')->name('checklist');
 });
 
 Route::middleware([RedirectIfAuthenticated::class])->group(function () {

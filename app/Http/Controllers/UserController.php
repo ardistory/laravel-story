@@ -24,4 +24,8 @@ class UserController extends Controller
     {
         return response()->view('documentation');
     }
+    public function getChecklist(): Response
+    {
+        return response()->view('checklist');
+    }
 }

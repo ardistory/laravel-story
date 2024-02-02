@@ -71,8 +71,8 @@
                     </div>
                     Documentation
                 </a>
-                <a href="#"
-                    class="flex items-center gap-2 text-white hover:bg-white hover:text-black rounded-full px-3 py-2 text-sm font-medium transition duration-250">
+                <a wire:navigate href="{{ route('checklist') }}"
+                    class="@if (Request::routeIs('checklist')) text-black bg-white @endif flex items-center gap-2 hover:bg-white hover:text-black rounded-full px-3 py-2 text-sm font-medium transition duration-250">
                     <div>
                         <svg class="h-5 w-5" width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
                             stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -240,8 +240,8 @@
                     </div>
                     Documentation
                 </a>
-                <a href="#"
-                    class="flex items-center gap-2 text-white hover:bg-white hover:text-black rounded-full px-6 py-4 text-xl font-medium transition duration-250">
+                <a wire:navigate href="{{ route('checklist') }}"
+                    class="@if (Request::routeIs('checklist')) text-black bg-white @endif flex items-center gap-2 hover:bg-white hover:text-black rounded-full px-6 py-4 text-xl font-medium transition duration-250">
                     <div>
                         <svg class="h-7 w-7" width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
                             stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">

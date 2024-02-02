@@ -1,6 +1,6 @@
 <div class="w-full h-full border hover:ring hover:ring-blue-500 rounded-2xl relative transition duration-300">
     <div class="flex justify-between items-center h-[15%] px-4">
-        <div class="top-5 left-5 font-semibold text-2xl flex items-center gap-2">
+        <div class="top-5 left-5 font-semibold text-sm md:text-xl flex items-center gap-2">
             <div>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" class="w-6 h-6">
@@ -10,7 +10,7 @@
             </div>
             {{ $title }}
         </div>
-        <div wire:loading class="flex items-center justify-center gap-2 font-semibold">
+        <div wire:loading class="text-sm flex items-center justify-center gap-2 font-semibold">
             <div wire:loading>
                 <svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none"
                     viewBox="0 0 24 24">
@@ -25,7 +25,7 @@
         </div>
         <div class="flex items-center top-5 right-5">
             <div class="flex">
-                <div class="bg-white text-black py-1 px-2 rounded-l-full">
+                <div class="bg-white text-black py-1 px-1 rounded-l-full">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="w-6 h-6">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -34,8 +34,8 @@
                 </div>
                 <form wire:submit='sendDataStoreCode'>
                     <input wire:model='storeCode'
-                        class="outline-none py-1 px-2 rounded-r-full text-black hover:ring hover:ring-sky-300/50 transition duration-150"
-                        type="text" placeholder="Store Code ex.TKBV" maxlength="4" autocomplete="off">
+                        class="w-[100px] outline-none py-1 px-1 rounded-r-full text-black hover:ring hover:ring-sky-300/50 transition duration-150"
+                        type="text" placeholder="Store Code" maxlength="4" autocomplete="off">
                 </form>
             </div>
         </div>
@@ -50,7 +50,8 @@
                             d="M13.5 21v-7.5a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 .75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349M3.75 21V9.349m0 0a3.001 3.001 0 0 0 3.75-.615A2.993 2.993 0 0 0 9.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 0 0 2.25 1.016c.896 0 1.7-.393 2.25-1.015a3.001 3.001 0 0 0 3.75.614m-16.5 0a3.004 3.004 0 0 1-.621-4.72l1.189-1.19A1.5 1.5 0 0 1 5.378 3h13.243a1.5 1.5 0 0 1 1.06.44l1.19 1.189a3 3 0 0 1-.621 4.72M6.75 18h3.75a.75.75 0 0 0 .75-.75V13.5a.75.75 0 0 0-.75-.75H6.75a.75.75 0 0 0-.75.75v3.75c0 .414.336.75.75.75Z" />
                     </svg>
                     <div class="flex justify-between w-full">
-                        <div class="font-medium text-lg tracking-tight text-gray-900 leading-tight">
+                        <div
+                            class="flex items-center font-medium text-sm md:text-lg tracking-tight text-gray-900 leading-tight">
                             @empty($data->nama_toko)
                                 @if (strlen($storeCode) > 0)
                                     <div class="bg-red-500 text-white px-2 rounded-full">{{ $storeCode }} not found!
@@ -63,7 +64,7 @@
                             @endempty
                         </div>
                         <div
-                            class="flex items-center gap-2 font-medium text-lg tracking-tight text-gray-900 leading-tight">
+                            class="flex items-center gap-2 font-medium text-sm md:text-lg tracking-tight text-gray-900 leading-tight">
                             <div>
                                 <svg class="h-5 w-5 text-black" fill="none" viewBox="0 0 24 24"
                                     stroke="currentColor">
@@ -98,8 +99,7 @@
                             <div class="flex flex-col justify-center">
                                 <h3 class="text-sm font-medium">Gateway</h3>
                                 <div class="divide-x divide-gray-200 mt-auto flex items-center">
-                                    <span
-                                        class="inline-block px-1 text-xs leading-none text-gray-400 font-normal first:pl-0">
+                                    <span class="inline-block px-1 text-xs  text-gray-400 font-normal first:pl-0">
                                         @empty($data->ip_gateway)
                                             @if (strlen($storeCode) > 0)
                                                 {{ $storeCode }} not found!
@@ -142,7 +142,7 @@
                             @else
                                 {{ $data->ip_gateway }}
                             @endempty"
-                                class="flex items-center gap-2 bg-black text-white py-1 px-2 rounded-2xl hover:ring hover:ring-black/50">
+                                class="flex items-center gap-1 bg-black text-white py-1 px-2 rounded-full hover:ring hover:ring-black/50">
                                 <div>
                                     <svg class="h-5 w-5 text-white" width="24" height="24" viewBox="0 0 24 24"
                                         stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
@@ -152,7 +152,6 @@
                                         <path d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2" />
                                     </svg>
                                 </div>
-                                Copy IP
                             </button>
                             @if (Auth::user()->role->level == 3)
                                 <button
@@ -256,7 +255,7 @@
                         @else
                             {{ $data->ip_induk }}
                         @endempty"
-                                class="flex items-center gap-2 bg-black text-white py-1 px-2 rounded-2xl hover:ring hover:ring-black/50">
+                                class="flex items-center gap-1 bg-black text-white py-1 px-2 rounded-full hover:ring hover:ring-black/50">
                                 <div>
                                     <svg class="h-5 w-5 text-white" width="24" height="24"
                                         viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
@@ -266,7 +265,6 @@
                                         <path d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2" />
                                     </svg>
                                 </div>
-                                Copy IP
                             </button>
                             @if (Auth::user()->role->level == 3)
                                 <button
@@ -422,7 +420,7 @@
                             @else
                                 {{ $data->ip_anak }}
                             @endempty"
-                                class="flex items-center gap-2 bg-black text-white py-1 px-2 rounded-2xl hover:ring hover:ring-black/50">
+                                class="flex items-center gap-1 bg-black text-white py-1 px-2 rounded-full hover:ring hover:ring-black/50">
                                 <div>
                                     <svg class="h-5 w-5 text-white" width="24" height="24"
                                         viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
@@ -432,7 +430,6 @@
                                         <path d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2" />
                                     </svg>
                                 </div>
-                                Copy IP
                             </button>
                             @if (Auth::user()->role->level == 3)
                                 <button
@@ -589,7 +586,7 @@
                             @else
                                 {{ $data->ip_stb }}
                             @endempty"
-                                class="flex items-center gap-2 bg-black text-white py-1 px-2 rounded-2xl hover:ring hover:ring-black/50">
+                                class="flex items-center gap-1 bg-black text-white py-1 px-2 rounded-full hover:ring hover:ring-black/50">
                                 <div>
                                     <svg class="h-5 w-5 text-white" width="24" height="24"
                                         viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
@@ -599,7 +596,6 @@
                                         <path d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2" />
                                     </svg>
                                 </div>
-                                Copy IP
                             </button>
                             @if (Auth::user()->role->level == 3)
                                 <button
@@ -702,7 +698,7 @@
                             @else
                                 {{ $data->ip_wdcp }}
                             @endempty"
-                                class="flex items-center gap-2 bg-black text-white py-1 px-2 rounded-2xl hover:ring hover:ring-black/50">
+                                class="flex items-center gap-1 bg-black text-white py-1 px-2 rounded-full hover:ring hover:ring-black/50">
                                 <div>
                                     <svg class="h-5 w-5 text-white" width="24" height="24"
                                         viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
@@ -712,7 +708,6 @@
                                         <path d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2" />
                                     </svg>
                                 </div>
-                                Copy IP
                             </button>
                             @if (Auth::user()->role->level == 3)
                                 <button

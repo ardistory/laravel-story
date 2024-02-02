@@ -241,27 +241,32 @@
                             @if ($dt['nik'] != '2015171331')
                                 <tr wire:key='{{ $dt['kode_toko'] }}' class="w-full border-t overflow-auto">
                                     <td class="p-4">
-                                        <div class="flex font-semibold items-center justify-center">
+                                        <div
+                                            class="flex font-semibold items-center justify-center text-xs md:text-base">
                                             {{ $data->firstItem() + $index }}
                                         </div>
                                     </td>
                                     <td>
                                         <div class="flex items-center gap-2">
                                             <div class="flex flex-col text-left">
-                                                <div class="font-medium text-zinc-500">{{ $dt['kode_toko'] }}</div>
-                                                <div class="font-bold">{{ $dt['nama_toko'] }}</div>
+                                                <div class="font-medium text-zinc-500 text-sm md:text-base">
+                                                    {{ $dt['kode_toko'] }}
+                                                </div>
+                                                <div class="font-bold text-xs md:text-base">{{ $dt['nama_toko'] }}
+                                                </div>
                                             </div>
                                         </div>
                                     </td>
                                     <td>
                                         <div class="flex items-center justify-start gap-2">
-                                            <div class="w-10 h-10">
-                                                <img class="rounded-full"
+                                            <div>
+                                                <img class="w-8 h-8 md:w-10 md:h-10 rounded-full"
                                                     src="{{ asset('storage/img/profile/' . $dt['picture']) }}">
                                             </div>
                                             <div class="flex flex-col">
-                                                <div class="font-medium text-zinc-500">{{ $dt['nik'] }}</div>
-                                                <div class="font-bold">{{ $dt['name'] }}</div>
+                                                <div class="font-medium text-zinc-500 text-xs md:text-base">
+                                                    {{ $dt['nik'] }}</div>
+                                                <div class="font-bold text-xs md:text-base">{{ $dt['name'] }}</div>
                                             </div>
                                         </div>
                                     </td>

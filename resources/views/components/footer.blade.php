@@ -1,7 +1,7 @@
 <footer class="bg-black mt-2">
     <div class="mx-auto w-full py-8">
         <div class="md:flex md:justify-between px-10">
-            <div class="mb-6 md:mb-0 flex justify-between md:gap-10">
+            <div class="mb-6 md:mb-0 flex justify-center md:justify-between flex-wrap gap-2 md:gap-10">
                 <div class="flex gap-2 font-bold text-2xl items-center cursor-default">
                     <div>
                         <svg class="h-10 w-10" viewBox="0 0 50 52">
@@ -115,11 +115,11 @@
                 </div>
             </div>
         </div>
-        <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
-        <div class="sm:flex sm:items-center sm:justify-between px-10">
+        <hr class="my-6 border-white/30 sm:mx-auto dark:border-gray-700 lg:my-8" />
+        <div class="flex px-10 items-center justify-between">
             <span class="text-sm text-white sm:text-center dark:text-gray-400">© 2024 All Rights Reserved.
             </span>
-            <div class="flex mt-4 sm:justify-center sm:mt-0">
+            <div class="flex items-center justify-center">
                 <a href="https://github.com/ardistory" target="_blank" class="text-white ms-5">
                     <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                         viewBox="0 0 20 20">

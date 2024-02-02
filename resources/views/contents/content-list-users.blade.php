@@ -9,10 +9,26 @@
                         <img class="w-28 h-28 rounded-full" src="{{ asset('storage/img/profile/' . $user->picture) }}">
                     </div>
                     <div class="flex flex-col gap-1">
-                        <div class="text-zinc-500 font-semibold text-sm">
+                        <div class="text-zinc-500 font-semibold text-sm inline-flex items-center">
                             {{ $user->nik }}
+                            @if ($user->role->level == 3)
+                                <div class="text-yellow-200 scale-50">
+                                    <svg class="absolute animate-ping" xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                                        <path fill-rule="evenodd"
+                                            d="M14.615 1.595a.75.75 0 0 1 .359.852L12.982 9.75h7.268a.75.75 0 0 1 .548 1.262l-10.5 11.25a.75.75 0 0 1-1.272-.71l1.992-7.302H3.75a.75.75 0 0 1-.548-1.262l10.5-11.25a.75.75 0 0 1 .913-.143Z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                        class="w-6 h-6">
+                                        <path fill-rule="evenodd"
+                                            d="M14.615 1.595a.75.75 0 0 1 .359.852L12.982 9.75h7.268a.75.75 0 0 1 .548 1.262l-10.5 11.25a.75.75 0 0 1-1.272-.71l1.992-7.302H3.75a.75.75 0 0 1-.548-1.262l10.5-11.25a.75.75 0 0 1 .913-.143Z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                </div>
+                            @endif
                         </div>
-                        <div class="font-bold flex items-center gap-2">
+                        <div class="font-bold flex items-center gap-2 text-sm md:text-base">
                             {{ $user->name }}
                             @if ($user->role->level == 3)
                                 <div class="text-3xl md:text-base">

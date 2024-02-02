@@ -12,5 +12,5 @@ class Documentation extends Model
     protected $keyType = 'int';
     public $incrementing = true;
     public $timestamps = true;
-    protected $guard = ['id'];
+    protected $fillable = ['title', 'description', 'picture', 'post_by'];
 }
