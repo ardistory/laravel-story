@@ -84,7 +84,7 @@ class UserSeeder extends Seeder
             ],
             [
                 'name' => 'Rifki Darmawan',
-                'nik' => '2015398489',
+                'nik' => '2015398488',
                 'password' => Hash::make('password'),
                 'picture' => 'default.png'
             ],
@@ -103,6 +103,44 @@ class UserSeeder extends Seeder
             [
                 'name' => 'Suriyansyah Albanzari',
                 'nik' => '2015113583',
+                'password' => Hash::make('password'),
+                'picture' => 'default.png'
+            ],
+            [
+                'name' => 'Jaelani',
+                'nik' => '2005008376',
+                'password' => Hash::make('password'),
+                'picture' => 'default.png',
+                'role_level' => 2
+            ],
+            [
+                'name' => 'Ahmad Fatoni',
+                'nik' => '2010027128',
+                'password' => Hash::make('password'),
+                'picture' => 'default.png',
+                'role_level' => 2
+            ],
+            [
+                'name' => 'Raki Faturahman',
+                'nik' => '2013190599',
+                'password' => Hash::make('password'),
+                'picture' => 'default.png'
+            ],
+            [
+                'name' => 'Pahruroji',
+                'nik' => '2015160509',
+                'password' => Hash::make('password'),
+                'picture' => 'default.png'
+            ],
+            [
+                'name' => 'Eko Fauzi',
+                'nik' => '2015172780',
+                'password' => Hash::make('password'),
+                'picture' => 'default.png'
+            ],
+            [
+                'name' => 'Alfi Nurfikri',
+                'nik' => '2015219149',
                 'password' => Hash::make('password'),
                 'picture' => 'default.png'
             ]

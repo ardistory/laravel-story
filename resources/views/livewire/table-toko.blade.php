@@ -60,7 +60,7 @@
                                     (Store Name)
                                 @endif
                             @else
-                                {{ $data->nama_toko }}
+                            {{ strtoupper($storeCode) }} - {{ $data->nama_toko }}
                             @endempty
                         </div>
                         <div
@@ -80,7 +80,12 @@
                                     (EDP Area)
                                 @endif
                             @else
-                                {{ $data->edparea }}
+                                @if ($data->edparea != 'Ardiansyah Putra')
+                                    {{ $data->edparea }}
+                                @else
+                                    <div class="bg-red-500 text-white px-2 rounded-full">unknown
+                                    </div>
+                                @endif
                             @endempty
                         </div>
                     </div>
