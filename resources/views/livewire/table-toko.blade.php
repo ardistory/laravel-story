@@ -60,7 +60,7 @@
                                     (Store Name)
                                 @endif
                             @else
-                            {{ strtoupper($storeCode) }} - {{ $data->nama_toko }}
+                                {{ strtoupper($storeCode) }} - {{ $data->nama_toko }}
                             @endempty
                         </div>
                         <div
@@ -117,24 +117,7 @@
                                     </span>
                                 </div>
                             </div>
-                            <div class="flex items-center gap-2">
-                                @if ($data_ping['ip_gateway'] != 0)
-                                    <div class="flex-none rounded-full bg-emerald-500/20 p-1">
-                                        <div class="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-ping absolute">
-                                        </div>
-                                        <div class="h-1.5 w-1.5 rounded-full bg-emerald-500"></div>
-                                    </div>
-                                    <p class="text-xs leading-5 text-gray-500">Online - {{ $data_ping['ip_gateway'] }}ms
-                                    </p>
-                                @else
-                                    <div class="flex-none rounded-full bg-red-500/20 p-1">
-                                        <div class="h-1.5 w-1.5 rounded-full bg-red-500 animate-ping absolute">
-                                        </div>
-                                        <div class="h-1.5 w-1.5 rounded-full bg-red-500"></div>
-                                    </div>
-                                    <p class="text-xs leading-5 text-gray-500">Offline</p>
-                                @endif
-                            </div>
+                            <livewire:status-ping>
                         </div>
                         <div class="mr-1 flex gap-1">
                             <button id="copyGateway"
@@ -229,25 +212,7 @@
                                     </span>
                                 </div>
                             </div>
-                            <div class="flex items-center gap-2">
-                                @if ($data_ping['ip_induk'] != 0)
-                                    <div class="flex-none rounded-full bg-emerald-500/20 p-1">
-                                        <div class="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-ping absolute">
-                                        </div>
-                                        <div class="h-1.5 w-1.5 rounded-full bg-emerald-500"></div>
-                                    </div>
-                                    <p class="text-xs leading-5 text-gray-500">Online -
-                                        {{ $data_ping['ip_induk'] }}ms
-                                    </p>
-                                @else
-                                    <div class="flex-none rounded-full bg-red-500/20 p-1">
-                                        <div class="h-1.5 w-1.5 rounded-full bg-red-500 animate-ping absolute">
-                                        </div>
-                                        <div class="h-1.5 w-1.5 rounded-full bg-red-500"></div>
-                                    </div>
-                                    <p class="text-xs leading-5 text-gray-500">Offline</p>
-                                @endif
-                            </div>
+                            <livewire:status-ping>
                         </div>
                         <div class="mr-1 flex gap-1">
                             <button id="copyInduk"
@@ -394,25 +359,7 @@
                                     </span>
                                 </div>
                             </div>
-                            <div class="flex items-center gap-2">
-                                @if ($data_ping['ip_anak'] != 0)
-                                    <div class="flex-none rounded-full bg-emerald-500/20 p-1">
-                                        <div class="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-ping absolute">
-                                        </div>
-                                        <div class="h-1.5 w-1.5 rounded-full bg-emerald-500"></div>
-                                    </div>
-                                    <p class="text-xs leading-5 text-gray-500">Online -
-                                        {{ $data_ping['ip_anak'] }}ms
-                                    </p>
-                                @else
-                                    <div class="flex-none rounded-full bg-red-500/20 p-1">
-                                        <div class="h-1.5 w-1.5 rounded-full bg-red-500 animate-ping absolute">
-                                        </div>
-                                        <div class="h-1.5 w-1.5 rounded-full bg-red-500"></div>
-                                    </div>
-                                    <p class="text-xs leading-5 text-gray-500">Offline</p>
-                                @endif
-                            </div>
+                            <livewire:status-ping>
                         </div>
                         <div class="mr-1 flex gap-1">
                             <button id="copyAnak"
@@ -560,25 +507,7 @@
                                     </span>
                                 </div>
                             </div>
-                            <div class="flex items-center gap-2">
-                                @if ($data_ping['ip_stb'] != 0)
-                                    <div class="flex-none rounded-full bg-emerald-500/20 p-1">
-                                        <div class="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-ping absolute">
-                                        </div>
-                                        <div class="h-1.5 w-1.5 rounded-full bg-emerald-500"></div>
-                                    </div>
-                                    <p class="text-xs leading-5 text-gray-500">Online -
-                                        {{ $data_ping['ip_stb'] }}ms
-                                    </p>
-                                @else
-                                    <div class="flex-none rounded-full bg-red-500/20 p-1">
-                                        <div class="h-1.5 w-1.5 rounded-full bg-red-500 animate-ping absolute">
-                                        </div>
-                                        <div class="h-1.5 w-1.5 rounded-full bg-red-500"></div>
-                                    </div>
-                                    <p class="text-xs leading-5 text-gray-500">Offline</p>
-                                @endif
-                            </div>
+                            <livewire:status-ping>
                         </div>
                         <div class="mr-1 flex gap-1">
                             <button id="copyStb"
@@ -672,25 +601,7 @@
                                     </span>
                                 </div>
                             </div>
-                            <div class="flex items-center gap-2">
-                                @if ($data_ping['ip_wdcp'] != 0)
-                                    <div class="flex-none rounded-full bg-emerald-500/20 p-1">
-                                        <div class="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-ping absolute">
-                                        </div>
-                                        <div class="h-1.5 w-1.5 rounded-full bg-emerald-500"></div>
-                                    </div>
-                                    <p class="text-xs leading-5 text-gray-500">Online -
-                                        {{ $data_ping['ip_wdcp'] }}ms
-                                    </p>
-                                @else
-                                    <div class="flex-none rounded-full bg-red-500/20 p-1">
-                                        <div class="h-1.5 w-1.5 rounded-full bg-red-500 animate-ping absolute">
-                                        </div>
-                                        <div class="h-1.5 w-1.5 rounded-full bg-red-500"></div>
-                                    </div>
-                                    <p class="text-xs leading-5 text-gray-500">Offline</p>
-                                @endif
-                            </div>
+                            <livewire:status-ping>
                         </div>
                         <div class="mr-1 flex gap-1">
                             <button id="copyWdcp"
