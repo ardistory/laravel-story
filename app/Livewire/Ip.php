@@ -40,7 +40,6 @@ class Ip extends Component
             ->join('users', 'users.nik', '=', 'area.nik')
             ->select('tokolbk.kode_toko as kode_toko', 'tokolbk.nama_toko as nama_toko', 'tokolbk.ip_gateway', 'tokolbk.ip_induk', 'tokolbk.ip_anak', 'tokolbk.ip_stb', 'tokolbk.ip_wdcp', 'users.name as name', 'users.nik as nik', 'users.picture as picture')
             ->where('tokolbk.kode_toko', 'like', '%' . $this->query . '%')
-            ->where('area.nik', '!=', '2015171331')
             ->orWhere('tokolbk.nama_toko', 'like', '%' . $this->query . '%')
             ->inRandomOrder()
             ->paginate(8);

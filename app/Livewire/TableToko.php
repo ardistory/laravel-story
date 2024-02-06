@@ -3,7 +3,6 @@
 namespace App\Livewire;
 
 use App\Models\TokoLbk;
-use JJG\Ping;
 use Livewire\Component;
 
 class TableToko extends Component
@@ -12,9 +11,13 @@ class TableToko extends Component
     public string $storeCode = '';
     public string $status = '';
 
-    public function sendDataStoreCode()
+    public function sendDataStoreCode(): void
     {
-        $this->dispatch('submitTableToko', kode_toko: $this->storeCode);
+        $query = TokoLbk::query()->where('kode_toko', '=', $this->storeCode)->first();
+
+        if (isset($query['kode_toko']) && strlen($query['kode_toko']) > 0) {
+            $this->dispatch('submitTableToko', kode_toko: $this->storeCode);
+        }
     }
 
     public function render()

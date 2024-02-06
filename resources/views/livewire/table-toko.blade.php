@@ -117,7 +117,7 @@
                                     </span>
                                 </div>
                             </div>
-                            <livewire:status-ping>
+                            <livewire:status-ping ipAddress="{{ $data->ip_gateway ?? '' }}">
                         </div>
                         <div class="mr-1 flex gap-1">
                             <button id="copyGateway"
@@ -212,7 +212,7 @@
                                     </span>
                                 </div>
                             </div>
-                            <livewire:status-ping>
+                            <livewire:status-ping ipAddress="{{ $data->ip_induk ?? '' }}">
                         </div>
                         <div class="mr-1 flex gap-1">
                             <button id="copyInduk"
@@ -359,7 +359,7 @@
                                     </span>
                                 </div>
                             </div>
-                            <livewire:status-ping>
+                            <livewire:status-ping ipAddress="{{ $data->ip_anak ?? '' }}">
                         </div>
                         <div class="mr-1 flex gap-1">
                             <button id="copyAnak"
@@ -507,7 +507,7 @@
                                     </span>
                                 </div>
                             </div>
-                            <livewire:status-ping>
+                            <livewire:status-ping ipAddress="{{ $data->ip_stb ?? '' }}">
                         </div>
                         <div class="mr-1 flex gap-1">
                             <button id="copyStb"
@@ -601,7 +601,7 @@
                                     </span>
                                 </div>
                             </div>
-                            <livewire:status-ping>
+                            <livewire:status-ping ipAddress="{{ $data->ip_wdcp ?? '' }}">
                         </div>
                         <div class="mr-1 flex gap-1">
                             <button id="copyWdcp"
