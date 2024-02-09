@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\TokoLbk;
+use JJG\Ping;
 use Livewire\Component;
 
 class TableToko extends Component
@@ -16,7 +17,12 @@ class TableToko extends Component
         $query = TokoLbk::query()->where('kode_toko', '=', $this->storeCode)->first();
 
         if (isset($query['kode_toko']) && strlen($query['kode_toko']) > 0) {
-            $this->dispatch('submitTableToko', kode_toko: $this->storeCode);
+            $ping = new Ping($query->ip_wdcp, 128, 3);
+
+            if ($ping->ping() != false) {
+                $this->dispatch('submitTableToko', kode_toko: $this->storeCode);
+                $this->dispatch('submitTableTokoForPing', query: $query);
+            }
         }
     }
 

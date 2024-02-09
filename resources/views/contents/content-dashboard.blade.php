@@ -8,21 +8,21 @@
             class="@if (Auth::user()->role->level != 3) hidden @endif w-full md:w-1/2 h-auto md:h-[400px] rounded-2xl flex flex-col md:gap-2 gap-48">
             <div class="w-full h-[200px] flex flex-col gap-2 md:flex md:flex-row">
                 <div
-                    class="w-full md:w-1/2 h-[200px] border rounded-2xl relative hover:ring hover:ring-blue-500 transition duration-300">
+                    class="w-full md:w-1/2 h-[200px] border rounded-2xl relative hover:ring hover:ring-blue-500 hover:border-black transition duration-300">
                     <livewire:add-mac>
                 </div>
                 <div
-                    class="w-full md:w-1/2 h-[200px] border rounded-2xl hover:ring hover:ring-blue-500 transition duration-300">
+                    class="w-full md:w-1/2 h-[200px] border rounded-2xl hover:ring hover:ring-blue-500 hover:border-black transition duration-300">
                     <livewire:list-mac>
                 </div>
             </div>
             <div class="w-full h-1/2 gap-2 flex flex-col md:flex md:flex-row">
                 <div
-                    class="w-full md:w-1/2 h-[200px] border rounded-2xl hover:ring hover:ring-blue-500 transition duration-300">
+                    class="w-full md:w-1/2 h-[200px] border rounded-2xl hover:ring hover:ring-blue-500 hover:border-black transition duration-300">
                     <livewire:registration-table>
                 </div>
                 <div
-                    class="w-full md:w-1/2 h-[200px] border rounded-2xl hover:ring hover:ring-blue-500 transition duration-300">
+                    class="w-full md:w-1/2 h-[200px] border rounded-2xl hover:ring hover:ring-blue-500 hover:border-black transition duration-300">
                     <livewire:default-authentication>
                 </div>
             </div>

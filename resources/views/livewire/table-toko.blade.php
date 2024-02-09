@@ -1,4 +1,5 @@
-<div class="w-full h-full border hover:ring hover:ring-blue-500 rounded-2xl relative transition duration-300">
+<div
+    class="w-full h-full border hover:border-black hover:ring hover:ring-blue-500 rounded-2xl relative transition duration-300">
     <div class="flex justify-between items-center h-[15%] px-4">
         <div class="top-5 left-5 font-semibold text-sm md:text-xl flex items-center gap-2">
             <div>
@@ -117,7 +118,7 @@
                                     </span>
                                 </div>
                             </div>
-                            <livewire:status-ping ipAddress="{{ $data->ip_gateway ?? '' }}">
+                            {{-- ping --}}
                         </div>
                         <div class="mr-1 flex gap-1">
                             <button id="copyGateway"
@@ -212,7 +213,7 @@
                                     </span>
                                 </div>
                             </div>
-                            <livewire:status-ping ipAddress="{{ $data->ip_induk ?? '' }}">
+                            {{-- ping --}}
                         </div>
                         <div class="mr-1 flex gap-1">
                             <button id="copyInduk"
@@ -359,7 +360,7 @@
                                     </span>
                                 </div>
                             </div>
-                            <livewire:status-ping ipAddress="{{ $data->ip_anak ?? '' }}">
+                            {{-- ping --}}
                         </div>
                         <div class="mr-1 flex gap-1">
                             <button id="copyAnak"
@@ -507,7 +508,7 @@
                                     </span>
                                 </div>
                             </div>
-                            <livewire:status-ping ipAddress="{{ $data->ip_stb ?? '' }}">
+                            {{-- ping --}}
                         </div>
                         <div class="mr-1 flex gap-1">
                             <button id="copyStb"
@@ -601,7 +602,7 @@
                                     </span>
                                 </div>
                             </div>
-                            <livewire:status-ping ipAddress="{{ $data->ip_wdcp ?? '' }}">
+                            {{-- ping --}}
                         </div>
                         <div class="mr-1 flex gap-1">
                             <button id="copyWdcp"

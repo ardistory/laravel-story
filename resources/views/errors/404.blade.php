@@ -1,19 +1,40 @@
 <x-app-layout title="404 Not Found">
 
-    <div class="w-full h-screen flex gap-2 flex-col items-center justify-center">
-        <div class="flex items-center gap-2">
-            <div class="text-yellow-500">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                    stroke="currentColor" class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                        d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" />
-                </svg>
+    <!-- component -->
+    <div class="flex items-center justify-center min-h-screen bg-black  bg-fixed bg-cover bg-bottom error-bg"
+        style="background-image: url(data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900'%3E%3Cpolygon fill='%23f0b608' points='957 450 539 900 1396 900'/%3E%3Cpolygon fill='%23e6d710' points='957 450 872.9 900 1396 900'/%3E%3Cpolygon fill='%23e7af05' points='-60 900 398 662 816 900'/%3E%3Cpolygon fill='%23e7d808' points='337 900 398 662 816 900'/%3E%3Cpolygon fill='%23d8a408' points='1203 546 1552 900 876 900'/%3E%3Cpolygon fill='%23f1e213' points='1203 546 1552 900 1162 900'/%3E%3Cpolygon fill='%23f0b607' points='641 695 886 900 367 900'/%3E%3Cpolygon fill='%23e4d506' points='587 900 641 695 886 900'/%3E%3Cpolygon fill='%23eab822' points='1710 900 1401 632 1096 900'/%3E%3Cpolygon fill='%23e8da14' points='1710 900 1401 632 1365 900'/%3E%3Cpolygon fill='%23e8b008' points='1210 900 971 687 725 900'/%3E%3Cpolygon fill='%23edde14' points='943 900 1210 900 971 687'/%3E%3C/svg%3E);">
+
+        <div class="container">
+            <div class="backdrop-blur-sm ring-1 ring-white/10 text-gray-50 text-center p-5 rounded-xl">
+                <div class="relative ">
+                    <h1 class="relative text-9xl tracking-tighter-less text-shadow font-sans font-bold">
+                        <span>4</span><span>0</span><span>4</span>
+                    </h1>
+                    <span class="absolute  top-0   -ml-12  text-gray-300 font-semibold">Oops!</span>
+                </div>
+                <h5 class="text-gray-300 font-semibold -mr-10 -mt-3">Page not found</h5>
+                <p class="text-gray-100 mt-2 mb-6">we are sorry, but the page you requested was not found</p>
+                <a href="{{ route('dashboard') }}"
+                    class="px-5 py-3 text-sm shadow-sm font-medium tracking-wider text-white ring-1 ring-white/50 hover:ring transition duration-200 rounded-full hover:shadow-lg">
+                    Got to Home
+                </a>
             </div>
-            404 Not Found
-        </div>
-        <div>
-            <a href="{{ route('dashboard') }}" class="bg-indigo-500 hover:bg-indigo-600 rounded-full px-3 py-1">Back</a>
         </div>
     </div>
+
+
+    <style>
+        .error-bg {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900'%3E%3Cpolygon fill='%23f0b608' points='957 450 539 900 1396 900'/%3E%3Cpolygon fill='%23e6d710' points='957 450 872.9 900 1396 900'/%3E%3Cpolygon fill='%23e7af05' points='-60 900 398 662 816 900'/%3E%3Cpolygon fill='%23e7d808' points='337 900 398 662 816 900'/%3E%3Cpolygon fill='%23d8a408' points='1203 546 1552 900 876 900'/%3E%3Cpolygon fill='%23f1e213' points='1203 546 1552 900 1162 900'/%3E%3Cpolygon fill='%23f0b607' points='641 695 886 900 367 900'/%3E%3Cpolygon fill='%23e4d506' points='587 900 641 695 886 900'/%3E%3Cpolygon fill='%23eab822' points='1710 900 1401 632 1096 900'/%3E%3Cpolygon fill='%23e8da14' points='1710 900 1401 632 1365 900'/%3E%3Cpolygon fill='%23e8b008' points='1210 900 971 687 725 900'/%3E%3Cpolygon fill='%23edde14' points='943 900 1210 900 971 687'/%3E%3C/svg%3E");
+        }
+
+        .tracking-tighter-less {
+            letter-spacing: -0.75rem;
+        }
+
+        .text-shadow {
+            text-shadow: -8px 0 0 rgb(102 123 242);
+        }
+    </style>
 
 </x-app-layout>

@@ -2,25 +2,31 @@
 
 namespace App\Livewire;
 
+use App\Models\TokoLbk;
 use JJG\Ping;
+use Livewire\Attributes\On;
 use Livewire\Component;
 
 class StatusPing extends Component
 {
-    public string $ipAddress;
+    public string $storeCode = '';
 
-    public function mount($ipAddress)
+    #[On('submitTableTokoForPing')]
+    public function pingIpAddress($query)
     {
-        $this->ipAddress = $ipAddress;
+        dd($query);
+
+
+        $ping = new Ping($this->ipAddress, 128, 3);
+        $resultPing = $ping->ping();
+
+        if ($resultPing != false) {
+            return intval($resultPing);
+        }
     }
 
     public function render()
     {
-        $ping = new Ping($this->ipAddress, 128, 3);
-        $resultPing = $ping->ping();
-
-        return view('livewire.status-ping', [
-            'resultPing' => $resultPing
-        ]);
+        return view('livewire.status-ping');
     }
 }
