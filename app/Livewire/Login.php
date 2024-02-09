@@ -22,6 +22,8 @@ class Login extends Component
         if (Auth::attempt($validated, $this->remember)) {
             $this->redirectRoute('dashboard');
         } else {
+            $this->reset('password');
+
             session()->flash('error');
         }
     }
