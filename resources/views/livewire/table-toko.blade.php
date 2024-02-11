@@ -68,10 +68,10 @@
                             class="flex items-center gap-2 font-medium text-sm md:text-lg tracking-tight text-gray-900 leading-tight">
                             <div>
                                 @empty($data->picture)
-                                    <img class="w-6 h-6 rounded-full bg-cover"
+                                    <img class="w-5 h-auto rounded-full bg-cover"
                                         src="{{ asset('storage/img/profile/default.png') }}">
                                 @else
-                                    <img class="w-6 h-6 rounded-full bg-cover"
+                                    <img class="w-5 h-auto rounded-full"
                                         src="{{ asset('storage/img/profile/' . $data->picture) }}">
                                 @endempty
                             </div>
