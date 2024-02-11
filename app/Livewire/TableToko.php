@@ -35,7 +35,7 @@ class TableToko extends Component
     {
         $data = TokoLbk::query()->join('users', 'tokolbk.edparea', '=', 'users.nik')
             ->where('tokolbk.kode_toko', '=', $this->storeCode)
-            ->select('tokolbk.kode_toko', 'tokolbk.nama_toko', 'tokolbk.ip_gateway', 'tokolbk.ip_induk', 'tokolbk.ip_anak', 'tokolbk.ip_stb', 'tokolbk.ip_wdcp', 'users.name as edparea')
+            ->select('tokolbk.kode_toko', 'tokolbk.nama_toko', 'tokolbk.ip_gateway', 'tokolbk.ip_induk', 'tokolbk.ip_anak', 'tokolbk.ip_stb', 'tokolbk.ip_wdcp', 'users.picture', 'users.name as edparea')
             ->first();
 
         return view('livewire.table-toko', [

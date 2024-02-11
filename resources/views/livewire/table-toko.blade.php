@@ -67,11 +67,13 @@
                         <div
                             class="flex items-center gap-2 font-medium text-sm md:text-lg tracking-tight text-gray-900 leading-tight">
                             <div>
-                                <svg class="h-5 w-5 text-black" fill="none" viewBox="0 0 24 24"
-                                    stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                                </svg>
+                                @empty($data->picture)
+                                    <img class="w-6 h-6 rounded-full bg-cover"
+                                        src="{{ asset('storage/img/profile/default.png') }}">
+                                @else
+                                    <img class="w-6 h-6 rounded-full bg-cover"
+                                        src="{{ asset('storage/img/profile/' . $data->picture) }}">
+                                @endempty
                             </div>
                             @empty($data->edparea)
                                 @if (strlen($storeCode) > 0)
