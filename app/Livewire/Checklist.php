@@ -11,16 +11,19 @@ class Checklist extends Component
 {
     use WithPagination;
 
+    public string $query = '';
+
     public function getMyArea()
     {
         return TokoLbk::query()
-            ->join('area', 'tokolbk.edparea', '=', 'area.nik')
-            ->join('users', 'tokolbk.edparea', '=', 'users.nik')
-            ->where('area.nik', '=', Auth::user()->nik)
-            ->select('tokolbk.kode_toko', 'tokolbk.nama_toko', 'area.nik', 'users.name', 'users.role_level')
+            ->join('area', 'tokolbk.kode_toko', '=', 'area.kode_toko')
+            ->join('users', 'users.nik', '=', 'area.nik')
+            ->join('checked', 'checked.kode_toko', '=', 'tokolbk.kode_toko')
+            ->select('tokolbk.kode_toko as kode_toko', 'tokolbk.nama_toko as nama_toko', 'users.name as name', 'users.nik as nik', 'users.picture as picture', 'users.role_level', 'checked.is_checked')
+            ->where('tokolbk.edparea', '=', Auth::user()->nik)
+            ->where('tokolbk.nama_toko', 'like', '%' . $this->query . '%')
             ->inRandomOrder()
             ->paginate(8);
-        ;
     }
 
     public function render()

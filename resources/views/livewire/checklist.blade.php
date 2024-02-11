@@ -36,32 +36,41 @@
                     d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
             </svg>
         </div>
-        <input class="text-black outline-none px-2 py-1 w-full md:w-[10%] rounded-r-xl" type="text"
-            placeholder="Store Code">
+        <input wire:model.live='query' class="text-black outline-none px-2 py-1 w-full md:w-[20%] rounded-r-xl"
+            type="text" placeholder="Nama Toko">
     </div>
     <div class="flex flex-col gap-2">
         @foreach ($areas as $area)
-            <div class="relative border rounded-xl p-5 hover:ring hover:ring-[#64b295] transition duration-300">
+            <div wire:key="{{ $area['kode_toko'] }}"
+                class="relative border rounded-xl p-5 hover:ring hover:ring-[#64b295] transition duration-300">
                 <div class="flex justify-between">
                     <div>
                         <div class="text-sm font-bold text-zinc-500">
-                            TKBV
+                            {{ $area['kode_toko'] }}
                         </div>
                         <div class="font-semibold text-xs">
-                            DC LEBAK 1
+                            {{ $area['nama_toko'] }}
                         </div>
                         <div class="absolute top-1 right-1 inline-flex items-center gap-1">
-                            <div
-                                class="bg-[#051b11] px-2 rounded-xl font-semibold text-xs inline-flex items-center gap-1 text-[#64b295] border border-[#64b295]">
-                                Checked
-                                <div>
-                                    <svg class="w-3 h-3" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                        viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                            d="m4.5 12.75 6 6 9-13.5" />
-                                    </svg>
+                            @if ($area['is_checked'] == 0)
+                                <div
+                                    class="bg-yellow-800 px-2 rounded-xl font-semibold text-xs inline-flex items-center gap-1 text-yellow-500 border border-yellow-500">
+                                    Unchecked
                                 </div>
-                            </div>
+                            @else
+                                <div
+                                    class="bg-[#051b11] px-2 rounded-xl font-semibold text-xs inline-flex items-center gap-1 text-[#64b295] border border-[#64b295]">
+                                    Checked
+                                    <div>
+                                        <svg class="w-3 h-3" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                            viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                                            class="w-6 h-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="m4.5 12.75 6 6 9-13.5" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            @endif
                             <div
                                 class="bg-[#051b11] px-2 rounded-xl font-semibold text-xs inline-flex items-center gap-1 text-[#64b295] border border-[#64b295]">
                                 2024-02-02 11:40:36
@@ -86,5 +95,9 @@
                 </div>
             </div>
         @endforeach
+    </div>
+
+    <div class="flex justify-center">
+        {{ $areas->links() }}
     </div>
 </div>
