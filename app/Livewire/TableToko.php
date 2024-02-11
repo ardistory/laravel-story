@@ -4,28 +4,31 @@ namespace App\Livewire;
 
 use App\Models\TokoLbk;
 use JJG\Ping;
+use Livewire\Attributes\On;
 use Livewire\Component;
 
 class TableToko extends Component
 {
     public string $title = 'Data Store';
     public string $storeCode = '';
-    public string $status = '';
+    public string $status = 'Loading . .';
+    public array $data_ping = [];
 
     public function sendDataStoreCode(): void
     {
         $query = TokoLbk::query()->where('kode_toko', '=', $this->storeCode)->first();
 
         if (isset($query['kode_toko']) && strlen($query['kode_toko']) > 0) {
-            $ping = new Ping($query->ip_wdcp, 128, 3);
-
-            if ($ping->ping() != false) {
-                $this->dispatch('submitTableToko', kode_toko: $this->storeCode);
-                $this->dispatch('submitTableTokoForPing', query: $query);
-            } else {
-                echo "targol";
-            }
+            $this->dispatch('submitTableToko', kode_toko: $this->storeCode);
         }
+    }
+
+    #[On('afterPingStore')]
+    public function afterPing($data_ping)
+    {
+        $this->data_ping = $data_ping;
+
+        return $data_ping;
     }
 
     public function render()
@@ -36,7 +39,8 @@ class TableToko extends Component
             ->first();
 
         return view('livewire.table-toko', [
-            'data' => $data
+            'data' => $data,
+            'data_ping' => $this->afterPing($this->data_ping)
         ]);
     }
 }

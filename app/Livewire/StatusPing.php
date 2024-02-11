@@ -11,17 +11,28 @@ class StatusPing extends Component
 {
     public string $storeCode = '';
 
-    #[On('submitTableTokoForPing')]
-    public function pingIpAddress($query)
+    #[On('submitTableToko')]
+    public function pingIpAddress($kode_toko)
     {
-        dd($query);
+        $this->storeCode = $kode_toko;
 
+        try {
+            $dataToko = TokoLbk::query()->where('kode_toko', '=', $this->storeCode)->first();
 
-        $ping = new Ping($this->ipAddress, 128, 3);
-        $resultPing = $ping->ping();
+            $pingGateway = new Ping($dataToko->ip_gateway, 64, 1);
+            $pingInduk = new Ping($dataToko->ip_induk, 64, 1);
+            $pingAnak = new Ping($dataToko->ip_anak, 64, 1);
+            $pingStb = new Ping($dataToko->ip_stb, 64, 1);
+            $pingWdcp = new Ping($dataToko->ip_wdcp, 64, 1);
 
-        if ($resultPing != false) {
-            return intval($resultPing);
+            $this->dispatch('afterPingStore', data_ping: [
+                'ping_gateway' => $pingGateway->ping(),
+                'ping_induk' => $pingInduk->ping(),
+                'ping_anak' => $pingAnak->ping(),
+                'ping_stb' => $pingStb->ping(),
+                'ping_wdcp' => $pingWdcp->ping()
+            ]);
+        } catch (\Exception $exception) {
         }
     }
 
