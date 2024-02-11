@@ -191,7 +191,7 @@
                 </div>
             </div>
             <div class="flex flex-col gap-2">
-                <a href="{{ route('dashboard') }}"
+                <a wire:navigate href="{{ route('dashboard') }}"
                     class="@if (Request::routeIs('dashboard')) text-black bg-white @endif flex items-center gap-2 hover:bg-white hover:text-black rounded-full px-6 py-4 text-xl font-medium transition duration-250">
                     <div>
                         <svg class="h-7 w-7" width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
@@ -204,7 +204,7 @@
                     </div>
                     Dashboard
                 </a>
-                <a href="{{ route('ip') }}"
+                <a wire:navigate href="{{ route('ip') }}"
                     class="@if (Request::routeIs('ip')) text-black bg-white @endif flex items-center gap-2 hover:bg-white hover:text-black rounded-full px-6 py-4 text-xl font-medium transition duration-250">
                     <div>
                         <svg class="h-7 w-7" width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
@@ -218,7 +218,7 @@
                     </div>
                     IP Address
                 </a>
-                <a href="{{ route('users') }}"
+                <a wire:navigate href="{{ route('users') }}"
                     class="@if (Request::routeIs('users')) text-black bg-white @endif flex items-center gap-2 hover:bg-white hover:text-black rounded-full px-6 py-4 text-xl font-medium transition duration-250">
                     <div>
                         <svg class="h-7 w-7" width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
