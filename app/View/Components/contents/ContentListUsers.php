@@ -17,20 +17,12 @@ class ContentListUsers extends Component
         //
     }
 
-    public function getDataUsers()
-    {
-        return User::query()
-            ->inRandomOrder()
-            ->get();
-    }
 
     /**
      * Get the view / contents that represent the component.
      */
     public function render(): View|Closure|string
     {
-        return view('contents.content-list-users', [
-            'users' => $this->getDataUsers()
-        ]);
+        return view('contents.content-list-users');
     }
 }

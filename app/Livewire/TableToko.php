@@ -22,6 +22,8 @@ class TableToko extends Component
             if ($ping->ping() != false) {
                 $this->dispatch('submitTableToko', kode_toko: $this->storeCode);
                 $this->dispatch('submitTableTokoForPing', query: $query);
+            } else {
+                echo "targol";
             }
         }
     }
