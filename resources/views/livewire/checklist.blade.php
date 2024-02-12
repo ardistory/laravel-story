@@ -21,11 +21,11 @@
         </div>
     </div>
     <div class="flex justify-between mb-4 cursor-pointer">
-        <div class="bg-green-800 w-1/2 p-2 text-xs text-center hover:bg-green-700">
-            Checked (2)
+        <div class="bg-green-800 w-1/2 p-2 text-xs text-center hover:bg-green-700 relative">
+            Checked <div class="absolute right-1 top-1 bg-green-500 p-1 rounded-full">2</div>
         </div>
-        <div class="bg-red-900 w-1/2 p-2 text-xs text-center hover:bg-red-800">
-            Unchecked (18)
+        <div class="bg-red-900 w-1/2 p-2 text-xs text-center hover:bg-red-800 relative">
+            Unchecked <div class="absolute right-1 top-1 bg-red-500 p-1 rounded-full">18</div>
         </div>
     </div>
     <div class="mb-4 flex justify-end w-full">
@@ -73,12 +73,12 @@
                             @endif
                             <div
                                 class="bg-[#051b11] px-2 rounded-xl font-semibold text-xs inline-flex items-center gap-1 text-[#64b295] border border-[#64b295]">
-                                2024-02-02 11:40:36
+                                2024-02-01 10:26:39
                             </div>
                         </div>
                     </div>
-                    <div class="flex items-center">
-                        <button
+                    <div x-data="{ doChecklist{{ $area['kode_toko'] }}: false }" class="flex items-center">
+                        <button x-on:click="doChecklist{{ $area['kode_toko'] }} = true"
                             class="text-xs ring-1 ring-white px-2 py-1 rounded-lg hover:ring transition duration-300 inline-flex items-center gap-1">
                             Checklist
                             <div>
@@ -91,13 +91,385 @@
                                 </svg>
                             </div>
                         </button>
+                        <div x-show="doChecklist{{ $area['kode_toko'] }}"
+                            class="fixed w-full h-screen backdrop-blur-sm top-0 left-0 z-10">
+                            <div class="w-full h-full flex items-center justify-center">
+                                <div class="w-[90%] h-[800px] bg-black shadow-sm shadow-white rounded-xl border-b">
+                                    <div class="p-5 flex gap-5 justify-between border-b">
+                                        <div class="flex items-center gap-2 font-bold">
+                                            <div>
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                    viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                                                    class="w-6 h-6">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M6.827 6.175A2.31 2.31 0 0 1 5.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 0 0-1.134-.175 2.31 2.31 0 0 1-1.64-1.055l-.822-1.316a2.192 2.192 0 0 0-1.736-1.039 48.774 48.774 0 0 0-5.232 0 2.192 2.192 0 0 0-1.736 1.039l-.821 1.316Z" />
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M16.5 12.75a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0ZM18.75 10.5h.008v.008h-.008V10.5Z" />
+                                                </svg>
+                                            </div>
+                                            {{ $area['kode_toko'] }} - {{ $area['nama_toko'] }}
+                                        </div>
+                                        <div>
+                                            <div x-on:click="doChecklist{{ $area['kode_toko'] }}=false"
+                                                class="text-red-500 cursor-pointer">
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                    viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                                                    class="w-6 h-6">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M6 18 18 6M6 6l12 12" />
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="p-5 h-[80%] overflow-y-scroll scrollbar-thin scrollbar-thumb-white scrollbar-track-black">
+                                        <div class="mb-4">
+                                            <div
+                                                class="p-2 ring-1 ring-white/20 rounded-md hover:ring hover:ring-blue-500 transition duration-300">
+                                                <div class="flex gap-2 items-center mb-2 font-bold">
+                                                    <div>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                            viewBox="0 0 24 24" stroke-width="1.5"
+                                                            stroke="currentColor" class="w-6 h-6">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                d="M9 17.25v1.007a3 3 0 0 1-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0 1 15 18.257V17.25m6-12V15a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 15V5.25m18 0A2.25 2.25 0 0 0 18.75 3H5.25A2.25 2.25 0 0 0 3 5.25m18 0V12a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 12V5.25" />
+                                                        </svg>
+                                                    </div>
+                                                    Foto 1
+                                                </div>
+                                                <div>
+                                                    <img class="w-full h-auto mb-2 ring-1 ring-white/20"
+                                                        src="{{ asset('storage/img/checklist/T9V2_foto_5.png') }}">
+                                                    <input
+                                                        class="w-full file:text-black file:bg-white file:px-3 file:py-1 file:rounded-2xl file:border-0 bg-white/10 rounded-2xl mb-2"
+                                                        type="file" name="foto_1">
+                                                </div>
+                                                <div class="flex items-center justify-between bg-white/10 pl-2">
+                                                    <span class="select-none text-sm">
+                                                        blablablablablablablabla?</span>
+                                                    <select
+                                                        class="bg-white px-3 py-1 rounded-md text-black outline-none"
+                                                        name="checklist_1">
+                                                        <option value="false">Tidak</option>
+                                                        <option value="true">Ya</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-4">
+                                            <div
+                                                class="p-2 ring-1 ring-white/20 rounded-md hover:ring hover:ring-blue-500 transition duration-300">
+                                                <div class="flex gap-2 items-center mb-2 font-bold">
+                                                    <div>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                            viewBox="0 0 24 24" stroke-width="1.5"
+                                                            stroke="currentColor" class="w-6 h-6">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                d="M9 17.25v1.007a3 3 0 0 1-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0 1 15 18.257V17.25m6-12V15a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 15V5.25m18 0A2.25 2.25 0 0 0 18.75 3H5.25A2.25 2.25 0 0 0 3 5.25m18 0V12a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 12V5.25" />
+                                                        </svg>
+                                                    </div>
+                                                    Foto 2
+                                                </div>
+                                                <div>
+                                                    <img class="w-full h-auto mb-2 ring-1 ring-white/20"
+                                                        src="{{ asset('storage/img/checklist/T9V2_foto_5.png') }}">
+                                                    <input
+                                                        class="w-full file:text-black file:bg-white file:px-3 file:py-1 file:rounded-2xl file:border-0 bg-white/10 rounded-2xl mb-2"
+                                                        type="file" name="foto_1">
+                                                </div>
+                                                <div class="flex items-center justify-between bg-white/10 pl-2">
+                                                    <span class="select-none text-sm">
+                                                        blablablablablablablabla?</span>
+                                                    <select
+                                                        class="bg-white px-3 py-1 rounded-md text-black outline-none"
+                                                        name="checklist_1">
+                                                        <option value="false">Tidak</option>
+                                                        <option value="true">Ya</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-4">
+                                            <div
+                                                class="p-2 ring-1 ring-white/20 rounded-md hover:ring hover:ring-blue-500 transition duration-300">
+                                                <div class="flex gap-2 items-center mb-2 font-bold">
+                                                    <div>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                            viewBox="0 0 24 24" stroke-width="1.5"
+                                                            stroke="currentColor" class="w-6 h-6">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                d="M9 17.25v1.007a3 3 0 0 1-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0 1 15 18.257V17.25m6-12V15a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 15V5.25m18 0A2.25 2.25 0 0 0 18.75 3H5.25A2.25 2.25 0 0 0 3 5.25m18 0V12a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 12V5.25" />
+                                                        </svg>
+                                                    </div>
+                                                    Foto 3
+                                                </div>
+                                                <div>
+                                                    <img class="w-full h-auto mb-2 ring-1 ring-white/20"
+                                                        src="{{ asset('storage/img/checklist/T9V2_foto_5.png') }}">
+                                                    <input
+                                                        class="w-full file:text-black file:bg-white file:px-3 file:py-1 file:rounded-2xl file:border-0 bg-white/10 rounded-2xl mb-2"
+                                                        type="file" name="foto_1">
+                                                </div>
+                                                <div class="flex items-center justify-between bg-white/10 pl-2">
+                                                    <span class="select-none text-sm">
+                                                        blablablablablablablabla?</span>
+                                                    <select
+                                                        class="bg-white px-3 py-1 rounded-md text-black outline-none"
+                                                        name="checklist_1">
+                                                        <option value="false">Tidak</option>
+                                                        <option value="true">Ya</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-4">
+                                            <div
+                                                class="p-2 ring-1 ring-white/20 rounded-md hover:ring hover:ring-blue-500 transition duration-300">
+                                                <div class="flex gap-2 items-center mb-2 font-bold">
+                                                    <div>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                            viewBox="0 0 24 24" stroke-width="1.5"
+                                                            stroke="currentColor" class="w-6 h-6">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                d="M9 17.25v1.007a3 3 0 0 1-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0 1 15 18.257V17.25m6-12V15a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 15V5.25m18 0A2.25 2.25 0 0 0 18.75 3H5.25A2.25 2.25 0 0 0 3 5.25m18 0V12a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 12V5.25" />
+                                                        </svg>
+                                                    </div>
+                                                    Foto 4
+                                                </div>
+                                                <div>
+                                                    <img class="w-full h-auto mb-2 ring-1 ring-white/20"
+                                                        src="{{ asset('storage/img/checklist/T9V2_foto_5.png') }}">
+                                                    <input
+                                                        class="w-full file:text-black file:bg-white file:px-3 file:py-1 file:rounded-2xl file:border-0 bg-white/10 rounded-2xl mb-2"
+                                                        type="file" name="foto_1">
+                                                </div>
+                                                <div class="flex items-center justify-between bg-white/10 pl-2">
+                                                    <span class="select-none text-sm">
+                                                        blablablablablablablabla?</span>
+                                                    <select
+                                                        class="bg-white px-3 py-1 rounded-md text-black outline-none"
+                                                        name="checklist_1">
+                                                        <option value="false">Tidak</option>
+                                                        <option value="true">Ya</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-4">
+                                            <div
+                                                class="p-2 ring-1 ring-white/20 rounded-md hover:ring hover:ring-blue-500 transition duration-300">
+                                                <div class="flex gap-2 items-center mb-2 font-bold">
+                                                    <div>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                            viewBox="0 0 24 24" stroke-width="1.5"
+                                                            stroke="currentColor" class="w-6 h-6">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                d="M9 17.25v1.007a3 3 0 0 1-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0 1 15 18.257V17.25m6-12V15a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 15V5.25m18 0A2.25 2.25 0 0 0 18.75 3H5.25A2.25 2.25 0 0 0 3 5.25m18 0V12a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 12V5.25" />
+                                                        </svg>
+                                                    </div>
+                                                    Foto 5
+                                                </div>
+                                                <div>
+                                                    <img class="w-full h-auto mb-2 ring-1 ring-white/20"
+                                                        src="{{ asset('storage/img/checklist/T9V2_foto_5.png') }}">
+                                                    <input
+                                                        class="w-full file:text-black file:bg-white file:px-3 file:py-1 file:rounded-2xl file:border-0 bg-white/10 rounded-2xl mb-2"
+                                                        type="file" name="foto_1">
+                                                </div>
+                                                <div class="flex items-center justify-between bg-white/10 pl-2">
+                                                    <span class="select-none text-sm">
+                                                        blablablablablablablabla?</span>
+                                                    <select
+                                                        class="bg-white px-3 py-1 rounded-md text-black outline-none"
+                                                        name="checklist_1">
+                                                        <option value="false">Tidak</option>
+                                                        <option value="true">Ya</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-4">
+                                            <div
+                                                class="p-2 ring-1 ring-white/20 rounded-md hover:ring hover:ring-blue-500 transition duration-300">
+                                                <div class="flex gap-2 items-center mb-2 font-bold">
+                                                    <div>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                            viewBox="0 0 24 24" stroke-width="1.5"
+                                                            stroke="currentColor" class="w-6 h-6">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                d="M9 17.25v1.007a3 3 0 0 1-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0 1 15 18.257V17.25m6-12V15a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 15V5.25m18 0A2.25 2.25 0 0 0 18.75 3H5.25A2.25 2.25 0 0 0 3 5.25m18 0V12a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 12V5.25" />
+                                                        </svg>
+                                                    </div>
+                                                    Foto 6
+                                                </div>
+                                                <div>
+                                                    <img class="w-full h-auto mb-2 ring-1 ring-white/20"
+                                                        src="{{ asset('storage/img/checklist/T9V2_foto_5.png') }}">
+                                                    <input
+                                                        class="w-full file:text-black file:bg-white file:px-3 file:py-1 file:rounded-2xl file:border-0 bg-white/10 rounded-2xl mb-2"
+                                                        type="file" name="foto_1">
+                                                </div>
+                                                <div class="flex items-center justify-between bg-white/10 pl-2">
+                                                    <span class="select-none text-sm">
+                                                        blablablablablablablabla?</span>
+                                                    <select
+                                                        class="bg-white px-3 py-1 rounded-md text-black outline-none"
+                                                        name="checklist_1">
+                                                        <option value="false">Tidak</option>
+                                                        <option value="true">Ya</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-4">
+                                            <div
+                                                class="p-2 ring-1 ring-white/20 rounded-md hover:ring hover:ring-blue-500 transition duration-300">
+                                                <div class="flex gap-2 items-center mb-2 font-bold">
+                                                    <div>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                            viewBox="0 0 24 24" stroke-width="1.5"
+                                                            stroke="currentColor" class="w-6 h-6">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                d="M9 17.25v1.007a3 3 0 0 1-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0 1 15 18.257V17.25m6-12V15a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 15V5.25m18 0A2.25 2.25 0 0 0 18.75 3H5.25A2.25 2.25 0 0 0 3 5.25m18 0V12a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 12V5.25" />
+                                                        </svg>
+                                                    </div>
+                                                    Foto 7
+                                                </div>
+                                                <div>
+                                                    <img class="w-full h-auto mb-2 ring-1 ring-white/20"
+                                                        src="{{ asset('storage/img/checklist/T9V2_foto_5.png') }}">
+                                                    <input
+                                                        class="w-full file:text-black file:bg-white file:px-3 file:py-1 file:rounded-2xl file:border-0 bg-white/10 rounded-2xl mb-2"
+                                                        type="file" name="foto_1">
+                                                </div>
+                                                <div class="flex items-center justify-between bg-white/10 pl-2">
+                                                    <span class="select-none text-sm">
+                                                        blablablablablablablabla?</span>
+                                                    <select
+                                                        class="bg-white px-3 py-1 rounded-md text-black outline-none"
+                                                        name="checklist_1">
+                                                        <option value="false">Tidak</option>
+                                                        <option value="true">Ya</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-4">
+                                            <div
+                                                class="p-2 ring-1 ring-white/20 rounded-md hover:ring hover:ring-blue-500 transition duration-300">
+                                                <div class="flex gap-2 items-center mb-2 font-bold">
+                                                    <div>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                            viewBox="0 0 24 24" stroke-width="1.5"
+                                                            stroke="currentColor" class="w-6 h-6">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                d="M9 17.25v1.007a3 3 0 0 1-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0 1 15 18.257V17.25m6-12V15a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 15V5.25m18 0A2.25 2.25 0 0 0 18.75 3H5.25A2.25 2.25 0 0 0 3 5.25m18 0V12a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 12V5.25" />
+                                                        </svg>
+                                                    </div>
+                                                    Foto 8
+                                                </div>
+                                                <div>
+                                                    <img class="w-full h-auto mb-2 ring-1 ring-white/20"
+                                                        src="{{ asset('storage/img/checklist/T9V2_foto_5.png') }}">
+                                                    <input
+                                                        class="w-full file:text-black file:bg-white file:px-3 file:py-1 file:rounded-2xl file:border-0 bg-white/10 rounded-2xl mb-2"
+                                                        type="file" name="foto_1">
+                                                </div>
+                                                <div class="flex items-center justify-between bg-white/10 pl-2">
+                                                    <span class="select-none text-sm">
+                                                        blablablablablablablabla?</span>
+                                                    <select
+                                                        class="bg-white px-3 py-1 rounded-md text-black outline-none"
+                                                        name="checklist_1">
+                                                        <option value="false">Tidak</option>
+                                                        <option value="true">Ya</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-4">
+                                            <div
+                                                class="p-2 ring-1 ring-white/20 rounded-md hover:ring hover:ring-blue-500 transition duration-300">
+                                                <div class="flex gap-2 items-center mb-2 font-bold">
+                                                    <div>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                            viewBox="0 0 24 24" stroke-width="1.5"
+                                                            stroke="currentColor" class="w-6 h-6">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                d="M9 17.25v1.007a3 3 0 0 1-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0 1 15 18.257V17.25m6-12V15a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 15V5.25m18 0A2.25 2.25 0 0 0 18.75 3H5.25A2.25 2.25 0 0 0 3 5.25m18 0V12a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 12V5.25" />
+                                                        </svg>
+                                                    </div>
+                                                    Foto 9
+                                                </div>
+                                                <div>
+                                                    <img class="w-full h-auto mb-2 ring-1 ring-white/20"
+                                                        src="{{ asset('storage/img/checklist/T9V2_foto_5.png') }}">
+                                                    <input
+                                                        class="w-full file:text-black file:bg-white file:px-3 file:py-1 file:rounded-2xl file:border-0 bg-white/10 rounded-2xl mb-2"
+                                                        type="file" name="foto_1">
+                                                </div>
+                                                <div class="flex items-center justify-between bg-white/10 pl-2">
+                                                    <span class="select-none text-sm">
+                                                        blablablablablablablabla?</span>
+                                                    <select
+                                                        class="bg-white px-3 py-1 rounded-md text-black outline-none"
+                                                        name="checklist_1">
+                                                        <option value="false">Tidak</option>
+                                                        <option value="true">Ya</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-2">
+                                            <div
+                                                class="p-2 ring-1 ring-white/20 rounded-md hover:ring hover:ring-blue-500 transition duration-300">
+                                                <div class="flex gap-2 items-center mb-2 font-bold">
+                                                    <div>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                            viewBox="0 0 24 24" stroke-width="1.5"
+                                                            stroke="currentColor" class="w-6 h-6">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                d="M9 17.25v1.007a3 3 0 0 1-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0 1 15 18.257V17.25m6-12V15a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 15V5.25m18 0A2.25 2.25 0 0 0 18.75 3H5.25A2.25 2.25 0 0 0 3 5.25m18 0V12a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 12V5.25" />
+                                                        </svg>
+                                                    </div>
+                                                    Foto 10
+                                                </div>
+                                                <div>
+                                                    <img class="w-full h-auto mb-2 ring-1 ring-white/20"
+                                                        src="{{ asset('storage/img/checklist/T9V2_foto_5.png') }}">
+                                                    <input
+                                                        class="w-full file:text-black file:bg-white file:px-3 file:py-1 file:rounded-2xl file:border-0 bg-white/10 rounded-2xl mb-2"
+                                                        type="file" name="foto_1">
+                                                </div>
+                                                <div class="flex items-center justify-between bg-white/10 pl-2">
+                                                    <span class="select-none text-sm">
+                                                        blablablablablablablabla?</span>
+                                                    <select
+                                                        class="bg-white px-3 py-1 rounded-md text-black outline-none"
+                                                        name="checklist_1">
+                                                        <option value="false">Tidak</option>
+                                                        <option value="true">Ya</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="p-5 border-t flex justify-end">
+                                        <button
+                                            class="px-3 py-1 rounded-lg ring-1 ring-white hover:ring transition duration-300">
+                                            Save
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         @endforeach
     </div>
 
-    <div class="flex justify-center">
+    <div class="flex justify-center mt-4">
         {{ $areas->links() }}
     </div>
 </div>

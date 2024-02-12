@@ -28,7 +28,7 @@
             </div>
         </div>
     </div>
-    <div class="h-[130px] pb-2 w-full overflow-auto scrollbar-thin scrollbar-thumb-white">
+    <div class="h-[130px] pb-2 w-full overflow-auto scrollbar-thin scrollbar-thumb-white scrollbar-track-black">
         @foreach ($listMac[0] as $data)
             @if ($data['mac-address'] == '')
             @else
