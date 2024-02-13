@@ -16,7 +16,10 @@
                     </div>
                     Add Store
                 </button>
-                <div x-show="newStore"
+                <div x-show="newStore" x-transition:enter="transition ease-out duration-300"
+                    x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100"
+                    x-transition:leave="transition ease-in duration-300"
+                    x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-90"
                     class="fixed w-full h-screen flex items-center justify-center top-0 left-0 z-10 backdrop-blur-sm">
                     <div x-on:click.away="newStore = !newStore"
                         class="bg-black text-white shadow-sm shadow-white border-b rounded-md">
@@ -124,8 +127,9 @@
                                 <div class="flex flex-col gap-1">
                                     <div class="flex gap-2 items-center">
                                         <div>
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                                stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                                                class="w-6 h-6">
                                                 <path stroke-linecap="round" stroke-linejoin="round"
                                                     d="M9 17.25v1.007a3 3 0 0 1-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0 1 15 18.257V17.25m6-12V15a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 15V5.25m18 0A2.25 2.25 0 0 0 18.75 3H5.25A2.25 2.25 0 0 0 3 5.25m18 0V12a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 12V5.25" />
                                             </svg>
@@ -290,6 +294,12 @@
                                         </button>
 
                                         <div x-show="show{{ $dt['kode_toko'] }}"
+                                            x-transition:enter="transition ease-out duration-300"
+                                            x-transition:enter-start="opacity-0 scale-90"
+                                            x-transition:enter-end="opacity-100 scale-100"
+                                            x-transition:leave="transition ease-in duration-300"
+                                            x-transition:leave-start="opacity-100 scale-100"
+                                            x-transition:leave-end="opacity-0 scale-90"
                                             class="flex z-10 fixed top-0 left-0 w-full h-screen backdrop-blur-sm justify-center items-center">
                                             <div class="bg-black text-white rounded-lg shadow-sm shadow-white">
                                                 <div class="p-5 flex items-center justify-between font-bold">
@@ -426,6 +436,12 @@
                                             </svg>
                                         </button>
                                         <button x-show="option{{ $dt['kode_toko'] }}"
+                                            x-transition:enter="transition ease-out duration-300"
+                                            x-transition:enter-start="opacity-0 scale-90"
+                                            x-transition:enter-end="opacity-100 scale-100"
+                                            x-transition:leave="transition ease-in duration-300"
+                                            x-transition:leave-start="opacity-100 scale-100"
+                                            x-transition:leave-end="opacity-0 scale-90"
                                             class="-translate-x-24 -translate-y-7 px-3 py-1 absolute ring-1 ring-white bg-black text-white hover:bg-white hover:text-black flex items-center gap-1 rounded-md">
                                             <div>
                                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none"

@@ -4,6 +4,9 @@ namespace App\Livewire;
 
 
 use App\Models\Area;
+use App\Models\Checked;
+use App\Models\Checklist;
+use App\Models\Gambar;
 use App\Models\TokoLbk;
 use App\Models\User;
 use Livewire\Attributes\Validate;
@@ -69,6 +72,20 @@ class Ip extends Component
             Area::query()->create([
                 'kode_toko' => $validated['kode_toko'],
                 'nik' => $validated['edparea']
+            ]);
+
+            Gambar::query()->create([
+                'kode_toko' => $validated['kode_toko'],
+                'updated_at' => NULL
+            ]);
+
+            Checklist::query()->create([
+                'kode_toko' => $validated['kode_toko']
+            ]);
+
+            Checked::query()->create([
+                'kode_toko' => $validated['kode_toko'],
+                'is_checked' => false
             ]);
         }
 

@@ -11,7 +11,10 @@
             </div>
             Post Documentation
         </button>
-        <div x-show="addDocumentation"
+        <div x-show="addDocumentation" x-transition:enter="transition ease-out duration-300"
+            x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100"
+            x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100 scale-100"
+            x-transition:leave-end="opacity-0 scale-90"
             class="fixed left-0 top-0 backdrop-blur-sm flex items-center justify-center w-full min-h-screen">
             <div x-on:click.away='addDocumentation = false' class="bg-black shadow-sm shadow-white rounded-lg">
                 <div class="flex items-center gap-2 font-semibold p-5 border-b">

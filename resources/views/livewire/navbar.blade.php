@@ -96,7 +96,7 @@
                         </svg>
                     </div>
                     <div
-                        class="absolute top-0 left-0 bg-red-500 text-white font-semibold text-xs w-[14px] h-[14px] flex items-center justify-center rounded-full">
+                        class="absolute -top-[2px] -right-[2px] bg-red-600 ring-2 ring-red-900 text-white font-semibold text-xs w-[14px] h-[14px] flex items-center justify-center rounded-full">
                         4
                     </div>
                 </div>
@@ -185,7 +185,7 @@
                         </svg>
                     </div>
                     <div
-                        class="absolute top-0 left-0 bg-red-500 text-white font-semibold text-xs w-[14px] h-[14px] flex items-center justify-center rounded-full">
+                        class="absolute -top-[2px] -right-[2px] bg-red-600 ring-2 ring-red-900 text-white font-semibold text-xs w-[14px] h-[14px] flex items-center justify-center rounded-full">
                         4
                     </div>
                 </div>
