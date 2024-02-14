@@ -29,7 +29,7 @@
                         </svg>
                     </div>
                     <input wire:model.blur='picture' class="bg-white text-gray-500 rounded-md cursor-pointer"
-                        type="file" name="picture">
+                        type="file">
                 </div>
             </div>
             <div>
@@ -50,7 +50,7 @@
                             </svg>
                         </div>
                         <input wire:model.blur='email' class="w-full rounded-md outline-none px-2 py-1 text-black"
-                            type="text" name="email" placeholder="youremail@domain.com" autocomplete="off">
+                            type="text" placeholder="youremail@domain.com" autocomplete="off">
                     </div>
                 </div>
             </div>
@@ -73,7 +73,7 @@
                                 </svg>
                             </div>
                             <input wire:model='newpassword' class="w-full rounded-md outline-none px-2 py-1 text-black"
-                                type="text" name="newpassword" placeholder="New Password">
+                                type="text" placeholder="New Password">
                         </div>
                     </div>
                 </div>

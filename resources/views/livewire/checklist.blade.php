@@ -187,10 +187,13 @@
                                                         </div>
                                                     @endif
                                                     <input
-                                                        class="w-full cursor-pointer file:cursor-pointer file:font-bold text-xs file:text-sm file:text-black file:bg-white file:px-3 file:py-1 file:rounded-2xl file:border-0 bg-white/10 rounded-2xl mb-2"
+                                                        class="w-full cursor-pointer file:cursor-pointer file:font-bold text-xs file:text-sm file:text-black file:bg-white file:px-3 file:py-1 file:rounded-2xl file:border-0 bg-white/10 rounded-2xl"
                                                         type="file">
+                                                    @error('foto_1')
+                                                        <p class="text-xs text-red-500">error foto</p>
+                                                    @enderror
                                                 </div>
-                                                <div class="flex items-center justify-between bg-white/10 pl-2">
+                                                <div class="flex items-center justify-between bg-white/10 pl-2 mt-2">
                                                     <span class="select-none text-sm">
                                                         blablablablablablablabla?</span>
                                                     <select
@@ -202,6 +205,7 @@
                                                         </option>
                                                     </select>
                                                 </div>
+                                                <p class="text-xs text-red-500">error checklist</p>
                                             </div>
                                         </div>
                                         <div class="mb-3 w-full md:w-[32%]">
@@ -241,10 +245,11 @@
                                                         </div>
                                                     @endif
                                                     <input
-                                                        class="w-full cursor-pointer file:cursor-pointer file:font-bold text-xs file:text-sm file:text-black file:bg-white file:px-3 file:py-1 file:rounded-2xl file:border-0 bg-white/10 rounded-2xl mb-2"
+                                                        class="w-full cursor-pointer file:cursor-pointer file:font-bold text-xs file:text-sm file:text-black file:bg-white file:px-3 file:py-1 file:rounded-2xl file:border-0 bg-white/10 rounded-2xl"
                                                         type="file">
+                                                    <p class="text-xs text-red-500">error foto</p>
                                                 </div>
-                                                <div class="flex items-center justify-between bg-white/10 pl-2">
+                                                <div class="flex items-center justify-between bg-white/10 pl-2 mt-2">
                                                     <span class="select-none text-sm">
                                                         blablablablablablablabla?</span>
                                                     <select
@@ -256,6 +261,7 @@
                                                         </option>
                                                     </select>
                                                 </div>
+                                                <p class="text-xs text-red-500">error foto</p>
                                             </div>
                                         </div>
                                         <div class="mb-3 w-full md:w-[32%]">
@@ -295,10 +301,11 @@
                                                         </div>
                                                     @endif
                                                     <input
-                                                        class="w-full cursor-pointer file:cursor-pointer file:font-bold text-xs file:text-sm file:text-black file:bg-white file:px-3 file:py-1 file:rounded-2xl file:border-0 bg-white/10 rounded-2xl mb-2"
+                                                        class="w-full cursor-pointer file:cursor-pointer file:font-bold text-xs file:text-sm file:text-black file:bg-white file:px-3 file:py-1 file:rounded-2xl file:border-0 bg-white/10 rounded-2xl"
                                                         type="file">
+                                                    <p class="text-xs text-red-500">error foto</p>
                                                 </div>
-                                                <div class="flex items-center justify-between bg-white/10 pl-2">
+                                                <div class="flex items-center justify-between bg-white/10 pl-2 mt-2">
                                                     <span class="select-none text-sm">
                                                         blablablablablablablabla?</span>
                                                     <select
@@ -310,6 +317,7 @@
                                                         </option>
                                                     </select>
                                                 </div>
+                                                <p class="text-xs text-red-500">error foto</p>
                                             </div>
                                         </div>
                                         <div class="mb-3 w-full md:w-[32%]">
@@ -349,10 +357,10 @@
                                                         </div>
                                                     @endif
                                                     <input
-                                                        class="w-full cursor-pointer file:cursor-pointer file:font-bold text-xs file:text-sm file:text-black file:bg-white file:px-3 file:py-1 file:rounded-2xl file:border-0 bg-white/10 rounded-2xl mb-2"
+                                                        class="w-full cursor-pointer file:cursor-pointer file:font-bold text-xs file:text-sm file:text-black file:bg-white file:px-3 file:py-1 file:rounded-2xl file:border-0 bg-white/10 rounded-2xl"
                                                         type="file">
                                                 </div>
-                                                <div class="flex items-center justify-between bg-white/10 pl-2">
+                                                <div class="flex items-center justify-between bg-white/10 pl-2 mt-2">
                                                     <span class="select-none text-sm">
                                                         blablablablablablablabla?</span>
                                                     <select
@@ -403,10 +411,10 @@
                                                         </div>
                                                     @endif
                                                     <input
-                                                        class="w-full cursor-pointer file:cursor-pointer file:font-bold text-xs file:text-sm file:text-black file:bg-white file:px-3 file:py-1 file:rounded-2xl file:border-0 bg-white/10 rounded-2xl mb-2"
+                                                        class="w-full cursor-pointer file:cursor-pointer file:font-bold text-xs file:text-sm file:text-black file:bg-white file:px-3 file:py-1 file:rounded-2xl file:border-0 bg-white/10 rounded-2xl"
                                                         type="file">
                                                 </div>
-                                                <div class="flex items-center justify-between bg-white/10 pl-2">
+                                                <div class="flex items-center justify-between bg-white/10 pl-2 mt-2">
                                                     <span class="select-none text-sm">
                                                         blablablablablablablabla?</span>
                                                     <select
@@ -457,10 +465,10 @@
                                                         </div>
                                                     @endif
                                                     <input
-                                                        class="w-full cursor-pointer file:cursor-pointer file:font-bold text-xs file:text-sm file:text-black file:bg-white file:px-3 file:py-1 file:rounded-2xl file:border-0 bg-white/10 rounded-2xl mb-2"
+                                                        class="w-full cursor-pointer file:cursor-pointer file:font-bold text-xs file:text-sm file:text-black file:bg-white file:px-3 file:py-1 file:rounded-2xl file:border-0 bg-white/10 rounded-2xl"
                                                         type="file">
                                                 </div>
-                                                <div class="flex items-center justify-between bg-white/10 pl-2">
+                                                <div class="flex items-center justify-between bg-white/10 pl-2 mt-2">
                                                     <span class="select-none text-sm">
                                                         blablablablablablablabla?</span>
                                                     <select
@@ -511,10 +519,10 @@
                                                         </div>
                                                     @endif
                                                     <input
-                                                        class="w-full cursor-pointer file:cursor-pointer file:font-bold text-xs file:text-sm file:text-black file:bg-white file:px-3 file:py-1 file:rounded-2xl file:border-0 bg-white/10 rounded-2xl mb-2"
+                                                        class="w-full cursor-pointer file:cursor-pointer file:font-bold text-xs file:text-sm file:text-black file:bg-white file:px-3 file:py-1 file:rounded-2xl file:border-0 bg-white/10 rounded-2xl"
                                                         type="file">
                                                 </div>
-                                                <div class="flex items-center justify-between bg-white/10 pl-2">
+                                                <div class="flex items-center justify-between bg-white/10 pl-2 mt-2">
                                                     <span class="select-none text-sm">
                                                         blablablablablablablabla?</span>
                                                     <select
@@ -565,10 +573,10 @@
                                                         </div>
                                                     @endif
                                                     <input
-                                                        class="w-full cursor-pointer file:cursor-pointer file:font-bold text-xs file:text-sm file:text-black file:bg-white file:px-3 file:py-1 file:rounded-2xl file:border-0 bg-white/10 rounded-2xl mb-2"
+                                                        class="w-full cursor-pointer file:cursor-pointer file:font-bold text-xs file:text-sm file:text-black file:bg-white file:px-3 file:py-1 file:rounded-2xl file:border-0 bg-white/10 rounded-2xl"
                                                         type="file">
                                                 </div>
-                                                <div class="flex items-center justify-between bg-white/10 pl-2">
+                                                <div class="flex items-center justify-between bg-white/10 pl-2 mt-2">
                                                     <span class="select-none text-sm">
                                                         blablablablablablablabla?</span>
                                                     <select
@@ -619,10 +627,10 @@
                                                         </div>
                                                     @endif
                                                     <input
-                                                        class="w-full cursor-pointer file:cursor-pointer file:font-bold text-xs file:text-sm file:text-black file:bg-white file:px-3 file:py-1 file:rounded-2xl file:border-0 bg-white/10 rounded-2xl mb-2"
+                                                        class="w-full cursor-pointer file:cursor-pointer file:font-bold text-xs file:text-sm file:text-black file:bg-white file:px-3 file:py-1 file:rounded-2xl file:border-0 bg-white/10 rounded-2xl"
                                                         type="file">
                                                 </div>
-                                                <div class="flex items-center justify-between bg-white/10 pl-2">
+                                                <div class="flex items-center justify-between bg-white/10 pl-2 mt-2">
                                                     <span class="select-none text-sm">
                                                         blablablablablablablabla?</span>
                                                     <select
@@ -673,10 +681,10 @@
                                                         </div>
                                                     @endif
                                                     <input
-                                                        class="w-full cursor-pointer file:cursor-pointer file:font-bold text-xs file:text-sm file:text-black file:bg-white file:px-3 file:py-1 file:rounded-2xl file:border-0 bg-white/10 rounded-2xl mb-2"
+                                                        class="w-full cursor-pointer file:cursor-pointer file:font-bold text-xs file:text-sm file:text-black file:bg-white file:px-3 file:py-1 file:rounded-2xl file:border-0 bg-white/10 rounded-2xl"
                                                         type="file">
                                                 </div>
-                                                <div class="flex items-center justify-between bg-white/10 pl-2">
+                                                <div class="flex items-center justify-between bg-white/10 pl-2 mt-2">
                                                     <span class="select-none text-sm">
                                                         blablablablablablablabla?</span>
                                                     <select

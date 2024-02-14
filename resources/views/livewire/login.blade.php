@@ -46,8 +46,7 @@
                                         @endif
                                     @enderror
                                 </div>
-                                <input wire:model.blur='nik' type="text" name="nik" placeholder="2012345678"
-                                    autocomplete="off"
+                                <input wire:model.blur='nik' type="text" placeholder="2012345678" autocomplete="off"
                                     class="block w-full border-0 bg-transparent p-0 text-sm file:my-1 file:rounded-full file:border-0 file:bg-accent file:px-4 file:py-2 file:font-medium placeholder:text-muted-foreground/90 focus:outline-none focus:ring-0 sm:leading-7 text-foreground">
                             </div>
                         </div>
@@ -65,7 +64,7 @@
                                     @enderror
                                 </div>
                                 <div class="flex items-center">
-                                    <input wire:model='password' type="password" name="password"
+                                    <input wire:model='password' type="password"
                                         class="block w-full border-0 bg-transparent p-0 text-sm file:my-1 placeholder:text-muted-foreground/90 focus:outline-none focus:ring-0 focus:ring-teal-500 sm:leading-7 text-foreground">
                                 </div>
                             </div>
@@ -73,7 +72,7 @@
                     </div>
                     <div class="mt-4 flex items-center justify-between">
                         <label class="flex items-center gap-2">
-                            <input wire:model='remember' type="checkbox" name="remember"
+                            <input wire:model='remember' type="checkbox"
                                 class="outline-none focus:outline focus:outline-sky-300">
                             <span class="text-xs">Remember me</span>
                         </label>
