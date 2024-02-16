@@ -1,6 +1,6 @@
 <div class="flex min-h-screen flex-col items-center pt-16 justify-center">
     <a href="{{ env('APP_URL') }}">
-        <div class="text-foreground font-semibold text-2xl tracking-tighter mx-auto flex items-center gap-2">
+        <div class="select-none text-foreground font-semibold text-2xl tracking-tighter mx-auto flex items-center gap-2">
             <div>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" class="w-6 h-6">
@@ -16,7 +16,7 @@
             bis_skin_checked="1"></div>
         <div
             class="mx-5 border dark:border-b-white/50 dark:border-t-white/50 border-b-white/20 sm:border-t-white/20 shadow-[20px_0_20px_20px] shadow-slate-500/10 dark:shadow-white/20 rounded-lg border-white/20 border-l-white/20 border-r-white/20 sm:shadow-sm lg:rounded-xl lg:shadow-none">
-            <div class="flex flex-col p-6">
+            <div class="select-none flex-col p-6">
                 <h3 class="text-xl font-semibold leading-6 tracking-tighter">Login</h3>
                 <p class="mt-1.5 text-sm font-medium text-white/50">Welcome back, enter your credentials to continue.
                 </p>
@@ -81,14 +81,25 @@
                     </div>
                     <div class="mt-4 flex items-center justify-between">
                         <label class="flex items-center gap-2">
-                            <input wire:model='remember' type="checkbox"
-                                class="outline-none focus:outline focus:outline-sky-300">
-                            <span class="text-xs">Remember me</span>
+                            <label class="relative">
+                                <input wire:model='remember' type="checkbox"
+                                    class="peer appearance-none w-3 h-3 bg-white rounded-full">
+                                <div class="opacity-0 peer-checked:opacity-100 text-blue-500 absolute top-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 20 20"
+                                        fill="currentColor" stroke="currentColor" stroke-width="1">
+                                        <path fill-rule="evenodd"
+                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                            </label>
+                            <span class="text-xs select-none">Remember me</span>
                         </label>
-                        <a class="text-sm font-medium text-foreground underline" href="/forgot-password">Forgot
+                        <a class="select-none text-sm font-medium text-foreground underline"
+                            href="/forgot-password">Forgot
                             password?</a>
                     </div>
-                    <div class="mt-4 flex items-center justify-end gap-x-2">
+                    <div class="select-none mt-4 flex items-center justify-end gap-x-2">
                         <a class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:ring hover:ring-white h-10 px-4 py-2 duration-200"
                             href="/register">Register</a>
                         <button
