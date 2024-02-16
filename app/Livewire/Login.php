@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
@@ -30,6 +31,10 @@ class Login extends Component
 
     public function render()
     {
-        return view('livewire.login');
+        $isNikNull = User::query()->where('nik', '=', $this->nik ?? '')->first('nik');
+
+        return view('livewire.login', [
+            'isNikNull' => $isNikNull == null
+        ]);
     }
 }

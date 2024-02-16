@@ -737,9 +737,9 @@
                 </div>
             @endforeach
         @else
-            <div class="flex justify-center bg-red-900">
-                <div class="flex items-center gap-2">
-                    <div class="text-red-500">
+            <div class="flex justify-center ring-1 ring-white p-5 rounded-lg">
+                <div class="flex items-center gap-2 n">
+                    <div class="text-red-500 animate-pulse">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                             stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                             <path stroke-linecap="round" stroke-linejoin="round"

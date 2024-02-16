@@ -1,4 +1,4 @@
-<div class="flex min-h-screen flex-col items-center pt-16 sm:justify-center sm:pt-0">
+<div class="flex min-h-screen flex-col items-center pt-16 justify-center">
     <a href="{{ env('APP_URL') }}">
         <div class="text-foreground font-semibold text-2xl tracking-tighter mx-auto flex items-center gap-2">
             <div>
@@ -11,7 +11,7 @@
             edplebak_
         </div>
     </a>
-    <div class="relative mt-12 w-full max-w-lg sm:mt-10">
+    <div class="relative mt-12 w-full max-w-lg">
         <div class="relative -mb-px h-px w-full bg-gradient-to-r from-transparent via-sky-300 to-transparent"
             bis_skin_checked="1"></div>
         <div
@@ -26,7 +26,7 @@
                     <div>
                         <div>
                             <div
-                                class="group relative rounded-lg border @error('nik') border-red-500 ring ring-red-400 @else border-white/30 @enderror focus-within:border-sky-200 px-3 pb-1.5 pt-2.5 duration-200 focus-within:ring focus-within:ring-sky-300/30">
+                                class="group relative rounded-lg border @if ($isNikNull && $nik != null) border-red-500 ring ring-red-400 @else border-white/30 @endif @error('nik') border-red-500 ring ring-red-400 @else border-white/30 @enderror focus-within:border-sky-200 px-3 pb-1.5 pt-2.5 duration-200 focus-within:ring focus-within:ring-sky-300/30">
                                 <div class="flex justify-between">
                                     <label
                                         class="text-xs font-medium text-muted-foreground group-focus-within:text-white text-gray-400">Nik</label>
@@ -34,7 +34,16 @@
                                         <label
                                             class="text-xs font-medium text-muted-foreground text-red-500">{{ $message }}</label>
                                     @else
-                                        @if (strlen($nik) == 10)
+                                        @if ($isNikNull && $nik != null)
+                                            <div class="absolute right-3 translate-y-2 text-red-200">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                                    fill="currentColor" class="w-6 h-6">
+                                                    <path fill-rule="evenodd"
+                                                        d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm-1.72 6.97a.75.75 0 1 0-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 1 0 1.06 1.06L12 13.06l1.72 1.72a.75.75 0 1 0 1.06-1.06L13.06 12l1.72-1.72a.75.75 0 1 0-1.06-1.06L12 10.94l-1.72-1.72Z"
+                                                        clip-rule="evenodd" />
+                                                </svg>
+                                            </div>
+                                        @elseif($isNikNull == false && $nik != null && strlen($nik) == 10)
                                             <div class="absolute right-3 translate-y-2 text-green-200">
                                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                                                     fill="currentColor" class="w-6 h-6">
@@ -47,7 +56,7 @@
                                     @enderror
                                 </div>
                                 <input wire:model.blur='nik' type="text" placeholder="2012345678" autocomplete="off"
-                                    class="block w-full border-0 bg-transparent p-0 text-sm file:my-1 file:rounded-full file:border-0 file:bg-accent file:px-4 file:py-2 file:font-medium placeholder:text-muted-foreground/90 focus:outline-none focus:ring-0 sm:leading-7 text-foreground">
+                                    class="block w-full border-0 bg-transparent p-0 text-sm placeholder:text-muted-foreground/90 focus:outline-none focus:ring-0 leading-7 text-foreground">
                             </div>
                         </div>
                     </div>
@@ -64,8 +73,8 @@
                                     @enderror
                                 </div>
                                 <div class="flex items-center">
-                                    <input wire:model='password' type="password"
-                                        class="block w-full border-0 bg-transparent p-0 text-sm file:my-1 placeholder:text-muted-foreground/90 focus:outline-none focus:ring-0 focus:ring-teal-500 sm:leading-7 text-foreground">
+                                    <input wire:model.blur='password' type="password"
+                                        class="block w-full border-0 bg-transparent p-0 text-sm placeholder:text-muted-foreground/90 focus:outline-none focus:ring-0 focus:ring-teal-500 leading-7 text-foreground">
                                 </div>
                             </div>
                         </div>
