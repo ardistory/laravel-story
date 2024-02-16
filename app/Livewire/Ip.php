@@ -75,8 +75,7 @@ class Ip extends Component
             ]);
 
             Gambar::query()->create([
-                'kode_toko' => $validated['kode_toko'],
-                'updated_at' => NULL
+                'kode_toko' => $validated['kode_toko']
             ]);
 
             Checklist::query()->create([

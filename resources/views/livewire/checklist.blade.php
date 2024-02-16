@@ -1,12 +1,11 @@
 <div>
     <div
-        class="group mb-4 flex justify-between ring-1 ring-white px-2 py-1 hover:bg-white hover:text-black rounded-sm transition duration-200 cursor-pointer">
-        <div class="flex items-center gap-2">
+        class="group mb-4 flex justify-between ring-1 ring-white px-2 py-1 bg-indigo-950 hover:bg-indigo-900 rounded-sm transition duration-200 cursor-pointer">
+        <div class="flex items-center gap-2 font-bold">
             <div class="text-yellow-500">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                    stroke="currentColor" class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                        d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z" />
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                    <path
+                        d="M18.375 2.25c-1.035 0-1.875.84-1.875 1.875v15.75c0 1.035.84 1.875 1.875 1.875h.75c1.035 0 1.875-.84 1.875-1.875V4.125c0-1.036-.84-1.875-1.875-1.875h-.75ZM9.75 8.625c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v11.25c0 1.035-.84 1.875-1.875 1.875h-.75a1.875 1.875 0 0 1-1.875-1.875V8.625ZM3 13.125c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v6.75c0 1.035-.84 1.875-1.875 1.875h-.75A1.875 1.875 0 0 1 3 19.875v-6.75Z" />
                 </svg>
             </div>
             Leaderboard
@@ -67,11 +66,11 @@
         <input wire:model.live='query' class="text-black outline-none px-2 py-1 w-full md:w-[20%] rounded-r-xl"
             type="text" placeholder="Nama Toko">
     </div>
-    <div class="flex flex-col gap-2">
+    <div class="select-none flex flex-col gap-2">
         @if (count($areas) > 0)
             @foreach ($areas as $area)
                 <div wire:key="{{ $area['kode_toko'] }}"
-                    class="relative border rounded-xl p-5 hover:ring hover:ring-[#64b295] transition duration-300">
+                    class="relative border rounded-xl p-5 hover:ring @if ($area['is_checked'] == 0 && $area['post_at'] != null) hover:ring-red-500 focus:ring-red-500 @elseif($area['is_checked'] == 1 && $area['post_at'] != null) hover:ring-green-500 @else hover:ring-white @endif transition duration-300">
                     <div class="flex justify-between">
                         <div>
                             <div class="text-sm font-bold text-zinc-500">
@@ -97,7 +96,7 @@
                                 @elseif($area['is_checked'] == 1 && $area['post_at'] != null)
                                     <div
                                         class="bg-[#051b11] px-2 rounded-xl font-semibold text-xs inline-flex items-center gap-1 text-[#64b295] border border-[#64b295]">
-                                        Checked
+                                        Checked : <span class="text-yellow-500">{{ $area['check_by'] }}</span>
                                         <div>
                                             <svg class="w-3 h-3" xmlns="http://www.w3.org/2000/svg" fill="none"
                                                 viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
@@ -204,26 +203,28 @@
                                                             </div>
                                                         </div>
                                                     @endif
-                                                    <input
+                                                    <input wire:model.blur='foto_1'
                                                         class="w-full cursor-pointer file:cursor-pointer file:font-bold text-xs file:text-sm file:text-black file:bg-white file:px-3 file:py-1 file:rounded-2xl file:border-0 bg-white/10 rounded-2xl"
                                                         type="file">
                                                     @error('foto_1')
-                                                        <p class="text-xs text-red-500">error foto</p>
+                                                        <p class="text-xs text-red-500">{{ $message }}</p>
                                                     @enderror
                                                 </div>
                                                 <div class="flex items-center justify-between bg-white/10 pl-2 mt-2">
                                                     <span class="select-none text-sm">
                                                         blablablablablablablabla?</span>
-                                                    <select
+                                                    <select wire:model.blur='checklist_1'
                                                         class="bg-white px-3 py-1 rounded-md text-black outline-none"
                                                         name="checklist_1">
                                                         <option value="false">Tidak</option>
                                                         <option value="true"
-                                                            @if ($area['checklist_1'] == true) selected @endif>Ya
+                                                            @if ($area['checklist_1'] == 1) selected @endif>Ya
                                                         </option>
                                                     </select>
                                                 </div>
-                                                <p class="text-xs text-red-500">error checklist</p>
+                                                @error('checklist_1')
+                                                    <p class="text-xs text-red-500">{{ $message }}</p>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="mb-3 w-full md:w-[32%]">
@@ -262,24 +263,28 @@
                                                             </div>
                                                         </div>
                                                     @endif
-                                                    <input
+                                                    <input wire:model.blur='foto_2'
                                                         class="w-full cursor-pointer file:cursor-pointer file:font-bold text-xs file:text-sm file:text-black file:bg-white file:px-3 file:py-1 file:rounded-2xl file:border-0 bg-white/10 rounded-2xl"
                                                         type="file">
-                                                    <p class="text-xs text-red-500">error foto</p>
+                                                    @error('foto_2')
+                                                        <p class="text-xs text-red-500">{{ $message }}</p>
+                                                    @enderror
                                                 </div>
                                                 <div class="flex items-center justify-between bg-white/10 pl-2 mt-2">
                                                     <span class="select-none text-sm">
                                                         blablablablablablablabla?</span>
-                                                    <select
+                                                    <select wire:model.blur='checklist_2'
                                                         class="bg-white px-3 py-1 rounded-md text-black outline-none"
                                                         name="checklist_1">
                                                         <option value="false">Tidak</option>
                                                         <option value="true"
-                                                            @if ($area['checklist_2'] == true) selected @endif>Ya
+                                                            @if ($area['checklist_2'] == 1) selected @endif>Ya
                                                         </option>
                                                     </select>
                                                 </div>
-                                                <p class="text-xs text-red-500">error foto</p>
+                                                @error('checklist_2')
+                                                    <p class="text-xs text-red-500">{{ $message }}</p>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="mb-3 w-full md:w-[32%]">
@@ -318,24 +323,28 @@
                                                             </div>
                                                         </div>
                                                     @endif
-                                                    <input
+                                                    <input wire:model.blur='foto_3'
                                                         class="w-full cursor-pointer file:cursor-pointer file:font-bold text-xs file:text-sm file:text-black file:bg-white file:px-3 file:py-1 file:rounded-2xl file:border-0 bg-white/10 rounded-2xl"
                                                         type="file">
-                                                    <p class="text-xs text-red-500">error foto</p>
+                                                    @error('foto_3')
+                                                        <p class="text-xs text-red-500">{{ $message }}</p>
+                                                    @enderror
                                                 </div>
                                                 <div class="flex items-center justify-between bg-white/10 pl-2 mt-2">
                                                     <span class="select-none text-sm">
                                                         blablablablablablablabla?</span>
-                                                    <select
+                                                    <select wire:model.blur='checklist_3'
                                                         class="bg-white px-3 py-1 rounded-md text-black outline-none"
                                                         name="checklist_1">
                                                         <option value="false">Tidak</option>
                                                         <option value="true"
-                                                            @if ($area['checklist_3'] == true) selected @endif>Ya
+                                                            @if ($area['checklist_3'] == 1) selected @endif>Ya
                                                         </option>
                                                     </select>
                                                 </div>
-                                                <p class="text-xs text-red-500">error foto</p>
+                                                @error('checklist_3')
+                                                    <p class="text-xs text-red-500">{{ $message }}</p>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="mb-3 w-full md:w-[32%]">
@@ -374,22 +383,28 @@
                                                             </div>
                                                         </div>
                                                     @endif
-                                                    <input
+                                                    <input wire:model.blur='foto_4'
                                                         class="w-full cursor-pointer file:cursor-pointer file:font-bold text-xs file:text-sm file:text-black file:bg-white file:px-3 file:py-1 file:rounded-2xl file:border-0 bg-white/10 rounded-2xl"
                                                         type="file">
+                                                    @error('foto_4')
+                                                        <p class="text-xs text-red-500">{{ $message }}</p>
+                                                    @enderror
                                                 </div>
                                                 <div class="flex items-center justify-between bg-white/10 pl-2 mt-2">
                                                     <span class="select-none text-sm">
                                                         blablablablablablablabla?</span>
-                                                    <select
+                                                    <select wire:model.blur='checklist_4'
                                                         class="bg-white px-3 py-1 rounded-md text-black outline-none"
                                                         name="checklist_1">
                                                         <option value="false">Tidak</option>
                                                         <option value="true"
-                                                            @if ($area['checklist_4'] == true) selected @endif>Ya
+                                                            @if ($area['checklist_4'] == 1) selected @endif>Ya
                                                         </option>
                                                     </select>
                                                 </div>
+                                                @error('checklist_4')
+                                                    <p class="text-xs text-red-500">{{ $message }}</p>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="mb-3 w-full md:w-[32%]">
@@ -428,22 +443,28 @@
                                                             </div>
                                                         </div>
                                                     @endif
-                                                    <input
+                                                    <input wire:model.blur='foto_5'
                                                         class="w-full cursor-pointer file:cursor-pointer file:font-bold text-xs file:text-sm file:text-black file:bg-white file:px-3 file:py-1 file:rounded-2xl file:border-0 bg-white/10 rounded-2xl"
                                                         type="file">
+                                                    @error('foto_5')
+                                                        <p class="text-xs text-red-500">{{ $message }}</p>
+                                                    @enderror
                                                 </div>
                                                 <div class="flex items-center justify-between bg-white/10 pl-2 mt-2">
                                                     <span class="select-none text-sm">
                                                         blablablablablablablabla?</span>
-                                                    <select
+                                                    <select wire:model.blur='checklist_5'
                                                         class="bg-white px-3 py-1 rounded-md text-black outline-none"
                                                         name="checklist_1">
                                                         <option value="false">Tidak</option>
                                                         <option value="true"
-                                                            @if ($area['checklist_5'] == true) selected @endif>Ya
+                                                            @if ($area['checklist_5'] == 1) selected @endif>Ya
                                                         </option>
                                                     </select>
                                                 </div>
+                                                @error('checklist_5')
+                                                    <p class="text-xs text-red-500">{{ $message }}</p>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="mb-3 w-full md:w-[32%]">
@@ -482,22 +503,28 @@
                                                             </div>
                                                         </div>
                                                     @endif
-                                                    <input
+                                                    <input wire:model.blur='foto_6'
                                                         class="w-full cursor-pointer file:cursor-pointer file:font-bold text-xs file:text-sm file:text-black file:bg-white file:px-3 file:py-1 file:rounded-2xl file:border-0 bg-white/10 rounded-2xl"
                                                         type="file">
+                                                    @error('foto_6')
+                                                        <p class="text-xs text-red-500">{{ $message }}</p>
+                                                    @enderror
                                                 </div>
                                                 <div class="flex items-center justify-between bg-white/10 pl-2 mt-2">
                                                     <span class="select-none text-sm">
                                                         blablablablablablablabla?</span>
-                                                    <select
+                                                    <select wire:model.blur='checklist_6'
                                                         class="bg-white px-3 py-1 rounded-md text-black outline-none"
                                                         name="checklist_1">
                                                         <option value="false">Tidak</option>
                                                         <option value="true"
-                                                            @if ($area['checklist_6'] == true) selected @endif>Ya
+                                                            @if ($area['checklist_6'] == 1) selected @endif>Ya
                                                         </option>
                                                     </select>
                                                 </div>
+                                                @error('checklist_6')
+                                                    <p class="text-xs text-red-500">{{ $message }}</p>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="mb-3 w-full md:w-[32%]">
@@ -536,22 +563,28 @@
                                                             </div>
                                                         </div>
                                                     @endif
-                                                    <input
+                                                    <input wire:model.blur='foto_7'
                                                         class="w-full cursor-pointer file:cursor-pointer file:font-bold text-xs file:text-sm file:text-black file:bg-white file:px-3 file:py-1 file:rounded-2xl file:border-0 bg-white/10 rounded-2xl"
                                                         type="file">
+                                                    @error('foto_7')
+                                                        <p class="text-xs text-red-500">{{ $message }}</p>
+                                                    @enderror
                                                 </div>
                                                 <div class="flex items-center justify-between bg-white/10 pl-2 mt-2">
                                                     <span class="select-none text-sm">
                                                         blablablablablablablabla?</span>
-                                                    <select
+                                                    <select wire:model.blur='checklist_7'
                                                         class="bg-white px-3 py-1 rounded-md text-black outline-none"
                                                         name="checklist_1">
                                                         <option value="false">Tidak</option>
                                                         <option value="true"
-                                                            @if ($area['checklist_7'] == true) selected @endif>Ya
+                                                            @if ($area['checklist_7'] == 1) selected @endif>Ya
                                                         </option>
                                                     </select>
                                                 </div>
+                                                @error('checklist_7')
+                                                    <p class="text-xs text-red-500">{{ $message }}</p>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="mb-3 w-full md:w-[32%]">
@@ -590,22 +623,28 @@
                                                             </div>
                                                         </div>
                                                     @endif
-                                                    <input
+                                                    <input wire:model.blur='foto_8'
                                                         class="w-full cursor-pointer file:cursor-pointer file:font-bold text-xs file:text-sm file:text-black file:bg-white file:px-3 file:py-1 file:rounded-2xl file:border-0 bg-white/10 rounded-2xl"
                                                         type="file">
+                                                    @error('foto_8')
+                                                        <p class="text-xs text-red-500">{{ $message }}</p>
+                                                    @enderror
                                                 </div>
                                                 <div class="flex items-center justify-between bg-white/10 pl-2 mt-2">
                                                     <span class="select-none text-sm">
                                                         blablablablablablablabla?</span>
-                                                    <select
+                                                    <select wire:model.blur='checklist_8'
                                                         class="bg-white px-3 py-1 rounded-md text-black outline-none"
                                                         name="checklist_1">
                                                         <option value="false">Tidak</option>
                                                         <option value="true"
-                                                            @if ($area['checklist_8'] == true) selected @endif>Ya
+                                                            @if ($area['checklist_8'] == 1) selected @endif>Ya
                                                         </option>
                                                     </select>
                                                 </div>
+                                                @error('checklist_8')
+                                                    <p class="text-xs text-red-500">{{ $message }}</p>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="mb-3 w-full md:w-[32%]">
@@ -644,22 +683,28 @@
                                                             </div>
                                                         </div>
                                                     @endif
-                                                    <input
+                                                    <input wire:model.blur='foto_9'
                                                         class="w-full cursor-pointer file:cursor-pointer file:font-bold text-xs file:text-sm file:text-black file:bg-white file:px-3 file:py-1 file:rounded-2xl file:border-0 bg-white/10 rounded-2xl"
                                                         type="file">
+                                                    @error('foto_9')
+                                                        <p class="text-xs text-red-500">{{ $message }}</p>
+                                                    @enderror
                                                 </div>
                                                 <div class="flex items-center justify-between bg-white/10 pl-2 mt-2">
                                                     <span class="select-none text-sm">
                                                         blablablablablablablabla?</span>
-                                                    <select
+                                                    <select wire:model.blur='checklist_9'
                                                         class="bg-white px-3 py-1 rounded-md text-black outline-none"
                                                         name="checklist_1">
                                                         <option value="false">Tidak</option>
                                                         <option value="true"
-                                                            @if ($area['checklist_9'] == true) selected @endif>Ya
+                                                            @if ($area['checklist_9'] == 1) selected @endif>Ya
                                                         </option>
                                                     </select>
                                                 </div>
+                                                @error('checklist_9')
+                                                    <p class="text-xs text-red-500">{{ $message }}</p>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="w-full md:w-[32%]">
@@ -698,22 +743,28 @@
                                                             </div>
                                                         </div>
                                                     @endif
-                                                    <input
+                                                    <input wire:model.blur='foto_10'
                                                         class="w-full cursor-pointer file:cursor-pointer file:font-bold text-xs file:text-sm file:text-black file:bg-white file:px-3 file:py-1 file:rounded-2xl file:border-0 bg-white/10 rounded-2xl"
                                                         type="file">
+                                                    @error('foto_10')
+                                                        <p class="text-xs text-red-500">{{ $message }}</p>
+                                                    @enderror
                                                 </div>
                                                 <div class="flex items-center justify-between bg-white/10 pl-2 mt-2">
                                                     <span class="select-none text-sm">
                                                         blablablablablablablabla?</span>
-                                                    <select
+                                                    <select wire:model.blur='checklist_10'
                                                         class="bg-white px-3 py-1 rounded-md text-black outline-none"
                                                         name="checklist_1">
                                                         <option value="false">Tidak</option>
                                                         <option value="true"
-                                                            @if ($area['checklist_10'] == true) selected @endif>Ya
+                                                            @if ($area['checklist_10'] == 1) selected @endif>Ya
                                                         </option>
                                                     </select>
                                                 </div>
+                                                @error('checklist_10')
+                                                    <p class="text-xs text-red-500">{{ $message }}</p>
+                                                @enderror
                                             </div>
                                         </div>
                                     </div>

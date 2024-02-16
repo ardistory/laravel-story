@@ -1,5 +1,5 @@
 @if ($paginator->hasPages())
-    <div class="flex items-end my-2">
+    <div class="select-none flex items-end my-2">
 
         @if (!$paginator->onFirstPage())
             {{-- First Page Link --}}
