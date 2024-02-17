@@ -81,11 +81,16 @@ class Checklist extends Component
             ->paginate(5);
     }
 
-    public function getCountChecked()
+    public function getListChecked()
     {
-        $countChecked = Checked::query()->where('is_checked', '!=', 0)->get();
-
-        return count($countChecked);
+        return TokoLbk::query()
+            ->join('area', 'area.kode_toko', '=', 'tokolbk.kode_toko')
+            ->join('users', 'users.nik', '=', 'area.nik')
+            ->join('gambar', 'gambar.kode_toko', '=', 'tokolbk.kode_toko')
+            ->join('checked', 'checked.kode_toko', '=', 'tokolbk.kode_toko')
+            ->select('tokolbk.kode_toko', 'tokolbk.nama_toko', 'users.picture', 'users.nik', 'users.name', 'checked.is_checked', 'checked.check_by', 'gambar.post_at')
+            ->where('checked.is_checked', '=', 1)
+            ->get();
     }
 
     public function getCountUnchecked()
@@ -162,9 +167,9 @@ class Checklist extends Component
     {
         return view('livewire.checklist', [
             'areas' => $this->getMyArea(),
-            'count_checked' => $this->getCountChecked(),
             'count_unchecked' => $this->getCountUnchecked(),
-            'carbon' => new Carbon
+            'carbon' => new Carbon,
+            'list_checked' => $this->getListChecked()
         ]);
     }
 }

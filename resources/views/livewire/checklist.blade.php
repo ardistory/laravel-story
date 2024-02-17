@@ -43,7 +43,7 @@
             Checked
             <div
                 class="absolute shadow shadow-black top-[8px] right-2 bg-green-600 text-white font-semibold text-xs w-[14px] h-[14px] flex items-center justify-center rounded-full">
-                {{ $count_checked }}
+                {{ count($list_checked) }}
             </div>
             <div x-show="showChecked" x-transition:enter="transition ease-out duration-300"
                 x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100"
@@ -65,20 +65,22 @@
                 </div>
                 <div x-on:click.away="showChecked = false"
                     class="bg-black border-x border-b rounded-b-lg w-[90%] md:w-[50%] max-h-[70%] p-2 scrollbar-thin scrollbar-thumb-white scrollbar-track-black overflow-y-auto">
-                    <div class="ring-1 ring-white rounded-md flex justify-between px-4 py-2 mb-2 last:mb-0">
-                        <div>
-                            <div class="flex justify-start font-bold text-zinc-500">TKBV</div>
-                            <div class="flex justify-start font-semibold text-xs">DC LEBAK</div>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <img class="w-7 h-7 rounded-full"
-                                src="{{ asset('storage/img/profile/' . Auth::user()->picture) }}">
+                    @foreach ($list_checked as $list)
+                        <div class="ring-1 ring-white rounded-md flex justify-between px-4 py-2 mb-2 last:mb-0">
                             <div>
-                                <div class="flex justify-start font-bold text-zinc-500">2015171331</div>
-                                <div class="flex justify-start font-semibold">Ardiansyah Putra</div>
+                                <div class="flex justify-start font-bold text-zinc-500">{{ $list['kode_toko'] }}</div>
+                                <div class="flex justify-start font-semibold text-xs">DC LEBAK</div>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <img class="w-7 h-7 rounded-full"
+                                    src="{{ asset('storage/img/profile/' . Auth::user()->picture) }}">
+                                <div>
+                                    <div class="flex justify-start font-bold text-zinc-500">2015171331</div>
+                                    <div class="flex justify-start font-semibold">Ardiansyah Putra</div>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
