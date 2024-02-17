@@ -42,26 +42,26 @@ class Checklist extends Component
     public $foto_9;
     #[Validate('image|required|max:3000')]
     public $foto_10;
-    #[Validate('required')]
-    public $checklist_1;
-    #[Validate('required')]
-    public $checklist_2;
-    #[Validate('required')]
-    public $checklist_3;
-    #[Validate('required')]
-    public $checklist_4;
-    #[Validate('required')]
-    public $checklist_5;
-    #[Validate('required')]
-    public $checklist_6;
-    #[Validate('required')]
-    public $checklist_7;
-    #[Validate('required')]
-    public $checklist_8;
-    #[Validate('required')]
-    public $checklist_9;
-    #[Validate('required')]
-    public $checklist_10;
+    // #[Validate('required')]
+    // public $checklist_1;
+    // #[Validate('required')]
+    // public $checklist_2;
+    // #[Validate('required')]
+    // public $checklist_3;
+    // #[Validate('required')]
+    // public $checklist_4;
+    // #[Validate('required')]
+    // public $checklist_5;
+    // #[Validate('required')]
+    // public $checklist_6;
+    // #[Validate('required')]
+    // public $checklist_7;
+    // #[Validate('required')]
+    // public $checklist_8;
+    // #[Validate('required')]
+    // public $checklist_9;
+    // #[Validate('required')]
+    // public $checklist_10;
 
     public function updatingQuery()
     {
@@ -100,7 +100,7 @@ class Checklist extends Component
         return count($countUnchecked);
     }
 
-    public function storeGambar($kode_toko)
+    public function storeGambar($kode_toko): void
     {
         $this->storeCode = $kode_toko;
 
@@ -142,18 +142,18 @@ class Checklist extends Component
             'post_at' => Carbon::now()
         ]);
 
-        ChecklistModel::query()->where('kode_toko', '=', $this->storeCode)->update([
-            'checklist_1' => $validated['checklist_1'] == 'true' ? 1 : 0,
-            'checklist_2' => $validated['checklist_2'] == 'true' ? 1 : 0,
-            'checklist_3' => $validated['checklist_3'] == 'true' ? 1 : 0,
-            'checklist_4' => $validated['checklist_4'] == 'true' ? 1 : 0,
-            'checklist_5' => $validated['checklist_5'] == 'true' ? 1 : 0,
-            'checklist_6' => $validated['checklist_6'] == 'true' ? 1 : 0,
-            'checklist_7' => $validated['checklist_7'] == 'true' ? 1 : 0,
-            'checklist_8' => $validated['checklist_8'] == 'true' ? 1 : 0,
-            'checklist_9' => $validated['checklist_9'] == 'true' ? 1 : 0,
-            'checklist_10' => $validated['checklist_10'] == 'true' ? 1 : 0,
-        ]);
+        // ChecklistModel::query()->where('kode_toko', '=', $this->storeCode)->update([
+        //     'checklist_1' => $validated['checklist_1'] == 'true' ? 1 : 0,
+        //     'checklist_2' => $validated['checklist_2'] == 'true' ? 1 : 0,
+        //     'checklist_3' => $validated['checklist_3'] == 'true' ? 1 : 0,
+        //     'checklist_4' => $validated['checklist_4'] == 'true' ? 1 : 0,
+        //     'checklist_5' => $validated['checklist_5'] == 'true' ? 1 : 0,
+        //     'checklist_6' => $validated['checklist_6'] == 'true' ? 1 : 0,
+        //     'checklist_7' => $validated['checklist_7'] == 'true' ? 1 : 0,
+        //     'checklist_8' => $validated['checklist_8'] == 'true' ? 1 : 0,
+        //     'checklist_9' => $validated['checklist_9'] == 'true' ? 1 : 0,
+        //     'checklist_10' => $validated['checklist_10'] == 'true' ? 1 : 0,
+        // ]);
 
         $this->reset();
     }
@@ -163,7 +163,8 @@ class Checklist extends Component
         return view('livewire.checklist', [
             'areas' => $this->getMyArea(),
             'count_checked' => $this->getCountChecked(),
-            'count_unchecked' => $this->getCountUnchecked()
+            'count_unchecked' => $this->getCountUnchecked(),
+            'carbon' => new Carbon
         ]);
     }
 }

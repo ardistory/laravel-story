@@ -38,20 +38,109 @@
         </div>
     </div>
     <div class="flex justify-between gap-2 mb-4 cursor-pointer">
-        <div
+        <div x-data="{ showChecked: false }" x-on:click="showChecked = true"
             class="flex justify-between rounded-full bg-green-800 w-1/2 p-2 text-xs text-center hover:bg-green-700 relative">
             Checked
             <div
-                class="absolute top-[8px] right-2 bg-green-600 text-white font-semibold text-xs w-[14px] h-[14px] flex items-center justify-center rounded-full">
+                class="absolute shadow shadow-black top-[8px] right-2 bg-green-600 text-white font-semibold text-xs w-[14px] h-[14px] flex items-center justify-center rounded-full">
                 {{ $count_checked }}
             </div>
+            <div x-show="showChecked" x-transition:enter="transition ease-out duration-300"
+                x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100"
+                x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100 scale-100"
+                x-transition:leave-end="opacity-0 scale-90"
+                class="select-none cursor-default fixed top-0 left-0 w-full h-screen flex flex-col justify-center items-center backdrop-blur-sm z-10">
+                <div class="bg-black w-[90%] md:w-[50%] rounded-t-lg border">
+                    <div class="font-bold flex items-center gap-2 px-4 py-2">
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                class="w-6 h-6">
+                                <path fill-rule="evenodd"
+                                    d="M12.516 2.17a.75.75 0 0 0-1.032 0 11.209 11.209 0 0 1-7.877 3.08.75.75 0 0 0-.722.515A12.74 12.74 0 0 0 2.25 9.75c0 5.942 4.064 10.933 9.563 12.348a.749.749 0 0 0 .374 0c5.499-1.415 9.563-6.406 9.563-12.348 0-1.39-.223-2.73-.635-3.985a.75.75 0 0 0-.722-.516l-.143.001c-2.996 0-5.717-1.17-7.734-3.08Zm3.094 8.016a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        Checked
+                    </div>
+                </div>
+                <div x-on:click.away="showChecked = false"
+                    class="bg-black border-x border-b rounded-b-lg w-[90%] md:w-[50%] max-h-[70%] p-2 scrollbar-thin scrollbar-thumb-white scrollbar-track-black overflow-y-auto">
+                    <div class="ring-1 ring-white rounded-md flex justify-between px-4 py-2 mb-2 last:mb-0">
+                        <div>
+                            <div class="flex justify-start font-bold text-zinc-500">TKBV</div>
+                            <div class="flex justify-start font-semibold text-xs">DC LEBAK</div>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <img class="w-7 h-7 rounded-full"
+                                src="{{ asset('storage/img/profile/' . Auth::user()->picture) }}">
+                            <div>
+                                <div class="flex justify-start font-bold text-zinc-500">2015171331</div>
+                                <div class="flex justify-start font-semibold">Ardiansyah Putra</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div
+        <div x-data="{ showUnchecked: false }" x-on:click="showUnchecked = true"
             class="flex justify-between rounded-full bg-red-900 w-1/2 p-2 text-xs text-center hover:bg-red-800 relative">
             Unchecked
             <div
-                class="absolute top-[8px] right-2 bg-red-600 text-white font-semibold text-xs w-[14px] h-[14px] flex items-center justify-center rounded-full">
+                class="absolute shadow shadow-black top-[8px] right-2 bg-red-600 text-white font-semibold text-xs w-[14px] h-[14px] flex items-center justify-center rounded-full">
                 {{ $count_unchecked }}
+            </div>
+            <div x-show="showUnchecked" x-transition:enter="transition ease-out duration-300"
+                x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100"
+                x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100 scale-100"
+                x-transition:leave-end="opacity-0 scale-90"
+                class="select-none cursor-default fixed top-0 left-0 w-full h-screen flex flex-col justify-center items-center backdrop-blur-sm z-10">
+                <div class="bg-black w-[90%] md:w-[50%] rounded-t-lg border">
+                    <div class="font-bold flex items-center gap-2 px-4 py-2">
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                class="w-6 h-6">
+                                <path
+                                    d="M3.375 3C2.339 3 1.5 3.84 1.5 4.875v.75c0 1.036.84 1.875 1.875 1.875h17.25c1.035 0 1.875-.84 1.875-1.875v-.75C22.5 3.839 21.66 3 20.625 3H3.375Z" />
+                                <path fill-rule="evenodd"
+                                    d="m3.087 9 .54 9.176A3 3 0 0 0 6.62 21h10.757a3 3 0 0 0 2.995-2.824L20.913 9H3.087Zm6.133 2.845a.75.75 0 0 1 1.06 0l1.72 1.72 1.72-1.72a.75.75 0 1 1 1.06 1.06l-1.72 1.72 1.72 1.72a.75.75 0 1 1-1.06 1.06L12 15.685l-1.72 1.72a.75.75 0 1 1-1.06-1.06l1.72-1.72-1.72-1.72a.75.75 0 0 1 0-1.06Z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        Unchecked
+                    </div>
+                </div>
+                <div x-on:click.away="showUnchecked = false"
+                    class="bg-black border-x border-b rounded-b-lg w-[90%] md:w-[50%] max-h-[70%] p-2 scrollbar-thin scrollbar-thumb-white scrollbar-track-black overflow-y-auto">
+                    <div class="ring-1 ring-white rounded-md flex justify-between px-4 py-2 mb-2 last:mb-0">
+                        <div>
+                            <div class="flex justify-start font-bold text-zinc-500">TKBV</div>
+                            <div class="flex justify-start font-semibold text-xs">DC LEBAK</div>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <img class="w-7 h-7 rounded-full"
+                                src="{{ asset('storage/img/profile/' . Auth::user()->picture) }}">
+                            <div>
+                                <div class="flex justify-start font-bold text-zinc-500">2015171331</div>
+                                <div class="flex justify-start font-semibold">Ardiansyah Putra</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <button
+                                class="flex items-center gap-1 px-3 py-1 bg-white text-black font-semibold rounded-md">
+                                Check
+                                <div>
+                                    <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                        fill="currentColor" class="w-6 h-6">
+                                        <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+                                        <path fill-rule="evenodd"
+                                            d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 0 1 0-1.113ZM17.25 12a5.25 5.25 0 1 1-10.5 0 5.25 5.25 0 0 1 10.5 0Z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -80,37 +169,44 @@
                                 {{ $area['nama_toko'] }}
                             </div>
                             <div class="absolute top-1 right-1 inline-flex items-center gap-1">
-                                @if ($area['is_checked'] == 0 && $area['post_at'] != null)
-                                    <div
-                                        class="bg-red-900 px-2 rounded-xl font-semibold text-xs inline-flex items-center gap-1 text-red-400 border border-red-400">
-                                        Unchecked
-                                        <div>
-                                            <svg class="w-3 h-3" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                                viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                                                class="w-6 h-6">
-                                                <path stroke-linecap="round" stroke-linejoin="round"
-                                                    d="M6 18 18 6M6 6l12 12" />
-                                            </svg>
+                                @if ($carbon::now()->diffInMonths($area['post_at']) <= 2)
+                                    @if ($area['is_checked'] == 0 && $area['post_at'] != null)
+                                        <div
+                                            class="bg-red-900 px-2 rounded-xl font-semibold text-xs inline-flex items-center gap-1 text-red-400 border border-red-400">
+                                            Unchecked
+                                            <div>
+                                                <svg class="w-3 h-3" xmlns="http://www.w3.org/2000/svg"
+                                                    fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                    stroke="currentColor" class="w-6 h-6">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M6 18 18 6M6 6l12 12" />
+                                                </svg>
+                                            </div>
                                         </div>
-                                    </div>
-                                @elseif($area['is_checked'] == 1 && $area['post_at'] != null)
-                                    <div
-                                        class="bg-[#051b11] px-2 rounded-xl font-semibold text-xs inline-flex items-center gap-1 text-[#64b295] border border-[#64b295]">
-                                        Checked : <span class="text-yellow-500">{{ $area['check_by'] }}</span>
-                                        <div>
-                                            <svg class="w-3 h-3" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                                viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                                                class="w-6 h-6">
-                                                <path stroke-linecap="round" stroke-linejoin="round"
-                                                    d="m4.5 12.75 6 6 9-13.5" />
-                                            </svg>
+                                    @elseif($area['is_checked'] == 1 && $area['post_at'] != null)
+                                        <div
+                                            class="bg-[#051b11] px-2 rounded-xl font-semibold text-xs inline-flex items-center gap-1 text-[#64b295] border border-[#64b295]">
+                                            Checked : <span class="text-yellow-500">{{ $area['check_by'] }}</span>
+                                            <div>
+                                                <svg class="w-3 h-3" xmlns="http://www.w3.org/2000/svg"
+                                                    fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                    stroke="currentColor" class="w-6 h-6">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="m4.5 12.75 6 6 9-13.5" />
+                                                </svg>
+                                            </div>
                                         </div>
-                                    </div>
-                                @endif
-                                @if ($area['post_at'] != null)
+                                    @endif
+                                    @if ($area['post_at'] != null)
+                                        <div
+                                            class="px-2 rounded-xl font-semibold text-xs inline-flex items-center gap-1 text-white border border-white">
+                                            {{ $area['post_at'] }}
+                                        </div>
+                                    @endif
+                                @elseif ($area['post_at'] != null)
                                     <div
                                         class="px-2 rounded-xl font-semibold text-xs inline-flex items-center gap-1 text-white border border-white">
-                                        {{ $area['post_at'] }}
+                                        Upload Terakhir : {{ $area['post_at'] }}
                                     </div>
                                 @endif
                             </div>
@@ -121,7 +217,8 @@
                                 Checklist
                                 <div>
                                     <svg class="w-3 h-3" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                        viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                        viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                                        class="w-6 h-6">
                                         <path stroke-linecap="round" stroke-linejoin="round"
                                             d="M6.827 6.175A2.31 2.31 0 0 1 5.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 0 0-1.134-.175 2.31 2.31 0 0 1-1.64-1.055l-.822-1.316a2.192 2.192 0 0 0-1.736-1.039 48.774 48.774 0 0 0-5.232 0 2.192 2.192 0 0 0-1.736 1.039l-.821 1.316Z" />
                                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -210,21 +307,24 @@
                                                         <p class="text-xs text-red-500">{{ $message }}</p>
                                                     @enderror
                                                 </div>
-                                                <div class="flex items-center justify-between bg-white/10 pl-2 mt-2">
-                                                    <span class="select-none text-sm">
-                                                        blablablablablablablabla?</span>
-                                                    <select wire:model.blur='checklist_1'
-                                                        class="bg-white px-3 py-1 rounded-md text-black outline-none"
-                                                        name="checklist_1">
-                                                        <option value="false">Tidak</option>
-                                                        <option value="true"
-                                                            @if ($area['checklist_1'] == 1) selected @endif>Ya
-                                                        </option>
-                                                    </select>
-                                                </div>
-                                                @error('checklist_1')
-                                                    <p class="text-xs text-red-500">{{ $message }}</p>
-                                                @enderror
+                                                {{-- @if (1 == 2)
+                                                    <div
+                                                        class="flex items-center justify-between bg-white/10 pl-2 mt-2">
+                                                        <span class="select-none text-sm">
+                                                            blablablablablablablabla?</span>
+                                                        <select wire:model.blur='checklist_1'
+                                                            class="bg-white px-3 py-1 rounded-md text-black outline-none"
+                                                            name="checklist_1">
+                                                            <option value="false">Tidak</option>
+                                                            <option value="true"
+                                                                @if ($area['checklist_1'] == 1) selected @endif>Ya
+                                                            </option>
+                                                        </select>
+                                                    </div>
+                                                    @error('checklist_1')
+                                                        <p class="text-xs text-red-500">{{ $message }}</p>
+                                                    @enderror
+                                                @endif --}}
                                             </div>
                                         </div>
                                         <div class="mb-3 w-full md:w-[32%]">
@@ -270,21 +370,24 @@
                                                         <p class="text-xs text-red-500">{{ $message }}</p>
                                                     @enderror
                                                 </div>
-                                                <div class="flex items-center justify-between bg-white/10 pl-2 mt-2">
-                                                    <span class="select-none text-sm">
-                                                        blablablablablablablabla?</span>
-                                                    <select wire:model.blur='checklist_2'
-                                                        class="bg-white px-3 py-1 rounded-md text-black outline-none"
-                                                        name="checklist_1">
-                                                        <option value="false">Tidak</option>
-                                                        <option value="true"
-                                                            @if ($area['checklist_2'] == 1) selected @endif>Ya
-                                                        </option>
-                                                    </select>
-                                                </div>
-                                                @error('checklist_2')
-                                                    <p class="text-xs text-red-500">{{ $message }}</p>
-                                                @enderror
+                                                {{-- @if (1 == 2)
+                                                    <div
+                                                        class="flex items-center justify-between bg-white/10 pl-2 mt-2">
+                                                        <span class="select-none text-sm">
+                                                            blablablablablablablabla?</span>
+                                                        <select wire:model.blur='checklist_2'
+                                                            class="bg-white px-3 py-1 rounded-md text-black outline-none"
+                                                            name="checklist_1">
+                                                            <option value="false">Tidak</option>
+                                                            <option value="true"
+                                                                @if ($area['checklist_2'] == 1) selected @endif>Ya
+                                                            </option>
+                                                        </select>
+                                                    </div>
+                                                    @error('checklist_2')
+                                                        <p class="text-xs text-red-500">{{ $message }}</p>
+                                                    @enderror
+                                                @endif --}}
                                             </div>
                                         </div>
                                         <div class="mb-3 w-full md:w-[32%]">
@@ -330,21 +433,24 @@
                                                         <p class="text-xs text-red-500">{{ $message }}</p>
                                                     @enderror
                                                 </div>
-                                                <div class="flex items-center justify-between bg-white/10 pl-2 mt-2">
-                                                    <span class="select-none text-sm">
-                                                        blablablablablablablabla?</span>
-                                                    <select wire:model.blur='checklist_3'
-                                                        class="bg-white px-3 py-1 rounded-md text-black outline-none"
-                                                        name="checklist_1">
-                                                        <option value="false">Tidak</option>
-                                                        <option value="true"
-                                                            @if ($area['checklist_3'] == 1) selected @endif>Ya
-                                                        </option>
-                                                    </select>
-                                                </div>
-                                                @error('checklist_3')
-                                                    <p class="text-xs text-red-500">{{ $message }}</p>
-                                                @enderror
+                                                {{-- @if (1 == 2)
+                                                    <div
+                                                        class="flex items-center justify-between bg-white/10 pl-2 mt-2">
+                                                        <span class="select-none text-sm">
+                                                            blablablablablablablabla?</span>
+                                                        <select wire:model.blur='checklist_3'
+                                                            class="bg-white px-3 py-1 rounded-md text-black outline-none"
+                                                            name="checklist_1">
+                                                            <option value="false">Tidak</option>
+                                                            <option value="true"
+                                                                @if ($area['checklist_3'] == 1) selected @endif>Ya
+                                                            </option>
+                                                        </select>
+                                                    </div>
+                                                    @error('checklist_3')
+                                                        <p class="text-xs text-red-500">{{ $message }}</p>
+                                                    @enderror
+                                                @endif --}}
                                             </div>
                                         </div>
                                         <div class="mb-3 w-full md:w-[32%]">
@@ -390,21 +496,24 @@
                                                         <p class="text-xs text-red-500">{{ $message }}</p>
                                                     @enderror
                                                 </div>
-                                                <div class="flex items-center justify-between bg-white/10 pl-2 mt-2">
-                                                    <span class="select-none text-sm">
-                                                        blablablablablablablabla?</span>
-                                                    <select wire:model.blur='checklist_4'
-                                                        class="bg-white px-3 py-1 rounded-md text-black outline-none"
-                                                        name="checklist_1">
-                                                        <option value="false">Tidak</option>
-                                                        <option value="true"
-                                                            @if ($area['checklist_4'] == 1) selected @endif>Ya
-                                                        </option>
-                                                    </select>
-                                                </div>
-                                                @error('checklist_4')
-                                                    <p class="text-xs text-red-500">{{ $message }}</p>
-                                                @enderror
+                                                {{-- @if (1 == 2)
+                                                    <div
+                                                        class="flex items-center justify-between bg-white/10 pl-2 mt-2">
+                                                        <span class="select-none text-sm">
+                                                            blablablablablablablabla?</span>
+                                                        <select wire:model.blur='checklist_4'
+                                                            class="bg-white px-3 py-1 rounded-md text-black outline-none"
+                                                            name="checklist_1">
+                                                            <option value="false">Tidak</option>
+                                                            <option value="true"
+                                                                @if ($area['checklist_4'] == 1) selected @endif>Ya
+                                                            </option>
+                                                        </select>
+                                                    </div>
+                                                    @error('checklist_4')
+                                                        <p class="text-xs text-red-500">{{ $message }}</p>
+                                                    @enderror
+                                                @endif --}}
                                             </div>
                                         </div>
                                         <div class="mb-3 w-full md:w-[32%]">
@@ -450,21 +559,24 @@
                                                         <p class="text-xs text-red-500">{{ $message }}</p>
                                                     @enderror
                                                 </div>
-                                                <div class="flex items-center justify-between bg-white/10 pl-2 mt-2">
-                                                    <span class="select-none text-sm">
-                                                        blablablablablablablabla?</span>
-                                                    <select wire:model.blur='checklist_5'
-                                                        class="bg-white px-3 py-1 rounded-md text-black outline-none"
-                                                        name="checklist_1">
-                                                        <option value="false">Tidak</option>
-                                                        <option value="true"
-                                                            @if ($area['checklist_5'] == 1) selected @endif>Ya
-                                                        </option>
-                                                    </select>
-                                                </div>
-                                                @error('checklist_5')
-                                                    <p class="text-xs text-red-500">{{ $message }}</p>
-                                                @enderror
+                                                {{-- @if (1 == 2)
+                                                    <div
+                                                        class="flex items-center justify-between bg-white/10 pl-2 mt-2">
+                                                        <span class="select-none text-sm">
+                                                            blablablablablablablabla?</span>
+                                                        <select wire:model.blur='checklist_5'
+                                                            class="bg-white px-3 py-1 rounded-md text-black outline-none"
+                                                            name="checklist_1">
+                                                            <option value="false">Tidak</option>
+                                                            <option value="true"
+                                                                @if ($area['checklist_5'] == 1) selected @endif>Ya
+                                                            </option>
+                                                        </select>
+                                                    </div>
+                                                    @error('checklist_5')
+                                                        <p class="text-xs text-red-500">{{ $message }}</p>
+                                                    @enderror
+                                                @endif --}}
                                             </div>
                                         </div>
                                         <div class="mb-3 w-full md:w-[32%]">
@@ -510,21 +622,24 @@
                                                         <p class="text-xs text-red-500">{{ $message }}</p>
                                                     @enderror
                                                 </div>
-                                                <div class="flex items-center justify-between bg-white/10 pl-2 mt-2">
-                                                    <span class="select-none text-sm">
-                                                        blablablablablablablabla?</span>
-                                                    <select wire:model.blur='checklist_6'
-                                                        class="bg-white px-3 py-1 rounded-md text-black outline-none"
-                                                        name="checklist_1">
-                                                        <option value="false">Tidak</option>
-                                                        <option value="true"
-                                                            @if ($area['checklist_6'] == 1) selected @endif>Ya
-                                                        </option>
-                                                    </select>
-                                                </div>
-                                                @error('checklist_6')
-                                                    <p class="text-xs text-red-500">{{ $message }}</p>
-                                                @enderror
+                                                {{-- @if (1 == 2)
+                                                    <div
+                                                        class="flex items-center justify-between bg-white/10 pl-2 mt-2">
+                                                        <span class="select-none text-sm">
+                                                            blablablablablablablabla?</span>
+                                                        <select wire:model.blur='checklist_6'
+                                                            class="bg-white px-3 py-1 rounded-md text-black outline-none"
+                                                            name="checklist_1">
+                                                            <option value="false">Tidak</option>
+                                                            <option value="true"
+                                                                @if ($area['checklist_6'] == 1) selected @endif>Ya
+                                                            </option>
+                                                        </select>
+                                                    </div>
+                                                    @error('checklist_6')
+                                                        <p class="text-xs text-red-500">{{ $message }}</p>
+                                                    @enderror
+                                                @endif --}}
                                             </div>
                                         </div>
                                         <div class="mb-3 w-full md:w-[32%]">
@@ -570,21 +685,24 @@
                                                         <p class="text-xs text-red-500">{{ $message }}</p>
                                                     @enderror
                                                 </div>
-                                                <div class="flex items-center justify-between bg-white/10 pl-2 mt-2">
-                                                    <span class="select-none text-sm">
-                                                        blablablablablablablabla?</span>
-                                                    <select wire:model.blur='checklist_7'
-                                                        class="bg-white px-3 py-1 rounded-md text-black outline-none"
-                                                        name="checklist_1">
-                                                        <option value="false">Tidak</option>
-                                                        <option value="true"
-                                                            @if ($area['checklist_7'] == 1) selected @endif>Ya
-                                                        </option>
-                                                    </select>
-                                                </div>
-                                                @error('checklist_7')
-                                                    <p class="text-xs text-red-500">{{ $message }}</p>
-                                                @enderror
+                                                {{-- @if (1 == 2)
+                                                    <div
+                                                        class="flex items-center justify-between bg-white/10 pl-2 mt-2">
+                                                        <span class="select-none text-sm">
+                                                            blablablablablablablabla?</span>
+                                                        <select wire:model.blur='checklist_7'
+                                                            class="bg-white px-3 py-1 rounded-md text-black outline-none"
+                                                            name="checklist_1">
+                                                            <option value="false">Tidak</option>
+                                                            <option value="true"
+                                                                @if ($area['checklist_7'] == 1) selected @endif>Ya
+                                                            </option>
+                                                        </select>
+                                                    </div>
+                                                    @error('checklist_7')
+                                                        <p class="text-xs text-red-500">{{ $message }}</p>
+                                                    @enderror
+                                                @endif --}}
                                             </div>
                                         </div>
                                         <div class="mb-3 w-full md:w-[32%]">
@@ -630,21 +748,24 @@
                                                         <p class="text-xs text-red-500">{{ $message }}</p>
                                                     @enderror
                                                 </div>
-                                                <div class="flex items-center justify-between bg-white/10 pl-2 mt-2">
-                                                    <span class="select-none text-sm">
-                                                        blablablablablablablabla?</span>
-                                                    <select wire:model.blur='checklist_8'
-                                                        class="bg-white px-3 py-1 rounded-md text-black outline-none"
-                                                        name="checklist_1">
-                                                        <option value="false">Tidak</option>
-                                                        <option value="true"
-                                                            @if ($area['checklist_8'] == 1) selected @endif>Ya
-                                                        </option>
-                                                    </select>
-                                                </div>
-                                                @error('checklist_8')
-                                                    <p class="text-xs text-red-500">{{ $message }}</p>
-                                                @enderror
+                                                {{-- @if (1 == 2)
+                                                    <div
+                                                        class="flex items-center justify-between bg-white/10 pl-2 mt-2">
+                                                        <span class="select-none text-sm">
+                                                            blablablablablablablabla?</span>
+                                                        <select wire:model.blur='checklist_8'
+                                                            class="bg-white px-3 py-1 rounded-md text-black outline-none"
+                                                            name="checklist_1">
+                                                            <option value="false">Tidak</option>
+                                                            <option value="true"
+                                                                @if ($area['checklist_8'] == 1) selected @endif>Ya
+                                                            </option>
+                                                        </select>
+                                                    </div>
+                                                    @error('checklist_8')
+                                                        <p class="text-xs text-red-500">{{ $message }}</p>
+                                                    @enderror
+                                                @endif --}}
                                             </div>
                                         </div>
                                         <div class="mb-3 w-full md:w-[32%]">
@@ -690,21 +811,24 @@
                                                         <p class="text-xs text-red-500">{{ $message }}</p>
                                                     @enderror
                                                 </div>
-                                                <div class="flex items-center justify-between bg-white/10 pl-2 mt-2">
-                                                    <span class="select-none text-sm">
-                                                        blablablablablablablabla?</span>
-                                                    <select wire:model.blur='checklist_9'
-                                                        class="bg-white px-3 py-1 rounded-md text-black outline-none"
-                                                        name="checklist_1">
-                                                        <option value="false">Tidak</option>
-                                                        <option value="true"
-                                                            @if ($area['checklist_9'] == 1) selected @endif>Ya
-                                                        </option>
-                                                    </select>
-                                                </div>
-                                                @error('checklist_9')
-                                                    <p class="text-xs text-red-500">{{ $message }}</p>
-                                                @enderror
+                                                {{-- @if (1 == 2)
+                                                    <div
+                                                        class="flex items-center justify-between bg-white/10 pl-2 mt-2">
+                                                        <span class="select-none text-sm">
+                                                            blablablablablablablabla?</span>
+                                                        <select wire:model.blur='checklist_9'
+                                                            class="bg-white px-3 py-1 rounded-md text-black outline-none"
+                                                            name="checklist_1">
+                                                            <option value="false">Tidak</option>
+                                                            <option value="true"
+                                                                @if ($area['checklist_9'] == 1) selected @endif>Ya
+                                                            </option>
+                                                        </select>
+                                                    </div>
+                                                    @error('checklist_9')
+                                                        <p class="text-xs text-red-500">{{ $message }}</p>
+                                                    @enderror
+                                                @endif --}}
                                             </div>
                                         </div>
                                         <div class="w-full md:w-[32%]">
@@ -750,21 +874,24 @@
                                                         <p class="text-xs text-red-500">{{ $message }}</p>
                                                     @enderror
                                                 </div>
-                                                <div class="flex items-center justify-between bg-white/10 pl-2 mt-2">
-                                                    <span class="select-none text-sm">
-                                                        blablablablablablablabla?</span>
-                                                    <select wire:model.blur='checklist_10'
-                                                        class="bg-white px-3 py-1 rounded-md text-black outline-none"
-                                                        name="checklist_1">
-                                                        <option value="false">Tidak</option>
-                                                        <option value="true"
-                                                            @if ($area['checklist_10'] == 1) selected @endif>Ya
-                                                        </option>
-                                                    </select>
-                                                </div>
-                                                @error('checklist_10')
-                                                    <p class="text-xs text-red-500">{{ $message }}</p>
-                                                @enderror
+                                                {{-- @if (1 == 2)
+                                                    <div
+                                                        class="flex items-center justify-between bg-white/10 pl-2 mt-2">
+                                                        <span class="select-none text-sm">
+                                                            blablablablablablablabla?</span>
+                                                        <select wire:model.blur='checklist_10'
+                                                            class="bg-white px-3 py-1 rounded-md text-black outline-none"
+                                                            name="checklist_1">
+                                                            <option value="false">Tidak</option>
+                                                            <option value="true"
+                                                                @if ($area['checklist_10'] == 1) selected @endif>Ya
+                                                            </option>
+                                                        </select>
+                                                    </div>
+                                                    @error('checklist_10')
+                                                        <p class="text-xs text-red-500">{{ $message }}</p>
+                                                    @enderror
+                                                @endif --}}
                                             </div>
                                         </div>
                                     </div>
