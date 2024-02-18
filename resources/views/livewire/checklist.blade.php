@@ -39,12 +39,8 @@
     </div>
     <div class="flex justify-between gap-2 mb-4 cursor-pointer">
         <div x-data="{ showChecked: false }" x-on:click="showChecked = true"
-            class="flex justify-between rounded-full bg-green-800 w-1/2 p-2 text-xs text-center hover:bg-green-700 relative">
+            class="flex font-semibold justify-center rounded-full bg-green-800 w-1/2 p-2 text-xs text-center hover:bg-green-700 relative">
             Checked
-            <div
-                class="absolute shadow shadow-black top-[8px] right-2 bg-green-600 text-white font-semibold text-xs w-[14px] h-[14px] flex items-center justify-center rounded-full">
-                {{ count($list_checked) }}
-            </div>
             <div x-show="showChecked" x-transition:enter="transition ease-out duration-300"
                 x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100"
                 x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100 scale-100"
@@ -66,32 +62,113 @@
                 <div x-on:click.away="showChecked = false"
                     class="bg-black border-x border-b rounded-b-lg w-[90%] md:w-[50%] max-h-[70%] p-2 scrollbar-thin scrollbar-thumb-white scrollbar-track-black overflow-y-auto">
                     @foreach ($list_checked as $list)
-                        <div class="ring-1 ring-white rounded-md flex justify-between px-4 py-2 mb-2 last:mb-0">
-                            <div>
-                                <div class="flex justify-start font-bold text-zinc-500">{{ $list['kode_toko'] }}</div>
-                                <div class="flex justify-start font-semibold text-xs">DC LEBAK</div>
-                            </div>
-                            <div class="flex items-center gap-2">
-                                <img class="w-7 h-7 rounded-full"
-                                    src="{{ asset('storage/img/profile/' . Auth::user()->picture) }}">
+                        @if ($carbon::now()->diffInMonths($list['post_at']) <= 2)
+                            <div
+                                class="ring-1 @if ($list['nik'] == Auth::user()->nik) ring-yellow-500 @else ring-white @endif rounded-md flex justify-between px-2 py-2 mb-2 last:mb-0">
                                 <div>
-                                    <div class="flex justify-start font-bold text-zinc-500">2015171331</div>
-                                    <div class="flex justify-start font-semibold">Ardiansyah Putra</div>
+                                    <div class="flex justify-start font-bold text-zinc-500">{{ $list['kode_toko'] }}
+                                    </div>
+                                    <div class="flex justify-start font-semibold text-xs">{{ $list['nama_toko'] }}</div>
+                                    <div
+                                        class="text-green-500 bg-green-950 text-xs px-2 ring-1 ring-green-500 flex gap-2 items-center rounded-md">
+                                        {{ $list['check_by_name'] }}
+                                        <div>
+                                            <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                                fill="currentColor" class="w-6 h-6">
+                                                <path fill-rule="evenodd"
+                                                    d="M8.603 3.799A4.49 4.49 0 0 1 12 2.25c1.357 0 2.573.6 3.397 1.549a4.49 4.49 0 0 1 3.498 1.307 4.491 4.491 0 0 1 1.307 3.497A4.49 4.49 0 0 1 21.75 12a4.49 4.49 0 0 1-1.549 3.397 4.491 4.491 0 0 1-1.307 3.497 4.491 4.491 0 0 1-3.497 1.307A4.49 4.49 0 0 1 12 21.75a4.49 4.49 0 0 1-3.397-1.549 4.49 4.49 0 0 1-3.498-1.306 4.491 4.491 0 0 1-1.307-3.498A4.49 4.49 0 0 1 2.25 12c0-1.357.6-2.573 1.549-3.397a4.49 4.49 0 0 1 1.307-3.497 4.49 4.49 0 0 1 3.497-1.307Zm7.007 6.387a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z"
+                                                    clip-rule="evenodd" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <img class="w-7 h-7 rounded-full"
+                                        src="{{ asset('storage/img/profile/' . $list['picture']) }}">
+                                    <div>
+                                        <div class="flex justify-start font-bold text-zinc-500">{{ $list['nik'] }}
+                                        </div>
+                                        <div class="flex justify-start font-semibold">{{ $list['name'] }}</div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        @endif
                     @endforeach
                 </div>
             </div>
         </div>
         <div x-data="{ showUnchecked: false }" x-on:click="showUnchecked = true"
-            class="flex justify-between rounded-full bg-red-900 w-1/2 p-2 text-xs text-center hover:bg-red-800 relative">
+            class="flex font-semibold justify-center rounded-full bg-yellow-900 w-1/2 p-2 text-xs text-center hover:bg-yellow-800 relative">
             Unchecked
-            <div
-                class="absolute shadow shadow-black top-[8px] right-2 bg-red-600 text-white font-semibold text-xs w-[14px] h-[14px] flex items-center justify-center rounded-full">
-                {{ $count_unchecked }}
-            </div>
             <div x-show="showUnchecked" x-transition:enter="transition ease-out duration-300"
+                x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100"
+                x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100 scale-100"
+                x-transition:leave-end="opacity-0 scale-90"
+                class="select-none cursor-default fixed top-0 left-0 w-full h-screen flex flex-col justify-center items-center backdrop-blur-sm z-10">
+                <div class="bg-black w-[90%] md:w-[50%] rounded-t-lg border">
+                    <div class="font-bold flex items-center gap-2 px-4 py-2">
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                class="w-6 h-6">
+                                <path fill-rule="evenodd"
+                                    d="M10.5 3.75a6.75 6.75 0 1 0 0 13.5 6.75 6.75 0 0 0 0-13.5ZM2.25 10.5a8.25 8.25 0 1 1 14.59 5.28l4.69 4.69a.75.75 0 1 1-1.06 1.06l-4.69-4.69A8.25 8.25 0 0 1 2.25 10.5Z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        Unchecked
+                    </div>
+                </div>
+                <div x-on:click.away="showUnchecked = false"
+                    class="bg-black border-x border-b rounded-b-lg w-[90%] md:w-[50%] max-h-[70%] p-2 scrollbar-thin scrollbar-thumb-white scrollbar-track-black overflow-y-auto">
+                    @foreach ($list_unchecked as $listUn)
+                        @if ($carbon::now()->diffInMonths($listUn['post_at']) <= 2)
+                            <div
+                                class="ring-1 @if ($listUn['nik'] == Auth::user()->nik) ring-yellow-500 @else ring-white @endif rounded-md flex justify-between px-4 py-2 mb-2 last:mb-0">
+                                <div>
+                                    <div class="flex justify-start font-bold text-zinc-500">{{ $listUn['kode_toko'] }}
+                                    </div>
+                                    <div class="flex justify-start font-semibold text-xs">{{ $listUn['nama_toko'] }}
+                                    </div>
+                                    <div class="flex justify-start font-semibold text-xs text-zinc-500">
+                                        {{ $listUn['post_at'] }}
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <img class="w-7 h-7 rounded-full"
+                                        src="{{ asset('storage/img/profile/' . $listUn['picture']) }}">
+                                    <div>
+                                        <div class="flex justify-start font-bold text-zinc-500">{{ $listUn['nik'] }}
+                                        </div>
+                                        <div class="flex justify-start font-semibold">{{ $listUn['name'] }}</div>
+                                    </div>
+                                </div>
+                                @if (Auth::user()->role_level == 2 || Auth::user()->role_level == 3)
+                                    <div class="flex items-center">
+                                        <button
+                                            class="flex items-center gap-1 px-3 py-1 bg-white text-black font-semibold rounded-md">
+                                            Check
+                                            <div>
+                                                <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg"
+                                                    viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                                                    <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+                                                    <path fill-rule="evenodd"
+                                                        d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 0 1 0-1.113ZM17.25 12a5.25 5.25 0 1 1-10.5 0 5.25 5.25 0 0 1 10.5 0Z"
+                                                        clip-rule="evenodd" />
+                                                </svg>
+                                            </div>
+                                        </button>
+                                    </div>
+                                @endif
+                            </div>
+                        @endif
+                    @endforeach
+                </div>
+            </div>
+        </div>
+        <div x-data="{ showRejected: false }" x-on:click="showRejected = true"
+            class="flex font-semibold justify-center rounded-full bg-red-900 w-1/2 p-2 text-xs text-center hover:bg-red-800 relative">
+            Rejected
+            <div x-show="showRejected" x-transition:enter="transition ease-out duration-300"
                 x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100"
                 x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100 scale-100"
                 x-transition:leave-end="opacity-0 scale-90"
@@ -108,40 +185,53 @@
                                     clip-rule="evenodd" />
                             </svg>
                         </div>
-                        Unchecked
+                        Rejected
                     </div>
                 </div>
-                <div x-on:click.away="showUnchecked = false"
+                <div x-on:click.away="showRejected = false"
                     class="bg-black border-x border-b rounded-b-lg w-[90%] md:w-[50%] max-h-[70%] p-2 scrollbar-thin scrollbar-thumb-white scrollbar-track-black overflow-y-auto">
-                    <div class="ring-1 ring-white rounded-md flex justify-between px-4 py-2 mb-2 last:mb-0">
-                        <div>
-                            <div class="flex justify-start font-bold text-zinc-500">TKBV</div>
-                            <div class="flex justify-start font-semibold text-xs">DC LEBAK</div>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <img class="w-7 h-7 rounded-full"
-                                src="{{ asset('storage/img/profile/' . Auth::user()->picture) }}">
-                            <div>
-                                <div class="flex justify-start font-bold text-zinc-500">2015171331</div>
-                                <div class="flex justify-start font-semibold">Ardiansyah Putra</div>
-                            </div>
-                        </div>
-                        <div class="flex items-center">
-                            <button
-                                class="flex items-center gap-1 px-3 py-1 bg-white text-black font-semibold rounded-md">
-                                Check
+                    @foreach ($list_rejected as $listRe)
+                        @if ($carbon::now()->diffInMonths($listRe['post_at']) <= 2)
+                            <div
+                                class="ring-1 @if ($listRe['nik'] == Auth::user()->nik) ring-yellow-500 @else ring-white @endif rounded-md flex justify-between px-4 py-2 mb-2 last:mb-0">
                                 <div>
-                                    <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                        fill="currentColor" class="w-6 h-6">
-                                        <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
-                                        <path fill-rule="evenodd"
-                                            d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 0 1 0-1.113ZM17.25 12a5.25 5.25 0 1 1-10.5 0 5.25 5.25 0 0 1 10.5 0Z"
-                                            clip-rule="evenodd" />
-                                    </svg>
+                                    <div class="flex justify-start font-bold text-zinc-500">{{ $listRe['kode_toko'] }}
+                                    </div>
+                                    <div class="flex justify-start font-semibold text-xs">{{ $listRe['nama_toko'] }}
+                                    </div>
+                                    <div class="flex justify-start font-semibold text-xs text-zinc-500">
+                                        {{ $listRe['post_at'] }}
+                                    </div>
                                 </div>
-                            </button>
-                        </div>
-                    </div>
+                                <div class="flex items-center gap-2">
+                                    <img class="w-7 h-7 rounded-full"
+                                        src="{{ asset('storage/img/profile/' . $listRe['picture']) }}">
+                                    <div>
+                                        <div class="flex justify-start font-bold text-zinc-500">{{ $listRe['nik'] }}
+                                        </div>
+                                        <div class="flex justify-start font-semibold">{{ $listRe['name'] }}</div>
+                                    </div>
+                                </div>
+                                @if (Auth::user()->role_level == 2 || Auth::user()->role_level == 3)
+                                    <div class="flex items-center">
+                                        <button
+                                            class="flex items-center gap-1 px-3 py-1 bg-white text-black font-semibold rounded-md">
+                                            Re-Check
+                                            <div>
+                                                <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg"
+                                                    viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                                                    <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+                                                    <path fill-rule="evenodd"
+                                                        d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 0 1 0-1.113ZM17.25 12a5.25 5.25 0 1 1-10.5 0 5.25 5.25 0 0 1 10.5 0Z"
+                                                        clip-rule="evenodd" />
+                                                </svg>
+                                            </div>
+                                        </button>
+                                    </div>
+                                @endif
+                            </div>
+                        @endif
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -188,7 +278,7 @@
                                     @elseif($area['is_checked'] == 1 && $area['post_at'] != null)
                                         <div
                                             class="bg-[#051b11] px-2 rounded-xl font-semibold text-xs inline-flex items-center gap-1 text-[#64b295] border border-[#64b295]">
-                                            Checked : <span class="text-yellow-500">{{ $area['check_by'] }}</span>
+                                            Checked
                                             <div>
                                                 <svg class="w-3 h-3" xmlns="http://www.w3.org/2000/svg"
                                                     fill="none" viewBox="0 0 24 24" stroke-width="1.5"
