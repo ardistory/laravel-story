@@ -5,8 +5,6 @@ namespace App\Livewire;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Validation\Rules\File;
 use Illuminate\Validation\Rules\Password;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
@@ -21,15 +19,15 @@ class IfDefaultPassword extends Component
 
     #[Validate('email|required')]
     public string $email;
-
+    #[Validate('required')]
     public string $newpassword;
 
     public function updateProfile()
     {
-
         $this->validate([
             'email' => ['required', 'email'],
-            'newpassword' => ['required', Password::min(8)->numbers()->symbols()]
+            'newpassword' => ['required', Password::min(8)->numbers()->symbols()],
+            'picture' => ['required', 'image', 'max:2000']
         ]);
 
         $namePicture = Auth::user()->nik . "_" . Auth::user()->name . ".png";
@@ -44,6 +42,7 @@ class IfDefaultPassword extends Component
         if ($affected > 0) {
             response()->redirectTo('/');
         }
+        session()->flash('errorFirstSetup');
     }
 
     public function render()

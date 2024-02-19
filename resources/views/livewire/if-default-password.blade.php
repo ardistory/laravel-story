@@ -84,4 +84,7 @@
                 class="transition-all duration-200 text-white border px-3 py-1 rounded-md font-semibold hover:ring hover:ring-white">Save</button>
         </div>
     </div>
+    @if (Session::has('errorFirstSetup'))
+        prabowo memek
+    @endif
 </div>
