@@ -1,5 +1,5 @@
 <div>
-    <div
+    <div x-data="{ showLeaderboard: false }" x-on:click="showLeaderboard = true"
         class="group mb-4 flex justify-between ring-1 ring-white px-2 py-1 bg-indigo-950 hover:bg-indigo-900 rounded-sm transition duration-200 cursor-pointer">
         <div class="flex items-center gap-2 font-bold">
             <div class="text-yellow-500">
@@ -20,12 +20,13 @@
         </div>
         <div class="flex items-center gap-2">
             <div>
-                <img class="w-8 h-8 rounded-full" src="{{ asset('storage/img/profile/' . Auth::user()->picture) }}">
+                <img class="w-8 h-8 rounded-full"
+                    src="{{ asset('storage/img/profile/' . $leaderboard_first['picture']) }}">
             </div>
             <div class="flex flex-col">
-                <span class="font-semibold">Ardiansyah Putra</span>
+                <span class="font-semibold">{{ $leaderboard_first['name'] }}</span>
                 <span class="text-zinc-500 text-xs inline-flex gap-1 items-center">
-                    10000
+                    {{ $leaderboard_first['point'] }}
                     <div>
                         <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                             stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -34,6 +35,54 @@
                         </svg>
                     </div>
                 </span>
+            </div>
+        </div>
+        <div x-show="showLeaderboard" x-transition:enter="transition ease-out duration-300"
+            x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100"
+            x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100 scale-100"
+            x-transition:leave-end="opacity-0 scale-90"
+            class="cursor-default z-10 fixed top-0 left-0 backdrop-blur-sm w-full h-screen flex justify-center items-center">
+            <div x-on:click.away="showLeaderboard = false" class="w-[90%] md:w-[50%] h-[70%] flex flex-col">
+                <div class="font-semibold flex items-center gap-2 bg-black p-5 rounded-t-lg border">
+                    <div class="text-yellow-500">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                            <path
+                                d="M18.375 2.25c-1.035 0-1.875.84-1.875 1.875v15.75c0 1.035.84 1.875 1.875 1.875h.75c1.035 0 1.875-.84 1.875-1.875V4.125c0-1.036-.84-1.875-1.875-1.875h-.75ZM9.75 8.625c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v11.25c0 1.035-.84 1.875-1.875 1.875h-.75a1.875 1.875 0 0 1-1.875-1.875V8.625ZM3 13.125c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v6.75c0 1.035-.84 1.875-1.875 1.875h-.75A1.875 1.875 0 0 1 3 19.875v-6.75Z" />
+                        </svg>
+                    </div>
+                    Leaderboard
+                </div>
+                <div
+                    class="rounded-b-lg border-b border-l border-r p-2 bg-black max-h-full overflow-y-auto scrollbar-thin scrollbar-thumb-white scrollbar-track-black">
+                    @foreach ($leaderboards as $index => $leaderboard)
+                        <div
+                            class="@if ($leaderboard['name'] == Auth::user()->name) ring ring-yellow-500 @else ring-1 ring-white @endif cursor-pointer mt-2 first:mt-0 hover:ring hover:ring-blue-500 rounded-lg p-3 bg-black flex justify-between transition duration-300">
+                            <div class="flex items-center justify-center">
+                                #{{ $index + 1 }}
+                            </div>
+                            <div class="flex items-center justify-start gap-2">
+                                <img class="w-10 h-10 rounded-full"
+                                    src="{{ asset('storage/img/profile/' . $leaderboard['picture']) }}">
+                                <div>
+                                    <div class="font-bold">
+                                        {{ $leaderboard['name'] }}
+                                    </div>
+                                    <div class="text-xs text-zinc-500 flex items-center gap-1">
+                                        {{ $leaderboard['point'] }}
+                                        <div>
+                                            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                                                class="w-6 h-6">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
             </div>
         </div>
     </div>
@@ -64,25 +113,25 @@
                     @foreach ($list_checked as $list)
                         @if ($carbon::now()->diffInMonths($list['post_at']) <= 2)
                             <div
-                                class="relative ring-1 @if ($list['nik'] == Auth::user()->nik) ring-yellow-500 @else ring-white @endif rounded-md flex justify-between px-2 py-2 mb-2 last:mb-0">
+                                class="relative @if ($list['nik'] == Auth::user()->nik) ring ring-yellow-500 @else ring-1 ring-white @endif rounded-md flex justify-between px-2 py-2 mb-2 last:mb-0">
                                 <div>
                                     <div class="flex justify-start font-bold text-zinc-500">{{ $list['kode_toko'] }}
                                     </div>
                                     <div class="flex justify-start font-semibold text-xs">{{ $list['nama_toko'] }}</div>
-                                    <div
-                                        class="text-green-500 bg-green-950 text-xs px-2 ring-1 ring-green-500 flex gap-2 items-center rounded-md">
+                                    <div class="flex justify-start items-center gap-1 text-xs text-green-500">
                                         {{ $list['check_by_name'] }}
-                                        <div>
-                                            <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                                fill="currentColor" class="w-6 h-6">
+                                        <div class="text-green-500">
+                                            <svg class="w-4 h-4 animate-pulse" xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                                                <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
                                                 <path fill-rule="evenodd"
-                                                    d="M8.603 3.799A4.49 4.49 0 0 1 12 2.25c1.357 0 2.573.6 3.397 1.549a4.49 4.49 0 0 1 3.498 1.307 4.491 4.491 0 0 1 1.307 3.497A4.49 4.49 0 0 1 21.75 12a4.49 4.49 0 0 1-1.549 3.397 4.491 4.491 0 0 1-1.307 3.497 4.491 4.491 0 0 1-3.497 1.307A4.49 4.49 0 0 1 12 21.75a4.49 4.49 0 0 1-3.397-1.549 4.49 4.49 0 0 1-3.498-1.306 4.491 4.491 0 0 1-1.307-3.498A4.49 4.49 0 0 1 2.25 12c0-1.357.6-2.573 1.549-3.397a4.49 4.49 0 0 1 1.307-3.497 4.49 4.49 0 0 1 3.497-1.307Zm7.007 6.387a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z"
+                                                    d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 0 1 0-1.113ZM17.25 12a5.25 5.25 0 1 1-10.5 0 5.25 5.25 0 0 1 10.5 0Z"
                                                     clip-rule="evenodd" />
                                             </svg>
                                         </div>
                                     </div>
                                     <div class="absolute top-0 right-1 flex justify-start text-xs text-zinc-500">
-                                        Approve at {{ $list['updated_at'] }}
+                                        {{ $list['updated_at'] }}
                                     </div>
                                 </div>
                                 <div class="flex items-center gap-2">
@@ -133,7 +182,7 @@
                     @foreach ($list_unchecked as $listUn)
                         @if ($carbon::now()->diffInMonths($listUn['post_at']) <= 2)
                             <div
-                                class="ring-1 @if ($listUn['nik'] == Auth::user()->nik) ring-yellow-500 @else ring-white @endif rounded-md flex justify-between px-4 py-2 mb-2 last:mb-0">
+                                class="@if ($listUn['nik'] == Auth::user()->nik) ring ring-yellow-500 @else ring-1 ring-white @endif rounded-md flex justify-between px-4 py-2 mb-2 last:mb-0">
                                 <div>
                                     <div class="flex justify-start font-bold text-zinc-500">{{ $listUn['kode_toko'] }}
                                     </div>
@@ -559,7 +608,7 @@
                     @foreach ($list_rejected as $listRe)
                         @if ($carbon::now()->diffInMonths($listRe['post_at']) <= 2)
                             <div
-                                class="ring-1 @if ($listRe['nik'] == Auth::user()->nik) ring-yellow-500 @else ring-white @endif rounded-md flex flex-col justify-between px-2 py-2 mb-2 last:mb-0">
+                                class="@if ($listRe['nik'] == Auth::user()->nik) ring ring-yellow-500 @else ring-1 ring-white @endif rounded-md flex flex-col justify-between px-2 py-2 mb-2 last:mb-0">
                                 <div class="flex justify-between">
                                     <div>
                                         <div class="flex justify-start font-bold text-zinc-500">

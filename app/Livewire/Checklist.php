@@ -7,6 +7,7 @@ use App\Models\Checklist as ChecklistModel;
 use App\Models\Gambar;
 use App\Models\Point;
 use App\Models\TokoLbk;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\Locked;
@@ -198,6 +199,24 @@ class Checklist extends Component
         $this->reset();
     }
 
+    public function getLeaderboardFirst()
+    {
+        return User::query()
+            ->join('point', 'point.nik', '=', 'users.nik')
+            ->select('users.name', 'users.picture', 'point.point')
+            ->orderBy('point.point', 'desc')
+            ->first();
+    }
+
+    public function getLeaderboard()
+    {
+        return User::query()
+            ->join('point', 'point.nik', '=', 'users.nik')
+            ->select('users.name', 'users.picture', 'point.point')
+            ->orderBy('point.point', 'desc')
+            ->get();
+    }
+
     public function render()
     {
         return view('livewire.checklist', [
@@ -207,6 +226,8 @@ class Checklist extends Component
             'list_checked' => $this->getListChecked(),
             'list_unchecked' => $this->getListUnchecked(),
             'list_rejected' => $this->getListRejected(),
+            'leaderboards' => $this->getLeaderboard(),
+            'leaderboard_first' => $this->getLeaderboardFirst()
         ]);
     }
 }
