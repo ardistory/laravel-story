@@ -617,7 +617,8 @@
                                         <div class="flex justify-start font-semibold text-xs">
                                             {{ $listRe['nama_toko'] }}
                                         </div>
-                                        <div class="text-red-500 text-xs px-2 flex gap-1 items-center rounded-md">
+                                        <div
+                                            class="text-red-500 text-xs flex justify-start gap-1 items-center rounded-md">
                                             {{ $listRe['check_by_name'] }}
                                             <div class="text-red-500">
                                                 <svg class="w-4 h-4 animate-pulse" xmlns="http://www.w3.org/2000/svg"
