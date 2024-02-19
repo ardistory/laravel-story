@@ -36,6 +36,12 @@ class Ip extends Component
     #[Validate('required')]
     public string $edparea;
 
+    public string $ipGatewayForEdit;
+    public string $ipIndukForEdit;
+    public string $ipAnakForEdit;
+    public string $ipStbForEdit;
+    public string $ipWdcpForEdit;
+
     public function getDataFromModel()
     {
         return TokoLbk::query()
@@ -44,7 +50,6 @@ class Ip extends Component
             ->select('tokolbk.kode_toko as kode_toko', 'tokolbk.nama_toko as nama_toko', 'tokolbk.ip_gateway', 'tokolbk.ip_induk', 'tokolbk.ip_anak', 'tokolbk.ip_stb', 'tokolbk.ip_wdcp', 'users.name as name', 'users.nik as nik', 'users.picture as picture')
             ->where('tokolbk.kode_toko', 'like', '%' . $this->query . '%')
             ->orWhere('tokolbk.nama_toko', 'like', '%' . $this->query . '%')
-            ->inRandomOrder()
             ->paginate(8);
     }
 
@@ -94,6 +99,26 @@ class Ip extends Component
     public function updatingQuery()
     {
         $this->resetPage();
+    }
+
+    public function editStore($kode_toko)
+    {
+        try {
+            TokoLbk::query()->updateOrCreate([
+                'kode_toko' => $kode_toko
+            ], [
+                'ip_gateway' => $this->ipGatewayForEdit,
+                'ip_induk' => $this->ipIndukForEdit,
+                'ip_anak' => $this->ipAnakForEdit,
+                'ip_stb' => $this->ipStbForEdit,
+                'ip_wdcp' => $this->ipWdcpForEdit,
+            ]);
+
+            session()->flash('successEditStore');
+        } catch (\Exception $exception) {
+            dd($exception);
+            session()->flash('failedEditStore');
+        }
     }
 
     public function render()

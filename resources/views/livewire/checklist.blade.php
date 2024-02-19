@@ -25,7 +25,7 @@
             </div>
             <div class="flex flex-col">
                 <span class="font-semibold">{{ $leaderboard_first['name'] }}</span>
-                <span class="text-zinc-500 text-xs inline-flex gap-1 items-center">
+                <span class="text-white text-xs inline-flex gap-1 items-center">
                     {{ $leaderboard_first['point'] }}
                     <div>
                         <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
