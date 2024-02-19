@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class ContentListUsers extends Component
+class ContentSetting extends Component
 {
     /**
      * Create a new component instance.
@@ -22,6 +22,6 @@ class ContentListUsers extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('contents.content-list-users');
+        return view('contents.content-setting');
     }
 }

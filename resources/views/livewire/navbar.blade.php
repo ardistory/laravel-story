@@ -134,7 +134,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="#"
+                            <a wire:navigate href={{ route('setting') }}
                                 class="hover:bg-white flex items-center gap-2 transition-colors duration-75 text-white hover:text-black px-4 py-2 mx-1 rounded-md text-sm mt-1">
                                 <div>
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -253,8 +253,8 @@
                     </div>
                     Checklist
                 </a>
-                <a href="#"
-                    class="flex items-center gap-2 text-white hover:bg-white hover:text-black rounded-full px-6 py-4 text-xl font-medium transition duration-250">
+                <a wire:navigate href="{{ route('setting') }}"
+                    class="@if (Request::routeIs('setting')) text-black bg-white @endif flex items-center gap-2 hover:bg-white hover:text-black rounded-full px-6 py-4 text-xl font-medium transition duration-250">
                     <div>
                         <svg class="h-7 w-7" width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
                             stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">

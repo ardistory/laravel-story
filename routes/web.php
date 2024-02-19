@@ -12,6 +12,7 @@ Route::middleware([Authenticate::class])->controller(UserController::class)->gro
     Route::get('/users', 'getUsers')->name('users');
     Route::get('/documentation', 'getDocumentation')->name('documentation');
     Route::get('/checklist', 'getChecklist')->name('checklist');
+    Route::get('/setting', 'getSetting')->name('setting');
 });
 
 Route::middleware([RedirectIfAuthenticated::class])->group(function () {

@@ -28,4 +28,8 @@ class UserController extends Controller
     {
         return response()->view('checklist');
     }
+    public function getSetting(): Response
+    {
+        return response()->view('setting');
+    }
 }
