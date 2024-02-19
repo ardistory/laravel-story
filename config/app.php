@@ -5,6 +5,8 @@ use Illuminate\Support\ServiceProvider;
 
 return [
 
+    'ros_wdcp_username' => env('ROS_WDCP_USERNAME'),
+    'ros_wdcp_password' => env('ROS_WDCP_PASSWORD'),
     /*
     |--------------------------------------------------------------------------
     | Application Name
@@ -156,16 +158,16 @@ return [
     */
 
     'providers' => ServiceProvider::defaultProviders()->merge([
-            /*
-             * Package Service Providers...
-             */
+        /*
+         * Package Service Providers...
+         */
 
-            /*
-             * Application Service Providers...
-             */
+        /*
+         * Application Service Providers...
+         */
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
-            // App\Providers\BroadcastServiceProvider::class,
+        // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\RouterosApiProvider::class,

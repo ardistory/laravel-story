@@ -37,9 +37,9 @@ class RouterosAPI
     {
         return $var !== null
             && (is_array($var)
-                || $var instanceof Traversable
-                || $var instanceof Iterator
-                || $var instanceof IteratorAggregate
+                || $var instanceof \Traversable
+                || $var instanceof \Iterator
+                || $var instanceof \IteratorAggregate
             );
     }
 

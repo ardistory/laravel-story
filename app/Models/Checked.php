@@ -12,5 +12,5 @@ class Checked extends Model
     protected $keyType = 'int';
     public $incrementing = true;
     public $timestamps = true;
-    protected $fillable = ['kode_toko', 'is_checked'];
+    protected $fillable = ['kode_toko', 'is_checked', 'check_by', 'message'];
 }
