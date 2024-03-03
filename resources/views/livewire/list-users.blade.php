@@ -3,7 +3,7 @@
         <div
             class="hover:ring hover:ring-blue-500 transition duration-300 w-full md:w-auto text-3xl md:text-base border rounded-2xl p-4 flex items-center gap-4">
             <div>
-                <img class="w-28 h-28 rounded-full" src="{{ asset('storage/img/profile/' . $user->picture) }}">
+                <img class="w-28 h-28 rounded" src="{{ asset('storage/img/profile/' . $user->picture) }}">
             </div>
             <div class="flex flex-col gap-1">
                 <div class="text-zinc-500 font-semibold text-sm inline-flex items-center">
